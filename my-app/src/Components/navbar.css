@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.before, .next, .list {
+    margin: 10px;
+    width: 100px;
+}
+
+.beforeImg, .listImg, .nextImg {
+    width: 60px;
+}
+
+.logoImg {
+    width: 80px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 5px 3px rgb(0 0 0 / 50%);
+}
+
+.containerRigth{
+    display: flex;
+}
+
+.Logo{
+    margin: auto;
+}
+
+
+.add{
+    
+}
+
+.btnWaiter{
+    display: flex;
+}
