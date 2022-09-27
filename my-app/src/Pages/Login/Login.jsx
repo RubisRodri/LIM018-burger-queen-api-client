@@ -28,7 +28,8 @@ export const Login = () => {
                 },
                 body: JSON.stringify(datos)
             });
-            console.log(res.data);
+            console.log(res);
+    
         }
     };
 
