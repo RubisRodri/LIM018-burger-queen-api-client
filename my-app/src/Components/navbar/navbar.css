@@ -1,14 +1,9 @@
-body{
-    margin: 0;
-    padding: 0;
-}
-
-.before, .next, .list {
+.exit, .list {
     margin: 10px;
-    width: 100px;
+    width: 54px;
 }
 
-.beforeImg, .listImg, .nextImg {
+.listImg, .exittImg {
     width: 45px;
 }
 
@@ -24,11 +19,11 @@ body{
 }
 
 .containerRigth{
-    display: flex;
+    display: inline-flex;
+    align-items: center;
 }
 
 .logo {
-    align-items: center;
     margin: 9%;
 }
 

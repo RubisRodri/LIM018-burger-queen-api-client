@@ -2,15 +2,18 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .login{
     display: flex;
+    align-items: center;
 }
 
 .imageBanner{
-    width: 92vh;
     height: 100vh;
+    width: 44%;
 }
 
 .formLogin{
@@ -18,40 +21,43 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 35%;
+    width: 36%;
     border: 3px solid #F84141;
     border-radius: 18px;
-    margin: 12%;
+    margin: 10%;
+    font-family: Roboto;
 }
 
 .login-email, .login-password{
-    border: 2px solid #000;
-    border-radius: 10px;
-    height: 6%;
-    width: 58%;
-    font-size: 20px;
-    padding: 6px;
-    margin-bottom: 10px
-
+    border: 2px solid #c9b8b8;
+    border-radius: 12px;
+    height: 12%;
+    font-size: 18px;
+    padding: 11px;
+    text-align: center;
+    margin-top: 31px;
 }
 
 .logoimg{
-        width: 14%;
-        position: absolute;
-        top: 7%;
-        left: 66%;
+        width: 60%;
 }
 
 .login-btnLogin{
-    background-color:#F84141;
+    background-color: #F84141;
     border-radius: 8px;
     border: none;
     color: #ffff;
-    width: 55%;
+    width: 72%;
     cursor: pointer;
-    height: 40px;
-    text-align: center;
-    text-decoration: none;
+    height: 44px;
+    margin-top: 27px;
+    margin-left: 31px;
+    margin-bottom: 24px;
 }
 
+.logo{
+    margin-left: 100px;
+    margin-top: -82px;
+    margin-left: 85px;
+}
 

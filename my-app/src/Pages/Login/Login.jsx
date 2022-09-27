@@ -3,7 +3,7 @@ import banner from '../../Pictures/banner.png';
 import logo from '../../Pictures/logo.png';
 import './Login.css';
 
-const Login = () => {
+export const Login = () => {
     const [datos, setDatos] = useState({
         email: "",
         password: ""
@@ -54,6 +54,9 @@ const Login = () => {
             <div className='formLogin'>
                 <div className='logo'>
                     <img src={logo} className='logoimg' />
+                </div>
+                <div className='sesion'>
+                    <span>Inicio de sesion</span>
                 </div>
                 <form onSubmit={handleSubmit} className="forn-login">
                     <input type="text" className="login-email" id="txtcorreo" name="email" placeholder="Correo" onChange={handleInputChange} />

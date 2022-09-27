@@ -1,5 +1,4 @@
-import beforeImg from '../../Pictures/before.png'
-import nextImg from '../../Pictures/next.png'
+import exitImg from '../../Pictures/exit.png'
 import listImg from '../../Pictures/lista.png'
 import logo from '../../Pictures/logo.png'
 import './navbar.css'
@@ -14,7 +13,7 @@ export const  Navbar = ()=> {
                 </div>
                 <div className="containerRigth">
                     <div className="list"><img src={listImg} className="listImg" /></div>
-                    <div className="next"><img src={nextImg} className="nextImg" /></div>
+                    <div className="exit"><img src={exitImg} className="exittImg" /></div>
                 </div>
             </div>
         </section>
