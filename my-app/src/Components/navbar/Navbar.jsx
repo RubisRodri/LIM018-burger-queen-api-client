@@ -9,9 +9,6 @@ export const  Navbar = ()=> {
     return (
         <section>
             <div className="navbar">
-                <div className="containerLeft">
-                    <div className="before"><img src={beforeImg} className="beforeImg" /></div>
-                </div>
                 <div className="containerCenter">
                     <div className="logo"><img src={logo} className="logoImg" /></div>
                 </div>
