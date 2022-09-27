@@ -3,7 +3,7 @@ import banner from '../../Pictures/banner.png';
 import logo from '../../Pictures/logo.png';
 import './Login.css';
 
-export const Login = () => {
+const Login = () => {
     const [datos, setDatos] = useState({
         email: "",
         password: ""
@@ -33,6 +33,7 @@ export const Login = () => {
               //console.log(res.data.id)
             
         }
+        
     };
         
         
@@ -56,11 +57,9 @@ export const Login = () => {
                     <br />
                     <input type="password" className="login-password" id="txtpassword" name="password" placeholder="Contraseña" onChange={handleInputChange} />
                     <br />
-                    <button type="submit" className="login-btnLogin">Ingresar</button>
+                    <button type="submit" className="login-btnLogin" >Ingresar</button>
                 </form>
-
-
-
+                
 
             </div>
 

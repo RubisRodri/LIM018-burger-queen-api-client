@@ -9,31 +9,29 @@ body{
 }
 
 .beforeImg, .listImg, .nextImg {
-    width: 60px;
+    width: 45px;
 }
 
 .logoImg {
-    width: 80px;
+    width: 60px;
 }
 
 .navbar{
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 0px 5px 3px rgb(0 0 0 / 50%);
+    height: 72px;
 }
 
 .containerRigth{
     display: flex;
 }
 
-.Logo{
-    margin: auto;
+.logo {
+    align-items: center;
+    margin: 9%;
 }
 
-
-.add{
-    
-}
 
 .btnWaiter{
     display: flex;
