@@ -28,21 +28,16 @@ export const Login = () => {
                 },
                 body: JSON.stringify(datos)
             }).then(res => res.json())
-              .then((data) => console.log(data))
-            
-              
-
-              //localStorage.setItem('token', res.token)
-              //console.log(res.data.id)
-            
+              .then((data) => {
+                localStorage.setItem('token', data.token)
+                alert('he guardado el token')
+                localStorage.setItem('nombre', data.nombre)
+                console.log('tu nombre es ', data.nombre)
+              })
         }
     };
         
-        
-    // const saveData =()=>{
-        //     localStorage.setItem('token', res.token)
-        //     alert('he guardado el token')
-        // }
+    
 
 
     return (
