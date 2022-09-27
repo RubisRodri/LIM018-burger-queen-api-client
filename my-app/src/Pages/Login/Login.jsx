@@ -29,6 +29,9 @@ export const Login = () => {
                 body: JSON.stringify(datos)
             }).then(res => res.json())
               .then((data) => console.log(data))
+            
+              
+
               //localStorage.setItem('token', res.token)
               //console.log(res.data.id)
             
