@@ -16,7 +16,7 @@ export const Login = () => {
         setDatos(newDatos);
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         if (e.target === 0) {
             console.log('no enviar');
@@ -27,11 +27,19 @@ export const Login = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(datos)
-            });
-            console.log(res);
-    
+            }).then(res => res.json())
+              .then((data) => console.log(data))
+              //localStorage.setItem('token', res.token)
+              //console.log(res.data.id)
+            
         }
     };
+        
+        
+    // const saveData =()=>{
+        //     localStorage.setItem('token', res.token)
+        //     alert('he guardado el token')
+        // }
 
 
     return (
