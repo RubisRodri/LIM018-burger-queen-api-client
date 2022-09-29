@@ -1,1 +1,124 @@
-{}
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "American Coffee",
+      "price": 5,
+      "image":"",
+      "type": "breakfast",
+      "dateEntry":""
+    },
+    {
+      "id": 2,
+      "name": "Coffee with milk",
+      "price": 7,
+      "image":"",
+      "type": "breakfast",
+      "dateEntry":""
+    },
+    {
+      "id": 3,
+      "name": "Natural juice",
+      "price": 7,
+      "image":"",
+      "type": "breakfast",
+      "dateEntry":""
+    },
+    {
+      "id": 3,
+      "name": "Natural juice",
+      "price": 7,
+      "image": "",
+      "type": "breakfast",
+      "dateEntry": ""
+    },
+    {
+      "id": 4,
+      "name": "Ham and cheese sandwich",
+      "price": 10,
+      "image": "",
+      "type": "meal",
+      "dateEntry": ""
+    },
+    {
+      "id": 5,
+      "name": "Water 500 ml",
+      "price": 5,
+      "image": "",
+      "type": "breakfast",
+      "dateEntry": ""
+    },
+    {
+      "id": 6,
+      "name": "Water 750 ml",
+      "price": 7,
+      "image": "",
+      "type": "breakfast",
+      "dateEntry": ""
+    },
+    {
+      "id": 7,
+      "name": "Soda 500 ml",
+      "price": 7,
+      "image": "",
+      "type": "breakfast",
+      "dateEntry": ""
+    },
+    {
+      "id": 8,
+      "name": "Soda 750 ml",
+      "price": 10,
+      "image": "",
+      "type": "breakfast",
+      "dateEntry": ""
+    },
+    {
+      "id": 9,
+      "name": "Basic burger",
+      "price": 10,
+      "image": "",
+      "type": "dinner",
+      "dateEntry": ""
+    },
+    {
+      "id": 10,
+      "name": "Double burger",
+      "price": 15,
+      "image": "",
+      "type": "dinner",
+      "dateEntry": ""
+    },
+    {
+      "id": 11,
+      "name": "French fries",
+      "price": 5,
+      "image": "",
+      "type": "",
+      "dateEntry": "",
+      "menu": ""
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": "",
+      "table": "2",
+      "products": [
+        {
+          "product": "American Coffee",
+          "price": 5,
+          "qty": 1
+        },
+        {
+          "product": "Coffee with milk",
+          "price": 7,
+          "qty": 1
+        }
+      ],
+      "status": "",
+      "dateEntry":"",
+      "dateProcessed":"",
+      "time": ""
+    }
+  ]
+}

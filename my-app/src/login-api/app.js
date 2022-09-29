@@ -4,6 +4,15 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 const cors = require('cors');
 
+const products = router.db
+  .get('products')
+  //.find({ id: 1 })
+  .value() // Im
+
+  console.log(products)
+
+
+
 const secret = "aBdshdbbAsdjjbdjdbjhbsabdnef6466164684"
 
 
@@ -39,18 +48,45 @@ server.post("/auth", (req, res) => {
     }
 });
 
+server.get("/options",(req, res)=>{
+    const datos = [
+        {id:1,cliente:"orden 1",total:2500 },
+        {id:2,cliente:"orden 2",total:2100 },
+        {id:3,cliente:"orden 3",total:200 }
+     ];
+     res.json(datos);
+ });
 
-//    server.get("/options", (req, res)=>{
-//        const datos = [
-//            {id:1,cliente:"orden 1",total:2500 },
-//            {id:2,cliente:"orden 2",total:2100 },
-//            {id:3,cliente:"orden 3",total:200 }
-//         ];
-//         res.json(datos);
-//     });
+
+//  server.get("/products", (req, res) => {
+//     const db =[
+
+//     ],
+//     res.json({
+
+//     })
+//   })
+  
 
 server.use(router)
 server.listen(3001, () => {
     console.log('JSON Server is running')
     console.log("servidor iniciado en el puerto 3001")
 })
+
+
+
+
+
+
+
+
+
+// server.get("/options",(req, res)=>{
+//     const datos = [
+//         {id:1,cliente:"orden 1",total:2500 },
+//         {id:2,cliente:"orden 2",total:2100 },
+//         {id:3,cliente:"orden 3",total:200 }
+//      ];
+//      res.json(datos);
+//  });
