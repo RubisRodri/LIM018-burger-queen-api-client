@@ -8,8 +8,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import  {Login} from '../src/Pages/Login/Login.jsx'
-import{Navbar} from '../src/Components/Navbar.jsx'
-import {Options} from '../src/Pages/Waiter View/Options.jsx'
+import {Waiter} from '../src/Pages/Waiter/Waiter-option.jsx'
 
 
 
@@ -17,25 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/Options" element={<Options />} />
+            <Route path="/Waiter" element={<Waiter />} />
             <Route path="/Order" element={<div>Estoy en otro componente</div>} />
             <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
     </BrowserRouter>
 )
- 
-
-
-
-
-
-
-
-
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//     < React.StrictMode >
-//             {/*<Login />*/}
-//             <Navbar/>
-//         </React.StrictMode >
-    // )
