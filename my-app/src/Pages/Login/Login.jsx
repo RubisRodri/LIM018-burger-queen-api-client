@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import banner from '../../Pictures/banner.png';
 import logo from '../../Pictures/logo.png';
 import './Login.css';
+import { useNavigate } from "react-router-dom";
+
+
+
 
 export const Login = () => {
+    const navigate = useNavigate()
+
     const [datos, setDatos] = useState({
         email: "",
         password: ""
     });
-
 
     const handleInputChange = (e) => {
         let { name, value } = e.target;
@@ -30,24 +35,20 @@ export const Login = () => {
             }).then(res => res.json())
               .then((data) => {
                 localStorage.setItem('token', data.token)
-                alert('he guardado el token')
                 localStorage.setItem('nombre', data.nombre)
-                console.log('tu nombre es ', data.nombre)
+                navigate("/Options")
               })
         }
         
     };
         
-    
-
-
     return (
         <section className='login'>
             <div className='banner'>
             </div>
             <img src={banner} className="imageBanner" />
             <div className='formLogin'>
-                <div className='logo'>
+               <div className='logo'>
                     <img src={logo} className='logoimg' />
                 </div>
                 <div className='sesion'>
@@ -60,7 +61,6 @@ export const Login = () => {
                     <br />
                     <button type="submit" className="login-btnLogin" >Ingresar</button>
                 </form>
-                
 
             </div>
 

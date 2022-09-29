@@ -18,7 +18,7 @@ server.use((req, res, next) => {
     } else if (req.headers.authorization === `Bearer ${secret}`) {
         next()
     } else {
-        res.sendStatus(401)
+        res.sendStatus(400)
     }
 })
 
