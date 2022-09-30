@@ -36,7 +36,7 @@ export const Login = () => {
               .then((data) => {
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('nombre', data.nombre)
-                navigate("/Options")
+                navigate("/Waiter")
               })
         }
         
@@ -67,5 +67,3 @@ export const Login = () => {
         </section>
     )
 }
-
-module.export = Login
