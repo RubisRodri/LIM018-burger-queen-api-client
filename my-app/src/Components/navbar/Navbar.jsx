@@ -21,4 +21,3 @@ export const Navbar = ()=> {
 }
 
 
-module.exports = Navbar
