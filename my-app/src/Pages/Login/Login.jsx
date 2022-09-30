@@ -48,7 +48,7 @@ export const Login = () => {
             </div>
             <img src={banner} className="imageBanner" />
             <div className='formLogin'>
-               <div className='logo'>
+               <div className='logo-i'>
                     <img src={logo} className='logoimg' />
                 </div>
                 <div className='sesion'>
@@ -61,7 +61,11 @@ export const Login = () => {
                     <br />
                     <button type="submit" className="login-btnLogin" >Ingresar</button>
                 </form>
+
             </div>
+
         </section>
     )
 }
+
+module.export = Login
