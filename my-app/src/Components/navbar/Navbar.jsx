@@ -4,7 +4,7 @@ import logo from '../../Pictures/logo.png'
 import './navbar.css'
 
 //navbar
-export const  Navbar = ()=> {
+export const Navbar = ()=> {
     return (
         <section>
             <div className="navbar">
@@ -19,3 +19,6 @@ export const  Navbar = ()=> {
         </section>
     )
 }
+
+
+module.exports = Navbar

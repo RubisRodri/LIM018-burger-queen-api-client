@@ -6,8 +6,7 @@ const cors = require('cors');
 
 const products = router.db
   .get('products')
-  //.find({ id: 1 })
-  .value() // Im
+  .value() 
 
   console.log(products)
 
