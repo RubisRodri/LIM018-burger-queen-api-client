@@ -8,6 +8,8 @@ import './Waiter.css'
 
 
 export function Waiter() {
+
+    
     return (
         <>
             <Navbar />
@@ -25,6 +27,5 @@ export function Waiter() {
 
         </>
     )
-
-
 }
+
