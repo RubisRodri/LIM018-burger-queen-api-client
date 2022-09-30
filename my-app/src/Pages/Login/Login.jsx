@@ -61,9 +61,7 @@ export const Login = () => {
                     <br />
                     <button type="submit" className="login-btnLogin" >Ingresar</button>
                 </form>
-
             </div>
-
         </section>
     )
 }
