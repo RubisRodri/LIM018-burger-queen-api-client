@@ -6,8 +6,7 @@ const cors = require('cors');
 
 const products = router.db
   .get('products')
-  //.find({ id: 1 })
-  .value() // Im
+  .value() 
 
   console.log(products)
 
@@ -58,7 +57,7 @@ server.get("/options",(req, res)=>{
  });
 
 
-//  server.get("/products", (req, res) => {
+//  server.get("/products/product.id", (req, res) => {
 //     const db =[
 
 //     ],
@@ -82,11 +81,3 @@ server.listen(3001, () => {
 
 
 
-// server.get("/options",(req, res)=>{
-//     const datos = [
-//         {id:1,cliente:"orden 1",total:2500 },
-//         {id:2,cliente:"orden 2",total:2100 },
-//         {id:3,cliente:"orden 3",total:200 }
-//      ];
-//      res.json(datos);
-//  });
