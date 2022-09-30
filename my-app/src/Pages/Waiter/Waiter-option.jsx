@@ -2,14 +2,12 @@ import React from 'react';
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import add from '../../Pictures/add.png';
 import waiter from '../../Pictures/waiter-serving.png';
-import Footer from '../../Components/footer/Footer.jsx'
+import Footer from '../../Components/footer/footer.jsx'
 import './Waiter.css'
 
 
 
 export function Waiter() {
-
-    
     return (
         <>
             <Navbar />
@@ -24,8 +22,6 @@ export function Waiter() {
                 </button>
             </div>
             <Footer />
-
         </>
     )
 }
-
