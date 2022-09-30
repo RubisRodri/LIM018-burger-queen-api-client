@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export const Options = () => {
+export const Ordenes = () => {
 
         fetch('http://localhost:3001/products', {
             method: "GET",
