@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import  {Login} from '../src/Pages/Login/Login.jsx'
 import {Waiter} from '../src/Pages/Waiter/Waiter-option.jsx'
-import {Ordenes} from '../src/Pages/Waiter View/Ordenes.jsx'
+import {Ordenes} from '../src/Pages/Waiter/orders/Ordenes.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

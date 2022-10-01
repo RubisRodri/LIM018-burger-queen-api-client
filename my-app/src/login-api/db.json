@@ -20,14 +20,6 @@
       "id": 3,
       "name": "Natural juice",
       "price": 7,
-      "image":"",
-      "type": "breakfast",
-      "dateEntry":""
-    },
-    {
-      "id": 3,
-      "name": "Natural juice",
-      "price": 7,
       "image": "",
       "type": "breakfast",
       "dateEntry": ""

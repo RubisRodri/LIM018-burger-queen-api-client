@@ -13,6 +13,7 @@ body{
 
 .imageBanner{
     height: 100vh;
+    width: 50%;
 }
 
 .formLogin{
@@ -25,6 +26,7 @@ body{
     border-radius: 18px;
     margin: 10%;
     font-family: Roboto;
+    width: 50%;
 }
 
 .login-email, .login-password{

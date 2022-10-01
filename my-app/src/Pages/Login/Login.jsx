@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export const Login = () => {
+    const API_URL= 'http://localhost:3001/'
     const navigate = useNavigate()
 
     const [datos, setDatos] = useState({
@@ -26,7 +27,7 @@ export const Login = () => {
         if (e.target === 0) {
             console.log('no enviar');
         } else {
-            let res = await fetch("http://localhost:3001/auth", {
+            let res = await fetch(`${API_URL}auth`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

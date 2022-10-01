@@ -1,0 +1,26 @@
+
+.container-btn{
+    display: block;
+    margin-left: 29px;
+    margin-top: 77px;
+}
+
+.break-btn{
+    width: 122px;
+    height: 61px;
+    border: 3px solid #F84141;
+    border-radius: 12px;
+    background: #ffff;
+    margin: 3px;
+    color: #F84141
+}
+
+.dinner-btn{
+    width: 122px;
+    height: 61px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    background: #F84141;
+    margin: 3px;
+    color: #d7d5d5;
+}
