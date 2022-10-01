@@ -5,9 +5,6 @@ import waiter from '../../Pictures/waiter-serving.png';
 import Footer from '../../Components/footer/footer.jsx';
 import { useNavigate } from 'react-router-dom';
 import './Waiter.css';
-//import { useEffect } from 'react';
-
-
 
 export function Waiter() {
 let name = localStorage.getItem('nombre')
@@ -26,7 +23,7 @@ let name = localStorage.getItem('nombre')
     return (
         <>
             <Navbar />
-            <h1>{`Bienvenido ${name}`}</h1>
+            <h2>{`Bienvenido ${name}`}</h2>
             <div className='container'>
                 <button className='btn-add' >
                 <img className='img-add' src={add}   />
