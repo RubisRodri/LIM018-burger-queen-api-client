@@ -1,8 +1,8 @@
 import React,{ useState, useEffect } from "react";
 import { json, useNavigate } from "react-router-dom";
-import { Navbar } from '../../../Components/navbar/Navbar.jsx'
-import Footer from '../../../Components/footer/Footer.jsx'
-import { BtnBreakDinner } from '../../../Components/buton/breakfast-dinne.jsx'
+import { Navbar } from '../../Components/navbar/Navbar.jsx'
+import Footer from '../../Components/footer/Footer.jsx'
+import { BtnBreakDinner } from '../../Components/buton/breakfast-dinner.jsx'
 import cafeA from '../../../Pictures/cafeA.png'
 import cafeLeche from '../../../Pictures/cafe-con-leche.png'
 import jugo from '../../../Pictures/jugo-de-frutas.png'

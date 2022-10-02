@@ -2,11 +2,15 @@
 .container{
     display: inline-block;
     text-align: center;
-    max-width: 945px;
+    /* max-width: 945px; */
     margin-left: 100px;
-    height: 100%;
-    padding-top: 199px;
+    /* height: 100%; */
+    padding-top: 115px;
+}
 
+.textName{
+    text-align: center;
+    color: #f84141;
 }
 
 .img-add, .img-waiter{

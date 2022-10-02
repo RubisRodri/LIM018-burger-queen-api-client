@@ -1,6 +1,6 @@
 import './breakfast-dinner.css'
 
-export const BtnBreakDinner = () => {
+export default  function BtnBreakDinner  () {
     return (
         <div className='container-btn'>
             <button type='button' className='break-btn'>Desayuno</button>

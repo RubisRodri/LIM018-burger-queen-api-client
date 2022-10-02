@@ -26,7 +26,7 @@ server.use((req, res, next) => {
     if (req.method === "POST" && req.path === "/auth") {
         next();
     } else if (req.headers.authorization === `Bearer ${secret}`) {
-        next()
+         next()//  res.sendStatus(200).json(datos)
     } else {
         res.sendStatus(400)
     }
@@ -82,6 +82,13 @@ server.listen(3001, () => {
 
 
 
-
+// server.get("/options",(req, res)=>{
+//     const datos = [
+//         {id:1,cliente:"orden 1",total:2500 },
+//         {id:2,cliente:"orden 2",total:2100 },
+//         {id:3,cliente:"orden 3",total:200 }
+//      ];
+//      res.json(datos);
+//  });
 
 

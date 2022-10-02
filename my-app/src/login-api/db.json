@@ -2,89 +2,89 @@
   "products": [
     {
       "id": 1,
-      "name": "American Coffee",
+      "name": "Cafe Americano",
       "price": 5,
-      "image":"",
-      "type": "breakfast",
+      "image":"https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+      "type": "desayuno",
       "dateEntry":""
     },
     {
       "id": 2,
-      "name": "Coffee with milk",
+      "name": "Cafe con Leche",
       "price": 7,
-      "image":"",
-      "type": "breakfast",
+      "image":"https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+      "type": "desayuno",
       "dateEntry":""
     },
     {
       "id": 3,
-      "name": "Natural juice",
+      "name": "Jugo Natural",
       "price": 7,
-      "image": "",
-      "type": "breakfast",
+      "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+      "type": "desayuno",
       "dateEntry": ""
     },
     {
       "id": 4,
-      "name": "Ham and cheese sandwich",
+      "name": "sandwich de Queso",
       "price": 10,
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
       "type": "meal",
       "dateEntry": ""
     },
     {
       "id": 5,
-      "name": "Water 500 ml",
+      "name": "Agua 500 ml",
       "price": 5,
-      "image": "",
-      "type": "breakfast",
+      "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
+      "type": "desayuno",
       "dateEntry": ""
     },
     {
       "id": 6,
-      "name": "Water 750 ml",
+      "name": "Agua 750 ml",
       "price": 7,
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
       "type": "breakfast",
       "dateEntry": ""
     },
     {
       "id": 7,
-      "name": "Soda 500 ml",
+      "name": "Gaseosa 500 ml",
       "price": 7,
-      "image": "",
-      "type": "breakfast",
+      "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
+      "type": "desayuno",
       "dateEntry": ""
     },
     {
       "id": 8,
       "name": "Soda 750 ml",
       "price": 10,
-      "image": "",
-      "type": "breakfast",
+      "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
+      "type": "desayuno",
       "dateEntry": ""
     },
     {
       "id": 9,
-      "name": "Basic burger",
+      "name": "Hamburguesa Clasica",
       "price": 10,
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/1858/1858002.png",
       "type": "dinner",
       "dateEntry": ""
     },
     {
       "id": 10,
-      "name": "Double burger",
+      "name": "Hamburguesa Doble",
       "price": 15,
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/1858/1858002.png",
       "type": "dinner",
       "dateEntry": ""
     },
     {
       "id": 11,
-      "name": "French fries",
+      "name": "Papas Fritas",
       "price": 5,
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/1046/1046786.png",
       "type": "",
       "dateEntry": "",
       "menu": ""

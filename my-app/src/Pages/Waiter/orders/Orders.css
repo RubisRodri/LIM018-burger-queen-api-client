@@ -1,0 +1,49 @@
+.container-menu{
+    display: inline-block;
+    text-align: center;
+    padding-top: 27px;
+    border: 4px solid #f84141;
+    border-radius: 15px;
+    width: 238px;
+    height: 194px;
+    margin: 39px;
+    padding-left: 4px;
+}
+
+
+.image{
+    width: 100px;
+    text-align: center;
+}
+
+.add-product{
+    border: 3px solid #f7c42f;
+    background: #f7c42f;
+    border-radius: 9px;
+    width: 100px;
+}
+
+.add-product-total{
+    border: 1px solid #D7D5D5;
+    border-radius: 20px;
+    background: #D7D5D5;
+    margin: 35px;
+    margin-top: 10px;
+    width: 68%;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.send-kitchen{
+    background: #f84141;
+    border: 1px solid #f84141;
+    border-radius: 5px;
+    width: 160px;
+    height: 47px;
+    margin: 15px;
+    margin-bottom: 3px;
+}

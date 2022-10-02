@@ -7,8 +7,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import  {Login} from '../src/Pages/Login/Login.jsx'
-import {Waiter} from '../src/Pages/Waiter/Waiter-option.jsx'
-import {Ordenes} from '../src/Pages/Waiter/orders/Ordenes.jsx'
+import {Waiter} from '../src/Pages/Waiter/Waiter-option/Waiter-option.jsx'
+import {Ordenes} from '../src/Pages/Waiter/orders/Orders.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
