@@ -5,7 +5,7 @@
       "name": "Cafe Americano",
       "price": 5,
       "image":"https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
-      "type": "desayuno",
+      "type": "breakfast",
       "dateEntry":""
     },
     {
@@ -13,7 +13,7 @@
       "name": "Cafe con Leche",
       "price": 7,
       "image":"https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
-      "type": "desayuno",
+      "type": "breakfast",
       "dateEntry":""
     },
     {
@@ -21,7 +21,7 @@
       "name": "Jugo Natural",
       "price": 7,
       "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
-      "type": "desayuno",
+      "type": "breakfast",
       "dateEntry": ""
     },
     {
@@ -29,7 +29,7 @@
       "name": "sandwich de Queso",
       "price": 10,
       "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-      "type": "meal",
+      "type": "breakfast",
       "dateEntry": ""
     },
     {
@@ -37,7 +37,7 @@
       "name": "Agua 500 ml",
       "price": 5,
       "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-      "type": "desayuno",
+      "type": "bebidas",
       "dateEntry": ""
     },
     {
@@ -45,7 +45,7 @@
       "name": "Agua 750 ml",
       "price": 7,
       "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-      "type": "breakfast",
+      "type": "bebidas",
       "dateEntry": ""
     },
     {
@@ -53,7 +53,7 @@
       "name": "Gaseosa 500 ml",
       "price": 7,
       "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
-      "type": "desayuno",
+      "type": "bebidas",
       "dateEntry": ""
     },
     {
@@ -61,7 +61,7 @@
       "name": "Soda 750 ml",
       "price": 10,
       "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
-      "type": "desayuno",
+      "type": "bebidas",
       "dateEntry": ""
     },
     {
@@ -86,8 +86,8 @@
       "price": 5,
       "image": "https://cdn-icons-png.flaticon.com/512/1046/1046786.png",
       "type": "",
-      "dateEntry": "",
-      "menu": ""
+      "dateEntry":"",
+      "menu": "dinner"
     }
   ],
   "orders": [

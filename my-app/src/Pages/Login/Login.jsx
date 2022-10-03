@@ -24,8 +24,10 @@ export const Login = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        if (e.target === 0) {
-            console.log('no enviar');
+        var txtCorreo = document.getElementById('txtcorreo').value;
+        var txtPassword = document.getElementById('txtpassword').value;
+        if (txtCorreo.length=== 0 || txtPassword.length === 0) {
+            alert('Complete los Datos Faltantes')
         } else {
             let res = await fetch(`${API_URL}auth`, {
                 method: 'POST',
@@ -38,11 +40,10 @@ export const Login = () => {
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('nombre', data.nombre)
                 navigate("/Waiter")
-              })
-        }
-        
-    };
-        
+              }).catch(error => console.log(error))
+            }  
+          
+        };
     return (
         <section className='login'>
             <div className='banner'>
