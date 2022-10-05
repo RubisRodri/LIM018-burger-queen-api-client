@@ -30,11 +30,7 @@ export const Ordenes = () => {
     
      };
 
-     breakfastProducts()
-            
-
-
-
+    
     return (
         <>
             <Navbar />
