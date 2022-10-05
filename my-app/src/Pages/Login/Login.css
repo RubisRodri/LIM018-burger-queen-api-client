@@ -1,5 +1,5 @@
 :root{
-    --rojo:#D2001A;
+    --rojo:#F84141;
     --amarillo:#FFDE00;
     --Gris:#FFFAE7;
     --blancogris:#EFEFEF;
@@ -15,7 +15,7 @@ html{
 
 body{
     font-family: var(--fuente);
-    background-color: var(--rojo);
+    background-color: var(--blancogris);
   
 }
 
