@@ -1,5 +1,4 @@
 .container-menu{
-    display: inline-block;
     text-align: center;
     padding-top: 27px;
     border: 4px solid #f84141;
@@ -7,7 +6,6 @@
     width: 238px;
     height: 194px;
     margin: 39px;
-    padding-left: 4px;
 }
 
 
@@ -29,12 +27,10 @@
     background: #D7D5D5;
     margin: 35px;
     margin-top: 10px;
-    width: 68%;
+    width: 40%;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .send-kitchen{
@@ -75,4 +71,11 @@
     background: #F84141;
     margin: 3px;
     color: #d7d5d5;
+}
+
+.containerMenu{
+    display: grid;
+    /* flex-wrap: nowrap; */
+    /* flex-direction: column; */
+    grid-template-columns: 0fr 1fr;
 }
