@@ -1,15 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { CartProvider, useCart } from "react-use-cart";
 import { json, useNavigate } from "react-router-dom";
 import { Navbar } from '../../../Components/navbar/Navbar.jsx'
 import Footer from '../../../Components/footer/Footer.jsx'
-import BtnBreakDinner from '../../../Components/buton/breakfast-dinner.jsx'
 import './Orders.css'
 
 
 
 export const Ordenes = () => {
-    const [list, setList] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [curentproducts, setCurentProducts] = useState([])
+    //const cartProducts = createContext();
+
+
+    const [cartItems, setCartItems] = useState(() => {
+        try {
+            const productLocalStorage = localStorage.getItem('cartProducts')
+            return productLocalStorage ? JSON.parse(productLocalStorage) : []
+        } catch (error) {
+            return [];
+        }
+    });
+    // eslint-disable-next-line no-unused-expressions
+    useEffect(() => {
+        localStorage.setItem("cartProducts", JSON.stringify(cartItems))
+    }), [cartItems]
+
+
+    const addToCart = (product) => {
+        setCartItems([...cartItems, { ...product, quantity: 1 }])
+    }
+
     useEffect(() => {
         fetch('http://localhost:3001/products', {
             method: "GET",
@@ -20,33 +40,92 @@ export const Ordenes = () => {
         })
             .then(response => response.json())
             .then((value) => {
-                console.log(value);
-                setList(value)
+                let orderProducts = value.map((product) => { return { id: product.id, image: product.image, product: product.name, price: product.price, type: product.type } });
+                setProducts(orderProducts)
+                let includesBreakFast = orderProducts.filter(products => products.type === 'desayuno')
+                setCurentProducts(includesBreakFast)
+
             })
 
     }, []);
+
+    const showDinnerFood = () => {
+        let includesBreakFast = products.filter(products => products.type === 'cena')
+        setCurentProducts(includesBreakFast)
+
+    }
+
+    const showBreakFastFood = () => {
+        let includesBreakFast = products.filter(products => products.type === 'desayuno')
+        setCurentProducts(includesBreakFast)
+
+    }
+
+    /*
+        const CartProvider = ({ children }) => {
+    
+            // eslint-disable-next-line no-unused-expressions
+    
+    
+    
+            const deleteItemToCart = (product) => {
+                const inCart = CartItems.find(
+                    (productIntCart => productIntCart.id === product.id)
+                );
+    
+                if (inCart.amount === 1) {
+                    SetCartItems(
+                        CartItems.filter(productIntCart => productIntCart.id !== product.id)
+                    )
+                }else{
+                    SetCartItems((productIntCart) => {
+                        if (productIntCart.id == product.id) {
+                            return { ...inCart, amount: inCart.amount - 1 }
+                        } else {
+                            return productIntCart
+                        }
+                    });
+                }
+            };
+    
+            return (
+                <createContext.provider value={{CartItems, addToCart,deleteItemToCart}}>
+                    {children}
+                </createContext.provider>
+            )
+        }
+    */
 
 
     return (
         <>
             <Navbar />
+            <div className='container-btn'>
+                <button type='button' className='break-btn' onClick={showBreakFastFood} >Desayuno</button>
+                <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
+            </div>
 
-            <BtnBreakDinner />
-
-            {list.map((product, index) =>
-                <> <div key={`id-${index}`} className="container-menu" >
-                    <img className="image" src={product.image} />
-                    <p className="text-name"> {product.name}</p>
-                    <p className="text-price">Precio: S/{product.price}</p>
+            {curentproducts.map((element) =>
+                <div className="container-menu" key={element.id}>
+                    <img src={element.image} className="image" />
+                    <p >{element.product}</p>
+                    <p>S/ {element.price}</p>
+                    <div>
+                        <button data-id={element.id} className="add-product" onClick={(e) => addToCart(element, e)}>Agregar</button>
+                    </div>
                 </div>
-                    <button className="add-product">Agregar</button>
-                </>
             )}
 
+
+
             <div className="add-product-total">
-                <span> ejemplo     precio</span>
-                <span> ejemplo     precio</span>
-                <span> ejemplo     precio</span>
+                {cartItems.map((element) =>
+                    <div>
+                        <p>{element.product}</p>
+                        <p>S/ {element.price}</p>
+                    </div>
+
+                )}
                 <button className="send-kitchen">Enviar a Cocina</button>
             </div>
             <Footer />
