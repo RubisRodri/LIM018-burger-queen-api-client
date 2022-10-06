@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import banner from '../../Pictures/banner.png';
-import logo from '../../Pictures/logo.png';
+//import banner from '../../Pictures/banner.png';
+//import logo from '../../Pictures/logo.png';
 import './Login.css';
 import { useNavigate } from "react-router-dom";
-
-
 
 
 export const Login = () => {
@@ -42,31 +40,32 @@ export const Login = () => {
         }
         
     };
-        
-    return (
-        <section className='login'>
-            <div className='banner'>
-            </div>
-            <img src={banner} className="imageBanner" />
-            <div className='formLogin'>
-               <div className='logo-i'>
-                    <img src={logo} className='logoimg' />
-                </div>
-                <div className='sesion'>
-                    <span>Inicio de sesion</span>
-                </div>
-                <form onSubmit={handleSubmit} className="forn-login">
-                    <input type="text" className="login-email" id="txtcorreo" name="email" placeholder="Correo" onChange={handleInputChange} />
-                    <br />
-                    <input type="password" className="login-password" id="txtpassword" name="password" placeholder="Contraseña" onChange={handleInputChange} />
-                    <br />
-                    <button type="submit" className="login-btnLogin" >Ingresar</button>
-                </form>
+        return (
+         <div className="contenedor-formulario contenedor">
+             <div className="imagen-formulario">
+                <img src={''}/>
+             </div>
 
-            </div>
-
-        </section>
+            <form className="formulario"onSubmit={handleSubmit} >
+             <div className="texto-formulario">
+                <h2>Bienvenido de nuevo</h2>
+                <p>Inicia sesión con tu cuenta</p>
+             </div>
+                <div className="input">
+                <label for="usuario">Email</label>
+                <input placeholder="Ingresa tu email" type="text" name="email" id="txtcorreo"onChange={handleInputChange}/>
+             </div>
+             <div className="input">
+                <label for="contraseña">Password</label>
+                <input placeholder="Ingresa tu contraseña" type="password"name="password" id="txtpassword"onChange={handleInputChange}/>
+             </div>
+             <div className="password-olvidada">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+             </div>
+             <div className="input">
+                <input type="submit" value="Login"/>
+             </div>
+            </form>
+         </div>
     )
 }
-
-module.export = Login

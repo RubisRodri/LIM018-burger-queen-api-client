@@ -1,16 +1,19 @@
+.container-order{
+    display: flex;
+}
+
 .container-menu{
     text-align: center;
     padding-top: 27px;
     border: 4px solid #f84141;
     border-radius: 15px;
-    width: 238px;
-    height: 194px;
+    width: 200px;
+    height: 180px;
     margin: 39px;
 }
 
-
 .image{
-    width: 100px;
+    width: 80px;
     text-align: center;
 }
 
@@ -48,7 +51,7 @@
 
 
 .container-btn{
-    display: block;
+    display: flex;
     margin-left: 29px;
     margin-top: 77px;
 }
