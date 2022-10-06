@@ -28,11 +28,13 @@ export const Ordenes = () => {
 
     const addToCart = (product) => {
         // buscar dentro del cartItems si el elemento existe, cambiar la cantidad a cantidad+1, si no existe, agregarlo al arreglo
-
-        if (cartItems.includes(product)) {
+        const existInCart = cartItems.find((value) => {
+            return value.id === product.id
+        })
+        if (existInCart) {
             const newArray = cartItems.map((element) => {
                 if (element.id === product.id) {
-                    return {...product, quantity:element.quantity+1}
+                    return { ...product, quantity: element.quantity + 1 }
                 }
                 return element;
             })
@@ -97,18 +99,20 @@ export const Ordenes = () => {
                         </div>
                     </div>
                 )}
-            </div>
+        
 
 
             <div className="add-product-total">
                 {cartItems.map((element) =>
-                    <div>
-                       <p>{element.quantity}</p>
+                    <div key={element.id}>
+                        <p>{element.quantity}</p>
                         <p>{element.product}</p>
                         <p>S/ {element.price}</p>
                     </div>
                 )}
                 <button className="send-kitchen">Enviar a Cocina</button>
+            </div>
+
             </div>
             <Footer />
         </>
@@ -146,37 +150,34 @@ export const Ordenes = () => {
 
 
 
-    /*
-        const CartProvider = ({ children }) => {
-    
-            // eslint-disable-next-line no-unused-expressions
-    
-    
-    
-            const deleteItemToCart = (product) => {
-                const inCart = CartItems.find(
-                    (productIntCart => productIntCart.id === product.id)
-                );
-    
-                if (inCart.amount === 1) {
-                    SetCartItems(
-                        CartItems.filter(productIntCart => productIntCart.id !== product.id)
-                    )
-                }else{
-                    SetCartItems((productIntCart) => {
-                        if (productIntCart.id == product.id) {
-                            return { ...inCart, amount: inCart.amount - 1 }
-                        } else {
-                            return productIntCart
-                        }
-                    });
-                }
-            };
-    
-            return (
-                <createContext.provider value={{CartItems, addToCart,deleteItemToCart}}>
-                    {children}
-                </createContext.provider>
-            )
-        }
-    */
+/*
+    const CartProvider = ({ children }) => {
+ 
+        // eslint-disable-next-line no-unused-expressions
+ 
+ 
+ 
+        const deleteItemToCart = (product) => {
+            const inCart = CartItems.find(
+                (productIntCart => productIntCart.id === product.id)
+            );
+ 
+            if (inCart.amount === 1) {
+                SetCartItems(
+                    CartItems.filter(productIntCart => productIntCart.id !== product.id)
+                )
+            }else{
+                SetCartItems((productIntCart) => {
+                    if (productIntCart.id == product.id) {
+                        return { ...inCart, amount: inCart.amount - 1 }
+                    } else {
+                        return productIntCart
+                    }
+                });
+            }
+        };
+ 
+        return 
+        )
+    }
+*/
