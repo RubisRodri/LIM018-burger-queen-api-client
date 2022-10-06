@@ -5,18 +5,13 @@
     --blancogris:#EFEFEF;
     --fuente:'Quicksand', sans-serif;
 }
-html{
-    box-sizing: border-box;
-}
 
-*,*::after, *::before{
-    box-sizing: inherit;
-}
 
 body{
     font-family: var(--fuente);
     background-color: var(--blancogris);
-  
+    margin: 0;
+    padding: 0;
 }
 
 .contenedor{

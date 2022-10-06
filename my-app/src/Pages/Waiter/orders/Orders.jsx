@@ -23,14 +23,14 @@ export const Ordenes = () => {
         localStorage.setItem("cartProducts", JSON.stringify(cartItems))
     }, [cartItems])
 
-
+    console.log(typeof cartItems)
     const addToCart = (product) => {
         // buscar dentro del cartItems si el elemento existe, cambiar la cantidad a cantidad+1, si no existe, agregarlo al arreglo
 
         if (cartItems.includes(product)) {
             const newArray = cartItems.map((element) => {
                 if (element.id === product.id) {
-                    return {...product, quantity:element.quantity+1}
+                    return {...product, quantity:element.quantity + 1}
                 }
                 return element;
             })
@@ -40,8 +40,8 @@ export const Ordenes = () => {
         }
 
 
-        console.log(`  card items => ${cartItems}`);
-        console.log(typeof (cartItems));
+        // console.log(`  card items => ${cartItems}`);
+        // console.log(typeof (cartItems));
     }
 
     useEffect(() => {
@@ -76,14 +76,14 @@ export const Ordenes = () => {
     
     return (
         <>
-            <Navbar />
-            <div className='container-btn'>
+         <Navbar />
+         <div className='container-btn'>
                 <button type='button' className='break-btn' onClick={showBreakFastFood} >Desayuno</button>
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
             </div>
 
-            <div className="containerMenu">
-
+         <div className="contenedor">
+                <div className="contenedor-order">
                 {curentproducts.map((element) =>
                     <div className="container-menu" key={element.id}>
                         <img src={element.image} className="image" />
@@ -94,19 +94,18 @@ export const Ordenes = () => {
                         </div>
                     </div>
                 )}
-            </div>
-
-
-            <div className="add-product-total">
-                {cartItems.map((element) =>
-                    <div>
+                 <div className="add-product-total">
+                      {cartItems.map((element) =>
+                  <div>
                        <p>{element.quantity}</p>
                         <p>{element.product}</p>
                         <p>S/ {element.price}</p>
-                    </div>
+                </div>
                 )}
                 <button className="send-kitchen">Enviar a Cocina</button>
             </div>
+            </div>
+          </div>  
             <Footer />
         </>
 
