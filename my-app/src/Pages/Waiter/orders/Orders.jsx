@@ -21,11 +21,27 @@ export const Ordenes = () => {
     // eslint-disable-next-line no-unused-expressions
     useEffect(() => {
         localStorage.setItem("cartProducts", JSON.stringify(cartItems))
-    }), [cartItems]
+    }, [cartItems])
 
 
     const addToCart = (product) => {
-        setCartItems([...cartItems, { ...product, quantity: 1 }])
+        // buscar dentro del cartItems si el elemento existe, cambiar la cantidad a cantidad+1, si no existe, agregarlo al arreglo
+
+        if (cartItems.includes(product)) {
+            const newArray = cartItems.map((element) => {
+                if (element.id === product.id) {
+                    return {...product, quantity:element.quantity+1}
+                }
+                return element;
+            })
+            setCartItems(newArray)
+        } else {
+            setCartItems([...cartItems, { ...product, quantity: 1 }])
+        }
+
+
+        console.log(`  card items => ${cartItems}`);
+        console.log(typeof (cartItems));
     }
 
     useEffect(() => {
@@ -61,76 +77,41 @@ export const Ordenes = () => {
     return (
         <>
             <Navbar />
-            <div className="container-order">
             <div className='container-btn'>
                 <button type='button' className='break-btn' onClick={showBreakFastFood} >Desayuno</button>
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
             </div>
 
-            {curentproducts.map((element) =>
-                <div className="container-menu" key={element.id}>
-                    <img src={element.image} className="image" />
-                    <p >{element.product}</p>
-                    <p>S/ {element.price}</p>
-                    <div>
-                        <button data-id={element.id} className="add-product" onClick={(e) => addToCart(element, e)}>Agregar</button>
-                    </div>
-                </div>
-            )}
+            <div className="containerMenu">
 
+                {curentproducts.map((element) =>
+                    <div className="container-menu" key={element.id}>
+                        <img src={element.image} className="image" />
+                        <p >{element.product}</p>
+                        <p>S/ {element.price}</p>
+                        <div>
+                            <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}>Agregar</button>
+                        </div>
+                    </div>
+                )}
+            </div>
 
 
             <div className="add-product-total">
                 {cartItems.map((element) =>
                     <div>
+                       <p>{element.quantity}</p>
                         <p>{element.product}</p>
                         <p>S/ {element.price}</p>
                     </div>
-
                 )}
                 <button className="send-kitchen">Enviar a Cocina</button>
-            </div>
             </div>
             <Footer />
         </>
 
     )
-};
+}
 
 
 
-
-   /*
-        const CartProvider = ({ children }) => {
-    
-            // eslint-disable-next-line no-unused-expressions
-    
-    
-    
-            const deleteItemToCart = (product) => {
-                const inCart = CartItems.find(
-                    (productIntCart => productIntCart.id === product.id)
-                );
-    
-                if (inCart.amount === 1) {
-                    SetCartItems(
-                        CartItems.filter(productIntCart => productIntCart.id !== product.id)
-                    )
-                }else{
-                    SetCartItems((productIntCart) => {
-                        if (productIntCart.id == product.id) {
-                            return { ...inCart, amount: inCart.amount - 1 }
-                        } else {
-                            return productIntCart
-                        }
-                    });
-                }
-            };
-    
-            return (
-                <createContext.provider value={{CartItems, addToCart,deleteItemToCart}}>
-                    {children}
-                </createContext.provider>
-            )
-        }
-    */
