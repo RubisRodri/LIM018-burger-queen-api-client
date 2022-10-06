@@ -1,19 +1,26 @@
-.container-order{
-    display: flex;
+.container-btn{
+    margin-top: 22px;
+    margin-inline-start: 23px;
 }
-
+.contenedor-order{
+    display: grid;
+    grid-template-columns: 1fr 1fr 6fr;
+    grid-auto-rows: 183px;
+    /* row-gap: 5px; */
+    gap: 14px;
+    margin-top: 22px;
+}
 .container-menu{
     text-align: center;
-    padding-top: 27px;
     border: 4px solid #f84141;
     border-radius: 15px;
-    width: 200px;
-    height: 180px;
-    margin: 39px;
+    width: 140px;
+    height: 175px;
+    box-shadow: 0 0 1rem #00000025 inset;
 }
 
 .image{
-    width: 80px;
+    width: 50px;
     text-align: center;
 }
 
@@ -29,11 +36,11 @@
     border-radius: 20px;
     background: #D7D5D5;
     margin: 35px;
-    margin-top: 10px;
-    width: 40%;
+    margin-top: -196px;
+    width: 69%;
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 0 1rem #00000025 inset;
+    margin-left: 163px;
 }
 
 .send-kitchen{
@@ -50,11 +57,7 @@
 /*btn*/
 
 
-.container-btn{
-    display: flex;
-    margin-left: 29px;
-    margin-top: 77px;
-}
+
 
 .break-btn{
     width: 122px;
@@ -76,9 +79,3 @@
     color: #d7d5d5;
 }
 
-.containerMenu{
-    display: grid;
-    /* flex-wrap: nowrap; */
-    /* flex-direction: column; */
-    grid-template-columns: 0fr 1fr;
-}

@@ -23,7 +23,7 @@ export const Ordenes = () => {
         localStorage.setItem("cartProducts", JSON.stringify(cartItems))
     }, [cartItems])
 
-
+    console.log(typeof cartItems)
     const addToCart = (product) => {
         // buscar dentro del cartItems si el elemento existe, cambiar la cantidad a cantidad+1, si no existe, agregarlo al arreglo
         const existInCart = cartItems.find((value) => {
@@ -42,8 +42,8 @@ export const Ordenes = () => {
         }
 
 
-        console.log(`  card items => ${cartItems}`);
-        console.log(typeof (cartItems));
+        // console.log(`  card items => ${cartItems}`);
+        // console.log(typeof (cartItems));
     }
 
     useEffect(() => {
@@ -75,7 +75,7 @@ export const Ordenes = () => {
         setCurentProducts(includesBreakFast)
 
     }
-    
+
     return (
         <>
             <Navbar />
@@ -84,37 +84,37 @@ export const Ordenes = () => {
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
             </div>
 
-            <div className="containerMenu">
-
-                {curentproducts.map((element) =>
-                    <div className="container-menu" key={element.id}>
-                        <img src={element.image} className="image" />
-                        <p >{element.product}</p>
-                        <p>S/ {element.price}</p>
-                        <div>
-                            <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}>Agregar</button>
+            <div className="contenedor">
+                <div className="contenedor-order">
+                    {curentproducts.map((element) =>
+                        <div className="container-menu" key={element.id}>
+                            <img src={element.image} className="image" />
+                            <p >{element.product}</p>
+                            <p>S/ {element.price}</p>
+                            <div>
+                                <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}>Agregar</button>
+                            </div>
                         </div>
+                    )}
+
+
+
+                    <div className="add-product-total">
+                        {cartItems.map((element) =>
+                            <div key={element.id}>
+                                <p>{element.quantity}</p>
+                                <p>{element.product}</p>
+                                <p>S/ {element.price}</p>
+                            </div>
+                        )}
+                        <button className="send-kitchen">Enviar a Cocina</button>
                     </div>
-                )}
-        
+                </div>
+                </div>
+                <Footer />
+            </>
 
-
-            <div className="add-product-total">
-                {cartItems.map((element) =>
-                    <div key={element.id}>
-                        <p>{element.quantity}</p>
-                        <p>{element.product}</p>
-                        <p>S/ {element.price}</p>
-                    </div>
-                )}
-                <button className="send-kitchen">Enviar a Cocina</button>
-            </div>
-
-            </div>
-            <Footer />
-        </>
-
-    )
+      )
 }
 
 
