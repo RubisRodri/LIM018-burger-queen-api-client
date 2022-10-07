@@ -35,6 +35,7 @@ export const Login = () => {
               .then((data) => {
                 localStorage.setItem('token', data.token)
                 localStorage.setItem('nombre', data.nombre)
+                localStorage.setItem('id', data.id)
                 navigate("/Waiter")
               })
         }
