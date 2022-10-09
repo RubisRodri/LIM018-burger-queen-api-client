@@ -7,7 +7,7 @@ import './Orders.css'
 
 
 export const Ordenes = () => {
-    const API_URL = "http://localhost:3001/orders"
+    const API_URL = 'http://localhost:3001/'
 
     const [products, setProducts] = useState([]);
     const [curentproducts, setCurentProducts] = useState([])
@@ -69,7 +69,7 @@ export const Ordenes = () => {
             setCartItems(
                  cartItems.filter(elementInCar => elementInCar.id !== product.id)//aqui se esta eliminando si q=1
             )
-        }else if(inCart.quantity>1){
+        }else if(inCart.quantity > 1){
             const newArray = cartItems.map((element) => {
                 if (element.id === product.id) {
                     return { ...product, quantity: element.quantity - 1 }
@@ -87,49 +87,49 @@ export const Ordenes = () => {
                 });
                 
             if (inCart.quantity >= 1) {
-                //console.log("antes",cartItems)
                 setCartItems(
                      cartItems.filter(elementInCar => elementInCar.id !== product.id)
                 )
         }
     }
     
+
         // peticion htpp para enviar la orden a la cocina
-    // const sendOrder =() =>{
-    //     let sendKichen= fetch(`${API_URL}orders`, {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-type": "application/json;charset=UTF-8",
-    //             //"Authorization": `Bearer ${localStorage.getItem('token')}`
-    //         },
-    //         body: JSON.stringify(
-    //             {
-    //                 "id": 1,
-    //                 "userId": "",
-    //                 "table": "5",
-    //                 "products": [
-    //                   {
-    //                     "product": "American Coffee",
-    //                     "price": 5,
-    //                     "qty": 1
-    //                   },
-    //                   {
-    //                     "product": "Coffee with milk",
-    //                     "price": 7,
-    //                     "qty": 1
-    //                   }
-    //                 ],
-    //                 "status": "",
-    //                 "dateEntry":"",
-    //                 "dateProcessed":"",
-    //                 "time":"",
-    //             }
-    //     ).then(res => res.json())
-    //      .then((data) => {console.log(data)})
-    //     })
-    // }
+        const data ={
+         "id": 1,
+        "userId": `${localStorage.getItem('id')}`,
+        "table": "2",
+        "products": [
+          {
+            "product": "",
+            "price": 5,
+            "qty": 1
+          },
+          {
+            "product": "",
+            "price": 7,
+            "qty": 1
+          }
+        ],
+        "status": "",
+        "dateEntry":"",
+        "dateProcessed":"",
+        "time":""
+    }
+    const sendOrder =() =>{
+        let sendKichen= fetch(`${API_URL}orders`, {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                "Authorization": `Bearer ${localStorage.getItem('token')}`,
+                "id":`${localStorage.getItem('id')}`
+            },
+            body: JSON.stringify(data)
+        }) .then(res => res.json())
+          .then((resp) => {console.log(resp)})
+    }
 
-
+   
 
     const showDinnerFood = () => {
         let includesBreakFast = products.filter(products => products.type === 'cena')
@@ -177,7 +177,7 @@ export const Ordenes = () => {
                             </div>
                         )}
                           <p className="elemen-text"></p>
-                        <button className="send-kitchen">Enviar a Cocina</button>
+                        <button className="send-kitchen" onClick={sendOrder}>Enviar a Cocina</button>
                     </div>
                 </div>
                 </div>
@@ -258,3 +258,9 @@ export const Ordenes = () => {
 //     }
 
 // };
+
+
+// const token = sessionStorage.getItem('token');
+// function parseJwt(jwt) {
+//   return JSON.parse(Buffer.from(jwt.split('.')[1], 'base64').toString());
+// }
