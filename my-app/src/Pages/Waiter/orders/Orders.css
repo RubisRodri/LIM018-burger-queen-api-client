@@ -1,14 +1,41 @@
-.container-btn{
-    margin-top: 22px;
-    margin-inline-start: 23px;
+.body{
+    margin: 0;
+    padding: 0;
+  }
+
+.contenedor-general{
+    margin: 0 auto;
+    border: 5px solid #e3e7be;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 300px 300px 300px 400px;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header header header header"
+        "side side side main"
+        "side side side main";
+    grid-template-rows: auto;
 }
+
+.container-btn{
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 100px 100px 300px 100px;
+    grid-template-rows: 70px;
+}
+
 .contenedor-order{
     display: grid;
-    grid-template-columns: 1fr 1fr 6fr;
-    grid-auto-rows: 183px;
-    /* row-gap: 5px; */
-    gap: 14px;
-    margin-top: 22px;
+    grid-template-columns: 200px 200px 200px;
+    grid-area: side;
+    width: 800px;
+    width: 500px;
+    row-gap: 30px;
+}
+
+.image{
+    width: 50px;
+    text-align: center;
 }
 .container-menu{
     text-align: center;
@@ -17,66 +44,14 @@
     width: 140px;
     height: 175px;
     box-shadow: 0 0 1rem #00000025 inset;
-}
 
-.image{
-    width: 50px;
-    text-align: center;
 }
-
-.add-product{
-    border: 3px solid #f7c42f;
-    background: #f7c42f;
-    border-radius: 9px;
-    width: 100px;
-}
-
 .add-product-total{
+    grid-area: main;
     border: 1px solid #D7D5D5;
     border-radius: 20px;
     background: #D7D5D5;
-    margin: 35px;
-    margin-top: -196px;
     width: 69%;
     text-align: center;
     box-shadow: 0 0 1rem #00000025 inset;
-    margin-left: 163px;
 }
-
-.send-kitchen{
-    background: #f84141;
-    border: 1px solid #f84141;
-    border-radius: 5px;
-    width: 160px;
-    height: 47px;
-    margin: 15px;
-    margin-bottom: 3px;
-}
-
-.order-text{
-    text-align:center;
-}
-
-
-
-
-.break-btn{
-    width: 122px;
-    height: 61px;
-    border: 3px solid #F84141;
-    border-radius: 12px;
-    background: #ffff;
-    margin: 3px;
-    color: #F84141
-}
-
-.dinner-btn{
-    width: 122px;
-    height: 61px;
-    border: 2px solid #fff;
-    border-radius: 12px;
-    background: #F84141;
-    margin: 3px;
-    color: #d7d5d5;
-}
-

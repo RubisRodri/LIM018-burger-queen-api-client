@@ -17,7 +17,7 @@ export function Waiter() {
     };
 
     function sendActiveOrder(e) {
-        //  navigate("/Active-order")
+       navigate("/ActiveOrder")
     };
 
 
@@ -32,7 +32,7 @@ export function Waiter() {
                 </button>
                 <button className='btn-waiter' >
                     <img className='img-waiter' src={waiter} />
-                    <span className='textA' id="textA">Active orders</span>
+                    <span className='textA' id="textA" onClick={sendActiveOrder}>Active orders</span>
                 </button>
             </div>
             <Footer />

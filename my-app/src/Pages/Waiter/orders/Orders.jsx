@@ -92,31 +92,14 @@ export const Ordenes = () => {
                 )
         }
     }
-    
+  
 
-        // peticion htpp para enviar la orden a la cocina
-        const data ={
-         "id": 1,
-        "userId": `${localStorage.getItem('id')}`,
-        "table": "2",
-        "products": [
-          {
-            "product": "",
-            "price": 5,
-            "qty": 1
-          },
-          {
-            "product": "",
-            "price": 7,
-            "qty": 1
-          }
-        ],
-        "status": "",
-        "dateEntry":"",
-        "dateProcessed":"",
-        "time":""
-    }
+     // peticion htpp para enviar la orden a la cocina
+        
     const sendOrder =() =>{
+       let valueProduct = cartItems.map((element) =>{
+            return element.product
+        })
         let sendKichen= fetch(`${API_URL}orders`, {
             method: 'POST',
             headers: {
@@ -124,7 +107,29 @@ export const Ordenes = () => {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`,
                 "id":`${localStorage.getItem('id')}`
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(
+                 {
+                    "id": 1,
+                   "userId": '',
+                   "table": "2",
+                   "products": [
+                     {
+                       "product": "",
+                       "price": 5,
+                       "qty": 1
+                     },
+                     {
+                       "product": "",
+                       "price": 7,
+                       "qty": 1
+                     }
+                   ],
+                   "status": "",
+                   "dateEntry":"",
+                   "dateProcessed":"",
+                   "time":""
+               }
+            )
         }) .then(res => res.json())
           .then((resp) => {console.log(resp)})
     }
@@ -146,12 +151,15 @@ export const Ordenes = () => {
     return (
         <>
             <Navbar />
+         <div className="contenedor-general">
             <div className='container-btn'>
                 <button type='button' className='break-btn' onClick={showBreakFastFood} >Desayuno</button>
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
+                <p>Mesa</p>
+                <input clasName="text-num"></input>
             </div>
 
-            <div className="contenedor">
+        
                 <div className="contenedor-order">
                     {curentproducts.map((element) =>
                         <div className="container-menu" key={element.id}>
@@ -165,6 +173,8 @@ export const Ordenes = () => {
                         </div>
                     )}
 
+                 </div>
+
                     <div className="add-product-total">
                         {cartItems.map((element) =>
                             <div className="order-text" key={element.id}>
@@ -177,8 +187,8 @@ export const Ordenes = () => {
                           <p className="elemen-text"></p>
                         <button className="send-kitchen" onClick={sendOrder}>Enviar a Cocina</button>
                     </div>
-                </div>
-                </div>
+            
+            </div> 
                 <Footer />
             </>
       )
