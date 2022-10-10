@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { json, useNavigate } from "react-router-dom";
 import { Navbar } from '../../../Components/navbar/Navbar.jsx'
-import Footer from '../../../Components/footer/footer.jsx';
+import Footer from '../../../Components/footer/Footer.jsx';
 import './Orders.css'
 
 
@@ -164,8 +164,6 @@ export const Ordenes = () => {
                             </div>
                         </div>
                     )}
-
-
 
                     <div className="add-product-total">
                         {cartItems.map((element) =>
