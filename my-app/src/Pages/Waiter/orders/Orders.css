@@ -8,13 +8,14 @@
     border: 5px solid #e3e7be;
     background-color: white;
     display: grid;
-    grid-template-columns: 300px 300px 300px 400px;
+    grid-template-columns: 150px 150px 150px 300px;
     grid-template-rows: auto;
     grid-template-areas:
         "header header header header"
         "side side side main"
         "side side side main";
     grid-template-rows: auto;
+    width: 1200px;
 }
 
 .container-btn{
@@ -26,7 +27,7 @@
 
 .contenedor-order{
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 150px 150px 150px;
     grid-area: side;
     width: 800px;
     width: 500px;
@@ -47,11 +48,16 @@
 
 }
 .add-product-total{
+    display: grid;
     grid-area: main;
     border: 1px solid #D7D5D5;
     border-radius: 20px;
     background: #D7D5D5;
     width: 69%;
-    text-align: center;
+    /* text-align: center; */
     box-shadow: 0 0 1rem #00000025 inset;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: stretch;
+    align-content: space-around;
 }
