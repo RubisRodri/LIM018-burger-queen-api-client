@@ -1,0 +1,25 @@
+.contenedor-mesas{
+    display: grid;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    place-content: center;
+    height: 492px;
+    gap: 25px;
+    
+}
+
+.mesas-activas{
+    object-fit: contain;
+    border: 5px solid #e2141411;
+    justify-self: center;
+    place-self: center;
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.table{
+    width: 60%;
+    height: 100%;
+    object-fit: contain;
+}
