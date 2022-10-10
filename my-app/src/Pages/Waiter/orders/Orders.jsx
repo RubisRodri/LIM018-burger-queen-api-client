@@ -97,9 +97,7 @@ export const Ordenes = () => {
      // peticion htpp para enviar la orden a la cocina
         
     const sendOrder =() =>{
-       let valueProduct = cartItems.map((element) =>{
-            return element.product
-        })
+        console.log(cartItems)
         let sendKichen= fetch(`${API_URL}orders`, {
             method: 'POST',
             headers: {
@@ -108,27 +106,30 @@ export const Ordenes = () => {
                 "id":`${localStorage.getItem('id')}`
             },
             body: JSON.stringify(
-                 {
+                
+                {
                     "id": 1,
-                   "userId": '',
-                   "table": "2",
-                   "products": [
-                     {
-                       "product": "",
-                       "price": 5,
-                       "qty": 1
-                     },
-                     {
-                       "product": "",
-                       "price": 7,
-                       "qty": 1
-                     }
-                   ],
-                   "status": "",
-                   "dateEntry":"",
-                   "dateProcessed":"",
-                   "time":""
-               }
+                    "order": localStorage.getItem('cartProducts'),
+                    "status": "",
+                     "dateEntry":"",
+                    "dateProcessed":"",
+                    "time":""
+                    
+                }
+                //    "userId": '',
+                //    "table": "2",
+                //    "products": [
+                //      {
+                //        "product": "",
+                //        "price": 5,
+                //        "qty": 1
+                //      },
+                //      {
+                //        "product": "",
+                //        "price": 7,
+                //        "qty": 1
+                //      }
+               
             )
         }) .then(res => res.json())
           .then((resp) => {console.log(resp)})
