@@ -1,84 +1,90 @@
+:root{
+    --rojo:#F84141;
+    --amarillo:#FFDE00;
+    --Gris:#FFFAE7;
+    --blancogris:#EFEFEF;
+    --fuente:'Quicksand', sans-serif;
+}
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fuente);
+    background-color: var(--blancogris);
     margin: 0;
     padding: 0;
 }
-
-#root {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-image:url('../../Pictures/banneer2.png');
-    background-repeat: no-repeat, repeat
+.contenedor{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 95%;
 }
-
-.image-login {
-    max-width: 36%;
-    margin: -13%;
+.imagen-formulario{
+    background-image: url('../../Pictures/banner.png');
+    background-position: center center;
+    background-size: cover;
+    flex: calc(50%);
 }
-
-.welcome{
-    margin: 57px;
+.imagen-formulario::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: linear-gradient(to right, #EFEFEF);
 }
-
-.sesion-login{
-    margin: 13px;
+@media(min-width:768px){
+    .imagen-formulario{
+        height: auto;
+    }
 }
-.container-form-login {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 70vh;
-    height: 100vh;
+@media(min-width:768px){
+    .contenedor-formulario{
+        display: flex;
+    }
+}
+.logoimg{
+    height: 75px;
+    width: 75px;
+    position: absolute;
+}
+.formulario{
+    padding: 50px;
+    background-color: #FFFF;
+    position: relative;
+}
+.texto-formulario h2, .input label, .password-olvidada a, .texto-formulario p{
+    color: #181818
+}
+.texto-formulario h2{
+    font-size: 30px;
     text-align: center;
 }
-
-.image-banner{
-    width: 80%;
-    margin-bottom: -1%;
-
-}
-
-.logo-image {
-    width: 71%;
-    margin-left: 131%;
-}
-
-
-.form{
-    border: 4px solid #f84141;
-    border-radius: 6%;
- 
-}
-
-.input-email, .input-password{
-    width: 83%;
-    height: 6vh;
-    border: 3px solid rgb(0 0 0 / 50%);
-    border-radius: 14px;
-    margin: 5%;
-}
-
-
-
-input::placeholder{
+.texto-formulario p{
+    font-size: 22px;
     text-align: center;
 }
-
-.forget-password{
-    text-decoration: none;
-    color: #000;
-    margin: 11%;
+.input label{
+    display:block;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px 0;
 }
-
-.btn-login{
-    height: 47px;
-    width: 39%;
-    background: #f84141;
-    border: 4px;
-    border-radius: 4px;
-    margin: 20px;
+.password-olvidada a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
 }
-
-
+.input input{
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 5px;
+    outline: none;
+}
+.input input[type="submit"]{
+    background-color:var(--rojo);
+    color:var(--blanco);
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    margin-top: 20px;
+    cursor:pointer;
+    transition: background-color .3s ease-in-out;
+}
