@@ -3,41 +3,52 @@
     padding: 0;
   }
 
-.contenedor-general{
-    margin: 0 auto;
-    border: 5px solid #e3e7be;
+.contenedor-general {
+    /* margin: 0 auto; */
+    /* border: 5px solid #e3e7be; */
     background-color: white;
     display: grid;
-    grid-template-columns: 150px 150px 150px 300px;
     grid-template-rows: auto;
     grid-template-areas:
         "header header header header"
         "side side side main"
         "side side side main";
     grid-template-rows: auto;
-    width: 1200px;
+    justify-content: space-evenly;
+    align-content: stretch;
+    height: 485px;
 }
 
 .container-btn{
     grid-area: header;
     display: grid;
-    grid-template-columns: 100px 100px 300px 100px;
+    grid-template-columns: 120px 120px 750px 100px;
     grid-template-rows: 70px;
+}
+
+.text-mesa{
+    justify-self: end;
+}
+
+.text-num{
+    height: 40px;
+    width: 40px;
 }
 
 .contenedor-order{
     display: grid;
-    grid-template-columns: 150px 150px 150px;
+    grid-template-columns: 250px 250px 250px;
     grid-area: side;
     width: 800px;
     width: 500px;
-    row-gap: 30px;
+    row-gap: 25px;
 }
 
 .image{
     width: 50px;
     text-align: center;
 }
+
 .container-menu{
     text-align: center;
     border: 4px solid #f84141;
@@ -47,17 +58,53 @@
     box-shadow: 0 0 1rem #00000025 inset;
 
 }
+
+.dinner-btn{
+    background: #f84141;
+    border: 3px solid #f84141;
+    border-radius: 11px;
+    width: 93%;
+    margin: 6px;
+    color:#FFF
+}
+
+.break-btn{
+    border: 4px solid #f84141;
+    border-radius: 11px;
+    color: #f84141;
+    width: 93%;
+    margin: 6px;
+
+}
 .add-product-total{
     display: grid;
     grid-area: main;
     border: 1px solid #D7D5D5;
     border-radius: 20px;
     background: #D7D5D5;
-    width: 69%;
-    /* text-align: center; */
+    width: 450px;
+    text-align: center;
     box-shadow: 0 0 1rem #00000025 inset;
     justify-content: space-around;
     align-items: center;
     justify-items: stretch;
-    align-content: space-around;
+}
+
+.send-kitchen{
+    background: #f84141;
+    width: 79%;
+    height: 36px;
+    border: 3px solid #f84141;
+    border-radius: 7px;
+    color: #Fff;
+    justify-self: center;
+}
+
+.form-text{
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+}
+
+.text{
+    display:contents;
 }

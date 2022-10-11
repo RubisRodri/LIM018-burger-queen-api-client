@@ -3,7 +3,7 @@ import listImg from '../../Pictures/lista.png'
 import logo from '../../Pictures/logo.png'
 import './navbar.css'
 
-//navbar
+
 export const Navbar = ()=> {
     return (
         <section>
