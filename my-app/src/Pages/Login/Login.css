@@ -15,12 +15,13 @@ body{
     margin: 0 auto;
     max-width: 1200px;
     width: 95%;
+
 }
 .imagen-formulario{
     background-image: url('../../Pictures/banner.png');
     background-position: center center;
     background-size: cover;
-    flex: calc(50%);
+    flex: calc(60%);
 }
 .imagen-formulario::before{
     content: '';

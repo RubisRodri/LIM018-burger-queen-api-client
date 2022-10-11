@@ -1,12 +1,15 @@
 
 .container{
-    display: inline-block;
-    text-align: center;
-    /* max-width: 945px; */
-    margin-left: 100px;
-    /* height: 100%; */
-    padding-top: 115px;
+    display: grid;
+    grid-template-rows: 200px 200px;
+    grid-template-columns: 640px;
+    align-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
 }
+   
+
 
 .textName{
     text-align: center;
@@ -24,7 +27,7 @@
     border: navajowhite;
     border-radius: 0.8rem;
     color: #fff;
-    padding: 24px;
+    padding: 17px;
     width: 60%;
     margin: 20px;
 }

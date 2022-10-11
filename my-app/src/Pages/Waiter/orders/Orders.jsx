@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { json, useNavigate } from "react-router-dom";
-import { Navbar } from '../../../Components/navbar/Navbar.jsx'
-import btnadd from '../../../Pictures/add.png'
-import Footer from '../../../Components/footer/Footer.jsx';
-import './Orders.css'
+import { Navbar } from '../../../Components/navbar/Navbar.jsx';
+import btnadd from '../../../Pictures/add.png';
+import menos from '../../../Pictures/menos.png'
+import Footer from '../../../Components/footer/footer.jsx';
+import './Orders.css';
 
 
 
@@ -95,7 +96,7 @@ export const Ordenes = () => {
     }
   
 
-     // peticion htpp para enviar la orden a la cocina de la orden 
+     // peticion htpp para enviar la orden 
     const sendOrder =() =>{
         console.log(cartItems)
         let sendKichen= fetch(`${API_URL}orders`, {
@@ -106,12 +107,10 @@ export const Ordenes = () => {
                 "id":`${localStorage.getItem('id')}`
             },
             body: JSON.stringify(
-                
                 {
                     "userId": 1,
                     "products": JSON.parse( localStorage.getItem('cartProducts')).map((value)=> ({productId: value.id, qty: value.quantity})),
                 }
-              
             )
         }) .then(res => res.json())
           .then((resp) => {console.log(resp)})
@@ -138,8 +137,15 @@ export const Ordenes = () => {
             <div className='container-btn'>
                 <button type='button' className='break-btn' onClick={showBreakFastFood} >Desayuno</button>
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
-                <p className="text-mesa">Mesa</p>
-                <input clasName="text-num"></input>
+                <label className="select-mesas"></label>
+                <select className="mesas-activas">
+                    <option value="Mesa 1">Mesa 1</option>
+                    <option value="Mesa 2">Mesa 2</option>
+                    <option value="Mesa 3">Mesa 3</option>
+                    <option value="Mesa 4">Mesa 4</option>
+                    <option value="Mesa 5">Mesa 5</option>
+                    <option value="Mesa 6">Mesa 6</option>
+                </select>
             </div>
 
         
@@ -147,11 +153,11 @@ export const Ordenes = () => {
                     {curentproducts.map((element) =>
                         <div className="container-menu" key={element.id}>
                             <img src={element.image} className="image" />
-                            <p >{element.product}</p>
+                            <p className="nombreProduct">{element.product}</p>
                             <p>S/ {element.price}</p>
-                            <div>
+                            <div className="button-order">
                                 <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}><img className ="btnadd" src={btnadd}/></button>
-                                <button data-id={element.id} className="delete-product" onClick={() => subtractItemToCart(element)}>Restar</button>
+                                <button data-id={element.id} className="delete-product" onClick={() => subtractItemToCart(element)}><img className ="btnadd" src={menos}/></button>
                             </div>
                         </div>
                     )}
@@ -160,15 +166,6 @@ export const Ordenes = () => {
 
                     <div className="add-product-total">
                         <div className="form-text">
-                            <div>
-                              <p className="text">Cantidad</p>
-                            </div> 
-                            <div>
-                               <p className="text">Producto</p>
-                            </div>  
-                            <div>
-                                <p className="text">Total</p>
-                            </div>
                         </div>
                         {cartItems.map((element) =>
                             <div className="order-text" key={element.id}>
