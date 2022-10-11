@@ -69,8 +69,8 @@ server.post("/orders", (req, res) => {
                 "_id": "",
                 "userId": req.body.userId,
                 "client": "",
-                "products": mapedProsucts
-
+                "products": mapedProsucts,
+                "order.status":"pending"
             }
         })
     } catch (error) {
@@ -82,12 +82,7 @@ server.post("/orders", (req, res) => {
 
 
 
-    const datos = [
-        { id: 1, cliente: "orden 1", total: 2500 },
-        { id: 2, cliente: "orden 2", total: 2100 },
-        { id: 3, cliente: "orden 3", total: 200 }
-    ];
-    res.json(datos);
+    
 
 
 
