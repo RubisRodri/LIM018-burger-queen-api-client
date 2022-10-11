@@ -4,17 +4,17 @@
       "id": 1,
       "name": "Cafe Americano",
       "price": 5,
-      "image":"https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+      "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
       "type": "desayuno",
-      "dateEntry":""
+      "dateEntry": ""
     },
     {
       "id": 2,
       "name": "Cafe con Leche",
       "price": 7,
-      "image":"https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+      "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
       "type": "desayuno",
-      "dateEntry":""
+      "dateEntry": ""
     },
     {
       "id": 3,
@@ -108,8 +108,8 @@
         }
       ],
       "status": "",
-      "dateEntry":"",
-      "dateProcessed":"",
+      "dateEntry": "",
+      "dateProcessed": "",
       "time": ""
     }
   ]

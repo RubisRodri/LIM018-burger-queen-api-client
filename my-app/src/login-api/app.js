@@ -10,6 +10,7 @@ const products = router.db
 
 
 
+
 const secret = "aBdshdbbAsdjjbdjdbjhbsabdnef6466164684"
 server.use(jsonServer.bodyParser)
 server.use(middlewares)
@@ -80,7 +81,7 @@ server.post("/orders", (req, res) => {
 )
 
 
-server.get("/options", (req, res) => {
+
     const datos = [
         { id: 1, cliente: "orden 1", total: 2500 },
         { id: 2, cliente: "orden 2", total: 2100 },
