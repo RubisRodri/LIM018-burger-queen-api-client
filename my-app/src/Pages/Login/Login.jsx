@@ -3,23 +3,18 @@ import React, { useState } from 'react';
 //import logo from '../../Pictures/logo.png';
 import './Login.css';
 import { useNavigate } from "react-router-dom";
-
-
 export const Login = () => {
     const API_URL= 'http://localhost:3001/'
     const navigate = useNavigate()
-
     const [datos, setDatos] = useState({
         email: "",
         password: ""
     });
-
     const handleInputChange = (e) => {
         let { name, value } = e.target;
         let newDatos = { ...datos, [name]: value };
         setDatos(newDatos);
     }
-
     const handleSubmit = async(e) => {
         e.preventDefault();
         if (e.target === 0) {
@@ -39,14 +34,12 @@ export const Login = () => {
                 navigate("/Waiter")
               })
         }
-        
     };
         return (
          <div className="contenedor-formulario contenedor">
              <div className="imagen-formulario">
                 <img src={''}/>
              </div>
-
             <form className="formulario"onSubmit={handleSubmit} >
              <div className="texto-formulario">
                 <h2>Bienvenido de nuevo</h2>
@@ -70,3 +63,9 @@ export const Login = () => {
          </div>
     )
 }
+
+
+
+
+
+

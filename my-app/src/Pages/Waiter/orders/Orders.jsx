@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { json, useNavigate } from "react-router-dom";
 import { Navbar } from '../../../Components/navbar/Navbar.jsx'
-import Footer from '../../../Components/footer/footer.jsx';
 import btnadd from '../../../Pictures/add.png'
+import Footer from '../../../Components/footer/Footer.jsx';
 import './Orders.css'
 
 
