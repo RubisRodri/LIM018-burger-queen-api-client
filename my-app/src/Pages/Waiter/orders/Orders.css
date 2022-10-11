@@ -4,8 +4,6 @@
   }
 
 .contenedor-general {
-    /* margin: 0 auto; */
-    /* border: 5px solid #e3e7be; */
     background-color: white;
     display: grid;
     grid-template-rows: auto;

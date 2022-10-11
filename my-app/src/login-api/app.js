@@ -88,7 +88,7 @@ server.post("/orders", (req, res) => {
         { id: 3, cliente: "orden 3", total: 200 }
     ];
     res.json(datos);
-});
+
 
 
 //  server.get("/products/product.id", (req, res) => {
