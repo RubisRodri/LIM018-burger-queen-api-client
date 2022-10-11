@@ -59,7 +59,7 @@ export const Ordenes = () => {
         }
     };
 
-    //funcion para disminuir  productos de la orden
+    //funcion para disminuir  productos de la orden 
     const subtractItemToCart = (product) => {
         const inCart = cartItems.find((value) => {   
             return value.id === product.id
@@ -94,42 +94,23 @@ export const Ordenes = () => {
     }
   
 
-     // peticion htpp para enviar la orden a la cocina
-        
+     // peticion htpp para enviar la orden a la cocina de la orden 
     const sendOrder =() =>{
         console.log(cartItems)
         let sendKichen= fetch(`${API_URL}orders`, {
             method: 'POST',
             headers: {
-                "Content-type": "application/json;charset=UTF-8",
+                "Content-type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem('token')}`,
                 "id":`${localStorage.getItem('id')}`
             },
             body: JSON.stringify(
                 
                 {
-                    "id": 1,
-                    "order": localStorage.getItem('cartProducts'),
-                    "status": "",
-                     "dateEntry":"",
-                    "dateProcessed":"",
-                    "time":""
-                    
+                    "userId": 1,
+                    "products": JSON.parse( localStorage.getItem('cartProducts')).map((value)=> ({productId: value.id, qty: value.quantity})),
                 }
-                //    "userId": '',
-                //    "table": "2",
-                //    "products": [
-                //      {
-                //        "product": "",
-                //        "price": 5,
-                //        "qty": 1
-                //      },
-                //      {
-                //        "product": "",
-                //        "price": 7,
-                //        "qty": 1
-                //      }
-               
+              
             )
         }) .then(res => res.json())
           .then((resp) => {console.log(resp)})
