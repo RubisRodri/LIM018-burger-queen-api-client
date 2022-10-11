@@ -8,7 +8,7 @@ const products = router.db
   .get('products')
   .value() 
 
-  console.log(products)
+  //console.log(products)
 
 
 
@@ -49,6 +49,40 @@ server.post("/auth", (req, res) => {
         res.status(400).send("Crendenciales incorrectas");
     }
 });
+
+
+ server.post("/orders",(req, res) => {
+    try{
+        const data = req.body;
+        console.log("hola",req.body)
+        res.status(200).json({
+                "id": "",
+                "userId":'',
+                "table": "",
+                "products": [
+                  {
+                    "product": req.body.product,
+                    "price": "",
+                    "qty": ""
+                  },
+                  {
+                    "product": "",
+                    "price": "",
+                    "qty": ""
+                  }
+                ],
+                "status": "ready",
+                "dateEntry": "",
+                "dateProcessed": "",
+                "time": "32"
+              
+        })
+    } catch(error){
+        res.status(400).send("No se indica Id, o se intenta crear una orden sin productos")  
+        res.status(401).send("No hay cabecera de autenticación")  
+    }
+ }
+ )
 
 
 server.get("/options",(req, res)=>{

@@ -9,6 +9,7 @@ import {
 import { Login } from '../src/Pages/Login/Login.jsx'
 import { Waiter } from '../src/Pages/Waiter/Waiter-option/Waiter-option.jsx'
 import { Ordenes } from '../src/Pages/Waiter/orders/Orders.jsx'
+import {ActiveOrder} from '../src/Pages/Waiter-ordenes/ActiveOrder.jsx';
 
 
 
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root'))
                     <Route path="/" element={<Login />} />
                     <Route path="/Waiter" element={<Waiter />} />
                     <Route path="/Ordenes" element={<Ordenes />} />
+                    <Route path="/ActiveOrder" element={<ActiveOrder />} />
                     <Route path="*" element={<Navigate replace to="/" />} />
                 </Routes>
 
