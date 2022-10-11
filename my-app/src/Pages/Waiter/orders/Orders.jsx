@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { json, useNavigate } from "react-router-dom";
 import { Navbar } from '../../../Components/navbar/Navbar.jsx'
 import Footer from '../../../Components/footer/footer.jsx';
+import btnadd from '../../../Pictures/add.png'
 import './Orders.css'
 
 
@@ -156,7 +157,7 @@ export const Ordenes = () => {
             <div className='container-btn'>
                 <button type='button' className='break-btn' onClick={showBreakFastFood} >Desayuno</button>
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
-                <p>Mesa</p>
+                <p className="text-mesa">Mesa</p>
                 <input clasName="text-num"></input>
             </div>
 
@@ -168,7 +169,7 @@ export const Ordenes = () => {
                             <p >{element.product}</p>
                             <p>S/ {element.price}</p>
                             <div>
-                                <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}>Agregar</button>
+                                <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}><img className ="btnadd" src={btnadd}/></button>
                                 <button data-id={element.id} className="delete-product" onClick={() => subtractItemToCart(element)}>Restar</button>
                             </div>
                         </div>
@@ -177,11 +178,20 @@ export const Ordenes = () => {
                  </div>
 
                     <div className="add-product-total">
+                        <div className="form-text">
+                            <div>
+                              <p className="text">Cantidad</p>
+                            </div> 
+                            <div>
+                               <p className="text">Producto</p>
+                            </div>  
+                            <div>
+                                <p className="text">Total</p>
+                            </div>
+                        </div>
                         {cartItems.map((element) =>
                             <div className="order-text" key={element.id}>
-                                <p className="elemen-text">{element.quantity}</p>
-                                <p className="elemen-text">{element.product}</p>
-                                <p className="elemen-text">S/ {element.price}</p>
+                                <p className="elemen-text">{element.quantity}   {element.product}    S/{element.price}</p>
                                 <button data-id={element.id} className="delete-product" onClick={() => deleteItemToCart(element)}>Borrar</button>
                             </div>
                         )}
