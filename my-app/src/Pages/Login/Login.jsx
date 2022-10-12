@@ -3,37 +3,44 @@ import React, { useState } from 'react';
 //import logo from '../../Pictures/logo.png';
 import './Login.css';
 import { useNavigate } from "react-router-dom";
+
 export const Login = () => {
-    const API_URL= 'http://localhost:3001/'
-    const navigate = useNavigate()
+    const API_URL= 'http://localhost:3001/';
+    const navigate = useNavigate();
     const [datos, setDatos] = useState({
         email: "",
         password: ""
     });
+
+    const [errorMessage, setErrorMessages] = useState(false);
+
     const handleInputChange = (e) => {
         let { name, value } = e.target;
         let newDatos = { ...datos, [name]: value };
         setDatos(newDatos);
     }
-    const handleSubmit = async(e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if (e.target === 0) {
-            console.log('no enviar');
-        } else {
-            let res = await fetch(`${API_URL}auth`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(datos)
-            }).then(res => res.json())
-              .then((data) => {
-                localStorage.setItem('token', data.token)
-                localStorage.setItem('nombre', data.nombre)
-                localStorage.setItem('id', data.id)
-                navigate("/Waiter")
-              })
-        }
+        if (datos.email=== '' || datos.password === '') {
+            alert('Por Favor Complete sus Email y/o Password')
+            document.getElementById('txtcorreo').value ='';
+            document.getElementById('txtpassword').value ='';
+            document.getElementById('txtcorreo').focus();
+        }else{
+            let res = fetch(`${API_URL}auth`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datos)
+        }).then(res => res.json())
+          .then((data) => {
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('nombre', data.nombre)
+            localStorage.setItem('id', data.id)
+            navigate("/Waiter")
+          }).catch(error => setErrorMessages(true))
+        } 
     };
         return (
          <div className="contenedor-formulario contenedor">
@@ -56,6 +63,8 @@ export const Login = () => {
              <div className="password-olvidada">
                 <a href="#">¿Olvidaste tu contraseña?</a>
              </div>
+             {errorMessage?
+                <label className='errorMessage'>Por favor verifique su email y Password</label>:""}
              <div className="input">
                 <input type="submit" value="Login"/>
              </div>

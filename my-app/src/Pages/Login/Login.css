@@ -90,3 +90,8 @@ body{
     cursor:pointer;
     transition: background-color .3s ease-in-out;
 }
+
+.errorMessage{
+    font-size: 14px;
+    color: #F84141;
+}
