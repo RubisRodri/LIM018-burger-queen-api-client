@@ -111,6 +111,35 @@
       "dateEntry": "",
       "dateProcessed": "",
       "time": ""
+    },
+    {
+      "userId": 1,
+      "client": "",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno",
+            "dateEntry": ""
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 4,
+            "name": "sandwich de Queso",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "type": "desayuno",
+            "dateEntry": ""
+          }
+        }
+      ],
+      "order.status": "pending"
     }
   ]
 }

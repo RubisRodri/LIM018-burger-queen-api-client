@@ -43,12 +43,12 @@ server.post("/auth", (req, res) => {
     }
 });
 
-server.post("/orders", (req, res) => {
+server.post("/orders", async(req, res) => {
     try {
         const data = req.body;
         const productsFronEnd = req.body.products;
 
-        const getProductById = (id)=>{
+        const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
             })
@@ -62,16 +62,18 @@ server.post("/orders", (req, res) => {
             }
             return objNew
         })
+        const order = {
+            "userId": req.body.userId,
+            "client": "",
+            "products": mapedProsucts,
+            "order.status": "pending"
+        }
+        const orders = router.db.get('orders')
+        const resolve = await orders.push(order).write()
 
-        console.log('obj',mapedProsucts)
+        console.log('obj =>', resolve)
         res.status(200).json({
-            order: {
-                "_id": "",
-                "userId": req.body.userId,
-                "client": "",
-                "products": mapedProsucts,
-                "order.status":"pending"
-            }
+            order
         })
     } catch (error) {
         res.status(400).send("No se indica Id, o se intenta crear una orden sin productos")
@@ -82,7 +84,7 @@ server.post("/orders", (req, res) => {
 
 
 
-    
+
 
 
 
