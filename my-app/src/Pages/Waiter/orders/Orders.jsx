@@ -3,7 +3,8 @@ import { json, useNavigate } from "react-router-dom";
 import { Navbar } from '../../../Components/navbar/Navbar.jsx';
 import btnadd from '../../../Pictures/add.png';
 import menos from '../../../Pictures/menos.png'
-import Footer from '../../../Components/footer/footer.jsx';
+import dump from '../../../Pictures/dump.png'
+import Footer from '../../../Components/footer/Footer.jsx';
 import './Orders.css';
 
 
@@ -171,7 +172,9 @@ export const Ordenes = () => {
                         {cartItems.map((element) =>
                             <div className="order-text" key={element.id}>
                                 <p className="elemen-text">{element.quantity}   {element.product}    S/{element.price}</p>
-                                <button data-id={element.id} className="delete-product" onClick={() => deleteItemToCart(element)}>Borrar</button>
+                                <button data-id={element.id} className="delete-order" onClick={() => deleteItemToCart(element)}>
+                                    <img className="dump-order" src={dump}/>
+                                </button>
                             </div>
                         )}
                           <p className="elemen-text"></p>
