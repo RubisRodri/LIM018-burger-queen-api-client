@@ -140,6 +140,7 @@ export const Ordenes = () => {
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
                 <label className="select-mesas"></label>
                 <select className="mesas-activas">
+                    <option value="Mesa">Mesa </option>
                     <option value="Mesa 1">Mesa 1</option>
                     <option value="Mesa 2">Mesa 2</option>
                     <option value="Mesa 3">Mesa 3</option>
