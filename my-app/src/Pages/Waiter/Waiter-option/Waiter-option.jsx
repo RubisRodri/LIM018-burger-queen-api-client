@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navbar } from '../../../Components/navbar/Navbar.jsx';
-import addgris from '../../../Pictures/addgris.png';
+import mas from '../../../Pictures/mas.png';
 import waiter from '../../../Pictures/waiter-serving.png';
-import Footer from '../../../Components/footer/footer.jsx';
+import Footer from '../../../Components/footer/Footer.jsx';
 import { useNavigate } from 'react-router-dom';
 import './Waiter-option.css';
 
@@ -27,7 +27,7 @@ export function Waiter() {
             <h2 className='textName'>{`Bienvenido ${name} !!`}</h2>
             <div className='container'>
                 <button className='btn-add' >
-                    <img className='img-add' src={addgris} />
+                    <img className='img-add' src={mas} />
                     <span className='textN' id="textN" onClick={sendOrdenes}>New order</span>
                 </button>
                 <button className='btn-waiter' >

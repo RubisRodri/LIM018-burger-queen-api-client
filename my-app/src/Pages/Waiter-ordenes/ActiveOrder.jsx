@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar } from "../../Components/navbar/Navbar";
 import { Navigate } from "react-router-dom";
-import Footer from '../../Components/footer/Footer.jsx';
+import Footer from '.././../Components/footer/Footer.jsx';
 import mesas from "../../Pictures/mesas.png"
 import './ActiveOrder.css';
 
