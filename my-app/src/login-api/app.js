@@ -47,7 +47,7 @@ server.post("/orders", async(req, res) => {
     try {
         const data = req.body;
         const productsFronEnd = req.body.products;
-
+        
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
