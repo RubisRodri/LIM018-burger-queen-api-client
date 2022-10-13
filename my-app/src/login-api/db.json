@@ -92,391 +92,27 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "userId": "",
-      "table": "2",
-      "products": [
-        {
-          "product": "American Coffee",
-          "price": 5,
-          "qty": 1
-        },
-        {
-          "product": "Coffee with milk",
-          "price": 7,
-          "qty": 1
-        }
-      ],
-      "status": "",
-      "dateEntry": "",
-      "dateProcessed": "",
-      "time": ""
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "id": 2,
-            "name": "Cafe con Leche",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 10,
-          "product": {
-            "id": 2,
-            "name": "Cafe con Leche",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 6,
-            "name": "Agua 750 ml",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 3,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 9,
-            "name": "Hamburguesa Clasica",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/1858/1858002.png",
-            "type": "cena",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 22,
-          "product": {
-            "id": 6,
-            "name": "Agua 750 ml",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 22,
-          "product": {
-            "id": 6,
-            "name": "Agua 750 ml",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 20,
-          "product": {
-            "id": 6,
-            "name": "Agua 750 ml",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 3,
-            "name": "Jugo Natural",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 3,
-            "name": "Jugo Natural",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 3,
-            "name": "Jugo Natural",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 2,
-          "product": {
-            "id": 1,
-            "name": "Cafe Americano",
-            "price": 5,
-            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 2,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
-      "client": "mesa 4",
-      "products": [
-        {
-          "qty": 2,
-          "product": {
-            "id": 1,
-            "name": "Cafe Americano",
-            "price": 5,
-            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 2,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": 1,
+      "userId": "123",
       "client": "mesa 2",
       "products": [
         {
-          "qty": 2,
+          "qty": 1,
           "product": {
-            "id": 1,
-            "name": "Cafe Americano",
-            "price": 5,
-            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+            "id": 6,
+            "name": "Agua 750 ml",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
             "type": "desayuno",
             "dateEntry": ""
           }
         },
         {
-          "qty": 2,
+          "qty": 1,
           "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "client": "mesa 2",
-      "products": [
-        {
-          "qty": 2,
-          "product": {
-            "id": 1,
-            "name": "Cafe Americano",
-            "price": 5,
-            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 2,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
             "type": "desayuno",
             "dateEntry": ""
           }
@@ -486,10 +122,32 @@
     },
     {
       "userId": "123",
-      "client": "mesa 4",
+      "client": "mesa 2",
       "products": [
         {
           "qty": 2,
+          "product": {
+            "id": 6,
+            "name": "Agua 750 ml",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
+            "type": "desayuno",
+            "dateEntry": ""
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno",
+            "dateEntry": ""
+          }
+        },
+        {
+          "qty": 1,
           "product": {
             "id": 1,
             "name": "Cafe Americano",
@@ -498,14 +156,43 @@
             "type": "desayuno",
             "dateEntry": ""
           }
-        },
+        }
+      ],
+      "order.status": "pending"
+    },
+    {
+      "userId": "123",
+      "client": "mesa 2",
+      "products": [
         {
           "qty": 2,
           "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "id": 6,
+            "name": "Agua 750 ml",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
+            "type": "desayuno",
+            "dateEntry": ""
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno",
+            "dateEntry": ""
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 1,
+            "name": "Cafe Americano",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
             "type": "desayuno",
             "dateEntry": ""
           }
