@@ -47,6 +47,7 @@ server.post("/orders", async(req, res) => {
     try {
         const data = req.body;
         const productsFronEnd = req.body.products;
+        console.log(req.body.client)
 
         const getProductById = (id) => {
             const result = products.find(product => {
@@ -64,7 +65,7 @@ server.post("/orders", async(req, res) => {
         })
         const order = {
             "userId": req.body.userId,
-            "client": "",
+            "client": req.body.client,
             "products": mapedProsucts,
             "order.status": "pending"
         }
