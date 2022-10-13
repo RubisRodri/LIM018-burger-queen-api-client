@@ -1,8 +1,15 @@
-import Login,{handleSubmit}from '../Pages/Login/Login.jsx'
+import { render, screen } from '@testing-library/react'
+import Login, { handleSubmit } from '../Pages/Login/Login.jsx'
 
-describe('pruebas en Login', () => {
-    test('Login debe retornar un objeto ', () => {
-        const user = handleSubmit();
-        console.log(user);
-    })
+
+
+describe('Login', () => {
+    it('Renders inputs', () => {
+        render({handleSubmit});
+        const emailInput = screen.getByPlaceholderText('');
+        const passInput = screen.getByPlaceholderText('');
+
+        expect(emailInput).toBeInTheDocument(false);
+        expect(passInput).toBeInTheDocument(false);
+    });
 })
