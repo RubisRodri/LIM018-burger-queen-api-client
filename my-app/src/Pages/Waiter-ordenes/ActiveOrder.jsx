@@ -1,14 +1,28 @@
 import React from "react";
 import { Navbar } from "../../Components/navbar/Navbar";
 import { Navigate } from "react-router-dom";
-import Footer from '.././../Components/footer/Footer.jsx';
+import Footer from '../../Components/footer/Footer.jsx';
 import mesas from "../../Pictures/mesas.png"
 import './ActiveOrder.css';
+import { useState } from "react";
+import { useEffect } from "react";
 
 export const ActiveOrder = () =>{
+   const [activeTable, setActiveTable] = useState(false);
    
-   
-   
+   useEffect(() =>{
+    fetch('http://localhost:3001/orders', {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                "Authorization": `Bearer ${localStorage.getItem('token')}`
+            }
+        }).then(response => response.json())
+          .then(response => console.log(response)) 
+          .then(response => setActiveTable(true))     
+        },
+     [])
+     
    
     return(
         <>
