@@ -5,6 +5,7 @@ import btnadd from '../../../Pictures/add.png';
 import menos from '../../../Pictures/menos.png'
 import dump from '../../../Pictures/dump.png'
 import Footer from '../../../Components/footer/Footer.jsx';
+import Select from 'react-select';
 import './Orders.css';
 
 
@@ -13,7 +14,8 @@ export const Ordenes = () => {
     const API_URL = 'http://localhost:3001/'
 
     const [products, setProducts] = useState([]);
-    const [curentproducts, setCurentProducts] = useState([])
+    const [curentproducts, setCurentProducts] = useState([]);
+    const [selectTable, setSelecTable] = useState(null);
 
     const [cartItems, setCartItems] = useState(() => {
         try {
@@ -109,7 +111,8 @@ export const Ordenes = () => {
             },
             body: JSON.stringify(
                 {
-                    "userId": 1,
+                    "userId": localStorage.getItem('id'),
+                    "client": localStorage.getItem('client'),
                     "products": JSON.parse( localStorage.getItem('cartProducts')).map((value)=> ({productId: value.id, qty: value.quantity})),
                 }
             )
@@ -131,6 +134,25 @@ export const Ordenes = () => {
 
     };
 
+    const arrayTable = [
+        { label: "Mesa 1", value: "mesa 1" },
+        { label: "Mesa 2", value: "mesa 2" },
+        { label: "Mesa 3", value: "mesa 3" },
+        { label: "Mesa 4", value: "mesa 4" },
+        { label: "Mesa 5", value: "mesa 5" },
+        { label: "Mesa 6", value: "mesa 6" }
+    ]
+
+    const handleSelectTable = ({value}) => {
+        setSelecTable(value)
+        localStorage.setItem('client', value);
+    }
+
+    const sumTotal = () => {
+        const reducer =(acumulador, currentValue) => acumulador + currentValue.price;
+        
+    }
+
     return (
         <>
             <Navbar />
@@ -139,18 +161,12 @@ export const Ordenes = () => {
                 <button type='button' className='break-btn' onClick={showBreakFastFood} >Desayuno</button>
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
                 <label className="select-mesas"></label>
-                <select className="mesas-activas">
-                    <option value="Mesa">Mesa </option>
-                    <option value="Mesa 1">Mesa 1</option>
-                    <option value="Mesa 2">Mesa 2</option>
-                    <option value="Mesa 3">Mesa 3</option>
-                    <option value="Mesa 4">Mesa 4</option>
-                    <option value="Mesa 5">Mesa 5</option>
-                    <option value="Mesa 6">Mesa 6</option>
-                </select>
+                <Select className="mesas-activas"
+                 options = {arrayTable}
+                 onChange = {handleSelectTable}
+                  
+                />
             </div>
-
-        
                 <div className="contenedor-order">
                     {curentproducts.map((element) =>
                         <div className="container-menu" key={element.id}>

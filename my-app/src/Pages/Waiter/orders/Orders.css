@@ -51,8 +51,7 @@ body {
     display: grid;
     grid-template-columns: 250px 250px 250px;
     grid-area: side;
-    width: 800px;
-    width: 425px;
+    width: 100%;
     row-gap: 25px;
 }
 
