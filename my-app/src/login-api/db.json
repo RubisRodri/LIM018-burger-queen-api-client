@@ -93,21 +93,10 @@
   "orders": [
     {
       "userId": "123",
-      "client": "mesa 2",
+      "client": "mesa 3",
       "products": [
         {
-          "qty": 1,
-          "product": {
-            "id": 6,
-            "name": "Agua 750 ml",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
+          "qty": 9,
           "product": {
             "id": 3,
             "name": "Jugo Natural",
@@ -116,43 +105,14 @@
             "type": "desayuno",
             "dateEntry": ""
           }
-        }
-      ],
-      "order.status": "pending"
-    },
-    {
-      "userId": "123",
-      "client": "mesa 2",
-      "products": [
+        },
         {
-          "qty": 2,
+          "qty": 1,
           "product": {
             "id": 6,
             "name": "Agua 750 ml",
             "price": 7,
             "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 2,
-            "name": "Cafe con Leche",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 1,
-            "name": "Cafe Americano",
-            "price": 5,
-            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
             "type": "desayuno",
             "dateEntry": ""
           }
@@ -162,37 +122,26 @@
     },
     {
       "userId": "123",
-      "client": "mesa 2",
+      "client": "mesa 3",
       "products": [
         {
-          "qty": 2,
+          "qty": 9,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno",
+            "dateEntry": ""
+          }
+        },
+        {
+          "qty": 1,
           "product": {
             "id": 6,
             "name": "Agua 750 ml",
             "price": 7,
             "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 2,
-            "name": "Cafe con Leche",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 1,
-            "name": "Cafe Americano",
-            "price": 5,
-            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
             "type": "desayuno",
             "dateEntry": ""
           }
