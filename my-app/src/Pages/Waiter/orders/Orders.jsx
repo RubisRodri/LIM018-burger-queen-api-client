@@ -160,7 +160,7 @@ export const Ordenes = () => {
             <div className='container-btn'>
                 <button type='button' className='break-btn' onClick={showBreakFastFood} >Desayuno</button>
                 <button type='button' className='dinner-btn' onClick={showDinnerFood} >Cena</button>
-                <label className="select-mesas"></label>
+                <label className="mesas"></label>
                 <Select className="mesas-activas"
                  options = {arrayTable}
                  onChange = {handleSelectTable}

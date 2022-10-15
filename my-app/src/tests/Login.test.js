@@ -10,6 +10,6 @@ describe('Login', () => {
         const passInput = screen.getByPlaceholderText('');
 
         expect(emailInput).toBeInTheDocument(false);
-        expect(passInput).toBeInTheDocument(false);
+        expect(passInput).toBeInTheDocument(false)
     });
 })
