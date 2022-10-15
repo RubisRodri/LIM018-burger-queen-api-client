@@ -4,5 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 export const Chefview = () => {
     const navigate = useNavigate();
-        return
+        return(
+            <>
+            </>
+        )
 }
