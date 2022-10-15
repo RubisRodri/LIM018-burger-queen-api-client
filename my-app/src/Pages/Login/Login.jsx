@@ -47,18 +47,18 @@ export const Login = () => {
              <div className="imagen-formulario">
                 <img src={''}/>
              </div>
-            <form className="formulario"onSubmit={handleSubmit} >
+            <form className="formulario" data-testid="login-form" onSubmit={handleSubmit} >
              <div className="texto-formulario">
                 <h2>Bienvenido de nuevo</h2>
                 <p>Inicia sesión con tu cuenta</p>
              </div>
                 <div className="input">
                 <label for="usuario">Email</label>
-                <input placeholder="Ingresa tu email" type="text" name="email" id="txtcorreo"onChange={handleInputChange}/>
+                <input placeholder="Ingresa tu email" type="text" name="email" id="txtcorreo" data-testid="txtcorreo" onChange={handleInputChange}/>
              </div>
              <div className="input">
                 <label for="contraseña">Password</label>
-                <input placeholder="Ingresa tu contraseña" type="password"name="password" id="txtpassword"onChange={handleInputChange}/>
+                <input placeholder="Ingresa tu contraseña" type="password" name="password" id="txtpassword" data-testid="password" onChange={handleInputChange}/>
              </div>
              <div className="password-olvidada">
                 <a href="#">¿Olvidaste tu contraseña?</a>
@@ -66,7 +66,7 @@ export const Login = () => {
              {errorMessage?
                 <label className='errorMessage'>Por favor verifique su email y Password</label>:""}
              <div className="input">
-                <input type="submit" value="Login"/>
+                <input type="submit" data-testid="login-submit" value="Login"/>
              </div>
             </form>
          </div>

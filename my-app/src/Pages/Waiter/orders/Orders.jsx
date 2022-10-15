@@ -117,7 +117,7 @@ export const Ordenes = () => {
                 }
             )
         }) .then(res => res.json())
-          .then((resp) => {console.log(resp)})
+          
     }
 
    

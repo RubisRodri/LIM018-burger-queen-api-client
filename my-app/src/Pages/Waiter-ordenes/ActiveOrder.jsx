@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export const ActiveOrder = () =>{
-   const [activeTable, setActiveTable] = useState(false);
+   const [activeTable, setActiveTable] = useState([]);
    
    useEffect(() =>{
     fetch('http://localhost:3001/orders', {
@@ -18,8 +18,12 @@ export const ActiveOrder = () =>{
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
         }).then(response => response.json())
-          .then(response => console.log(response)) 
-          .then(response => setActiveTable(true))     
+          .then((value) => {
+              let tableActive = value.map((element) => ({"client":element.client, "products":element.products}))
+            
+              console.log(tableActive)
+               
+          })
         },
      [])
      
