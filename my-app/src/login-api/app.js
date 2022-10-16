@@ -11,7 +11,8 @@ const products = router.db
 
 
 
-const secret = "aBdshdbbAsdjjbdjdbjhbsabdnef6466164684"
+const secret = "aBdshdbbAsdjjbdjdbjhbsabdnef6466164684";
+
 server.use(jsonServer.bodyParser)
 server.use(middlewares)
 server.use(cors())
@@ -34,14 +35,35 @@ server.post("/auth", (req, res) => {
         const datos = {
             id: "123",
             nombre: "Felipe Mendoza",
-            email: "fmendoza@mail.com",
-            token: secret
-        };
+            email: "fmendoza@gmail.com",
+            role:"waiter",
+            token: secret,
+        }
         res.status(200).json(datos);
     } else {
         res.status(400).send("Crendenciales incorrectas");
     }
 });
+
+server.post("/auth", (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    if ( email == 'rubis@gmail.com' && password === '123456') {
+        const datos = {
+            id: "456",
+            nombre: "rubis",
+            email: "rubis@gmail.com",
+            role:"Chef",
+            token: secret,
+        }
+        res.status(200).json(datos);
+    } else {
+        res.status(400).send("Crendenciales incorrectas");
+    }
+});
+
+
+
 
 server.post("/orders", async(req, res) => {
     try {
