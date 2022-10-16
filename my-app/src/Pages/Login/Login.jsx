@@ -38,8 +38,9 @@ export const Login = () => {
             localStorage.setItem('token', data.token)
             localStorage.setItem('nombre', data.nombre)
             localStorage.setItem('id', data.id)
-            navigate("/Waiter")
+             navigate("/Waiter")
           }).catch(error => setErrorMessages(true))
+            .catch(navigate("/Chefview"))
         } 
     };
         return (
