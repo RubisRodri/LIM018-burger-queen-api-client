@@ -1,25 +1,29 @@
-.contenedor-mesas{
+.container-active-tables{
     display: grid;
     display: grid;
     grid-template-columns: 300px 300px 300px;
     place-content: center;
-    height: 492px;
+    height: 75vh;
     gap: 25px;
-    
 }
+    
 
-.mesas-activas{
-    object-fit: contain;
+
+.active-tables{
     border: 5px solid #a1969611;
-    justify-self: center;
-    place-self: center;
     width: 100%;
-    height: 80%;
-    object-fit: contain;
+
 }
 
 .table{
-    width: 60%;
-    height: 100%;
-    object-fit: contain;
+    width: 10%;
+
+}
+
+.text-number-table{
+        align-items: center;
+}
+
+.tb{
+    text-align: center;
 }

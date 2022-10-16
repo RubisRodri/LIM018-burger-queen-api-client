@@ -119,35 +119,6 @@
         }
       ],
       "order.status": "pending"
-    },
-    {
-      "userId": "123",
-      "client": "mesa 3",
-      "products": [
-        {
-          "qty": 9,
-          "product": {
-            "id": 3,
-            "name": "Jugo Natural",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 6,
-            "name": "Agua 750 ml",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
-            "type": "desayuno",
-            "dateEntry": ""
-          }
-        }
-      ],
-      "order.status": "pending"
     }
   ],
   "user": [
