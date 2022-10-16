@@ -117,7 +117,7 @@ export const Ordenes = () => {
                 }
             )
         }) .then(res => res.json())
-          .then((resp) => {console.log(resp)})
+          
     }
 
    
@@ -135,12 +135,12 @@ export const Ordenes = () => {
     };
 
     const arrayTable = [
-        { label: "Mesa 1", value: "mesa 1" },
-        { label: "Mesa 2", value: "mesa 2" },
-        { label: "Mesa 3", value: "mesa 3" },
-        { label: "Mesa 4", value: "mesa 4" },
-        { label: "Mesa 5", value: "mesa 5" },
-        { label: "Mesa 6", value: "mesa 6" }
+        { label: "Mesa 1", value: "Mesa 1" },
+        { label: "Mesa 2", value: "Mesa 2" },
+        { label: "Mesa 3", value: "Mesa 3" },
+        { label: "Mesa 4", value: "Mesa 4" },
+        { label: "Mesa 5", value: "Mesa 5" },
+        { label: "Mesa 6", value: "Mesa 6" }
     ]
 
     const handleSelectTable = ({value}) => {

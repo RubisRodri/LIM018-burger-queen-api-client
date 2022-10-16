@@ -92,37 +92,16 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "userId": "",
-      "table": "2",
+      "userId": "123",
+      "client": "mesa 3",
       "products": [
         {
-          "product": "American Coffee",
-          "price": 5,
-          "qty": 1
-        },
-        {
-          "product": "Coffee with milk",
-          "price": 7,
-          "qty": 1
-        }
-      ],
-      "status": "",
-      "dateEntry": "",
-      "dateProcessed": "",
-      "time": ""
-    },
-    {
-      "userId": 1,
-      "client": "",
-      "products": [
-        {
-          "qty": 1,
+          "qty": 9,
           "product": {
-            "id": 2,
-            "name": "Cafe con Leche",
+            "id": 3,
+            "name": "Jugo Natural",
             "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
             "type": "desayuno",
             "dateEntry": ""
           }
@@ -130,10 +109,10 @@
         {
           "qty": 1,
           "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "id": 6,
+            "name": "Agua 750 ml",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
             "type": "desayuno",
             "dateEntry": ""
           }

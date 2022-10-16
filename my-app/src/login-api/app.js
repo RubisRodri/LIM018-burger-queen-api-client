@@ -64,7 +64,7 @@ server.post("/orders", async(req, res) => {
         })
         const order = {
             "userId": req.body.userId,
-            "client": "",
+            "client": req.body.client,
             "products": mapedProsucts,
             "order.status": "pending"
         }
