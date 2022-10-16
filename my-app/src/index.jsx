@@ -21,8 +21,8 @@ ReactDOM.createRoot(document.getElementById('root'))
                     <Route path="/Waiter" element={<Waiter />} />
                     <Route path="/Ordenes" element={<Ordenes />} />
                     <Route path="/ActiveOrder" element={<ActiveOrder />} />
-                    <Route Path="Chefview" element={<Chefview />} />
-                    <Route path="*" element={<Navigate replace to="/" />} />
+                    <Route path="/Chefview" element={<Chefview />} />
+                   
                 </Routes>
 
         </BrowserRouter>
