@@ -8,9 +8,6 @@ const products = router.db
     .get('products')
     .value()
 
-
-
-
 const secret = "aBdshdbbAsdjjbdjdbjhbsabdnef6466164684";
 
 server.use(jsonServer.bodyParser)
@@ -45,22 +42,7 @@ server.post("/auth", (req, res) => {
     }
 });
 
-server.post("/auth", (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    if ( email == 'rubis@gmail.com' && password === '123456') {
-        const datos = {
-            id: "456",
-            nombre: "rubis",
-            email: "rubis@gmail.com",
-            role:"Chef",
-            token: secret,
-        }
-        res.status(200).json(datos);
-    } else {
-        res.status(400).send("Crendenciales incorrectas");
-    }
-});
+
 
 
 
@@ -68,6 +50,7 @@ server.post("/auth", (req, res) => {
 server.post("/orders", async(req, res) => {
     try {
         const data = req.body;
+        console.log("===",req.body.product)
         const productsFronEnd = req.body.products;
         
         const getProductById = (id) => {
@@ -104,31 +87,50 @@ server.post("/orders", async(req, res) => {
 }
 )
 
-
-
-
-
-
-
-//  server.get("/products/product.id", (req, res) => {
-//     const db =[
+server.put("/orders", (req, res) => {
+    const email = req.body.email;
+    // const password = req.body.password;
+    // if (email == 'fmendoza@gmail.com' && password == '123456') {
+    //     const datos = {
+    //         id: "123",
+    //         nombre: "Felipe Mendoza",
+    //         email: "fmendoza@gmail.com",
+    //         role:"waiter",
+    //         token: secret,
+    //     }
+    //     res.status(200).json(datos);
+    // } else {
+        //     res.status(400).send("Crendenciales incorrectas");
+        // }
+    });
+    server.get("/options/:id/total",(req, res)=>{
+        const datos = [
+            {id:1,cliente:"orden 1",total:2500 },
+            {id:2,cliente:"orden 2",total:2100 },
+            {id:3,cliente:"orden 3",total:200 }
+         ];
+         res.json(datos);
+     });
+    
+    
+    
+    
+    
+    //  server.get("/products/product.id", (req, res) => {
+        //     const db =[
 //     ],
 //     res.json({
-//     })
-//   })
+    //     })
+    //   })
 
 
-// //get
-server.use(router)
-server.listen(3001, () => {
-    console.log('JSON Server is running')
-    console.log("servidor iniciado en el puerto 3001")
-})
-// server.get("/options",(req, res)=>{
-//     const datos = [
-//         {id:1,cliente:"orden 1",total:2500 },
-//         {id:2,cliente:"orden 2",total:2100 },
-//         {id:3,cliente:"orden 3",total:200 }
-//      ];
-//      res.json(datos);
-//  });
+    // //get
+    server.use(router)
+    server.listen(3001, () => {
+        console.log('JSON Server is running')
+        console.log("servidor iniciado en el puerto 3001")
+    })
+
+
+
+

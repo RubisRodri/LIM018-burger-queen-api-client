@@ -93,15 +93,15 @@
   "orders": [
     {
       "userId": "123",
-      "client": "mesa 3",
+      "client": "Mesa 2",
       "products": [
         {
-          "qty": 9,
+          "qty": 10,
           "product": {
-            "id": 3,
-            "name": "Jugo Natural",
+            "id": 6,
+            "name": "Agua 750 ml",
             "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
             "type": "desayuno",
             "dateEntry": ""
           }
@@ -109,10 +109,10 @@
         {
           "qty": 1,
           "product": {
-            "id": 6,
-            "name": "Agua 750 ml",
+            "id": 2,
+            "name": "Cafe con Leche",
             "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
             "type": "desayuno",
             "dateEntry": ""
           }

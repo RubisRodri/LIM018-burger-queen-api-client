@@ -5,10 +5,9 @@ import Footer from '../../Components/footer/Footer.jsx';
 
 
 export const Chefview = () => {
+    const navigate = useNavigate();
     const [activeTable, setActiveTable] = useState([]);
 
-    const navigate = useNavigate();
-    
     useEffect(() => {
         fetch('http://localhost:3001/orders', {
             method: "GET",
@@ -17,9 +16,9 @@ export const Chefview = () => {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
         }).then(response => response.json())
-            .then((value) => {
-                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products }))
-                setActiveTable(tableActive)
+            .then((resp) => {
+              console.log(resp)
+              setActiveTable(resp)
             })
     }, [])
 
@@ -62,6 +61,14 @@ export const Chefview = () => {
             <div className='container-btn'>
                 <button type='button' className='break-btn' onClick={""} >Activos</button>
                 <button type='button' className='dinner-btn' onClick={""} >Preparados</button>
+            </div>
+            <div className="chef">
+                {activeTable && activeTable.map((element) =>( 
+                    <div>
+                        <h1>{element.client}</h1>
+                        <h1>{element.userId}</h1>
+                    </div>   
+               )) }
             </div>
 
             <Footer />
