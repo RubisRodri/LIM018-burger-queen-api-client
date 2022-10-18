@@ -1,0 +1,30 @@
+.container-Orders{
+    border: 3px solid #EBDBDB;
+    border-radius: 8px;
+    width: 82%;
+    margin: auto;
+    background: #EBDBDB;
+    box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 50%);
+}
+
+.text-orders{
+    text-align: center;
+}
+
+.div-products{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.text-product{
+    margin: 1rem;
+}
+
+.btn-serve{
+    background: #ff3647;
+    border: 2px solid #f84141;
+    border-radius: 6px;
+    width: 23%;
+    color: #fff;
+}

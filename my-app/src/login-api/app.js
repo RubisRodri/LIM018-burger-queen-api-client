@@ -66,7 +66,9 @@ server.post("/orders", async(req, res) => {
             "userId": req.body.userId,
             "client": req.body.client,
             "products": mapedProsucts,
-            "order.status": "pending"
+            "status": "pending",
+            "dateEntry":"8:40 PM",
+            "dateProcessed":""
         }
         const orders = router.db.get('orders')
         const resolve = await orders.push(order).write()
