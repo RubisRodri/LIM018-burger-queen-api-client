@@ -5,7 +5,7 @@ import './Login.css';
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-    const API_URL= 'http://localhost:3001/';
+    const API_URL = 'http://localhost:3001/';
     const navigate = useNavigate();
     const [datos, setDatos] = useState({
         email: "",
@@ -21,56 +21,84 @@ export const Login = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (datos.email=== '' || datos.password === '') {
+        if (datos.email === '' || datos.password === '') {
             alert('Por Favor Complete sus Email y/o Password')
-            document.getElementById('txtcorreo').value ='';
-            document.getElementById('txtpassword').value ='';
+            document.getElementById('txtcorreo').value = '';
+            document.getElementById('txtpassword').value = '';
             document.getElementById('txtcorreo').focus();
-        }else{
+        } else {
             let res = fetch(`${API_URL}auth`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(datos)
-        }).then(res => res.json())
-          .then((data) => {
-            localStorage.setItem('token', data.token)
-            localStorage.setItem('nombre', data.nombre)
-            localStorage.setItem('id', data.id)
-             navigate("/Waiter")
-          }).catch(error => setErrorMessages(true))
-            .catch(navigate("/Chefview"))
-        } 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            }).then(res => {
+                if (res.status === 200) {
+                    return res.json();
+                }
+            })
+            //{token:'.....'}
+                .then(value => {
+                    localStorage.setItem('token', value.token)
+                    const token = localStorage.getItem('token');
+                   const parsedToken= parseJwt(token)
+
+                    localStorage.setItem('name', parsedToken.name)
+                    localStorage.setItem('id', parsedToken.id)
+                    console.log(parsedToken);
+                    if (parsedToken.role === 'waiter') {
+                        navigate("/Waiter")
+                    }else{
+                        navigate("/Cheff")
+                    }
+                    
+                }).catch(error =>{
+                    console.log(error);
+                    setErrorMessages(true)
+                } )
+            
+        }
     };
-        return (
-         <div className="contenedor-formulario contenedor">
-             <div className="imagen-formulario">
-                <img src={''}/>
-             </div>
+
+
+    function parseJwt (token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    
+        return JSON.parse(jsonPayload);
+    };
+    return (
+        <div className="contenedor-formulario contenedor">
+            <div className="imagen-formulario">
+                <img src={''} />
+            </div>
             <form className="formulario" data-testid="login-form" onSubmit={handleSubmit} >
-             <div className="texto-formulario">
-                <h2>Bienvenido de nuevo</h2>
-                <p>Inicia sesión con tu cuenta</p>
-             </div>
+                <div className="texto-formulario">
+                    <h2>Bienvenido de nuevo</h2>
+                    <p>Inicia sesión con tu cuenta</p>
+                </div>
                 <div className="input">
-                <label for="usuario">Email</label>
-                <input placeholder="Ingresa tu email" type="text" name="email" id="txtcorreo" data-testid="txtcorreo" onChange={handleInputChange}/>
-             </div>
-             <div className="input">
-                <label for="contraseña">Password</label>
-                <input placeholder="Ingresa tu contraseña" type="password" name="password" id="txtpassword" data-testid="password" onChange={handleInputChange}/>
-             </div>
-             <div className="password-olvidada">
-                <a href="#">¿Olvidaste tu contraseña?</a>
-             </div>
-             {errorMessage?
-                <label className='errorMessage'>Por favor verifique su email y Password</label>:""}
-             <div className="input">
-                <input type="submit" data-testid="login-submit" value="Login"/>
-             </div>
+                    <label for="usuario">Email</label>
+                    <input placeholder="Ingresa tu email" type="text" name="email" id="txtcorreo" data-testid="txtcorreo" onChange={handleInputChange} />
+                </div>
+                <div className="input">
+                    <label for="contraseña">Password</label>
+                    <input placeholder="Ingresa tu contraseña" type="password" name="password" id="txtpassword" data-testid="password" onChange={handleInputChange} />
+                </div>
+                <div className="password-olvidada">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                {errorMessage ?
+                    <label className='errorMessage'>Por favor verifique su email y Password</label> : ""}
+                <div className="input">
+                    <input type="submit" data-testid="login-submit" value="Login" />
+                </div>
             </form>
-         </div>
+        </div>
     )
 }
 

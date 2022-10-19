@@ -8,7 +8,7 @@ import './Waiter-option.css';
 
 
 export function Waiter() {
-    let name = localStorage.getItem('nombre')
+    let name = localStorage.getItem('name')
 
     const navigate = useNavigate()
 

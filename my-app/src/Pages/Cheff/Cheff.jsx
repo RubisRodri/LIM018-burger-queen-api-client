@@ -3,27 +3,64 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/Footer.jsx';
 import './Cheff.css'
+import { Login } from "../Login/Login.jsx";
 
 
 export const Cheff = () => {
     const [activeTable, setActiveTable] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     const navigate = useNavigate();
+
+    const token = localStorage.getItem('token')
 
     useEffect(() => {
         fetch('http://localhost:3001/orders', {
             method: "GET",
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
-                "Authorization": `Bearer ${localStorage.getItem('token')}`
+                "Authorization": `Bearer ${token}`
             }
         }).then(response => response.json())
             .then((value) => {
-                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed }))
+                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed, "_id": element._id , "status":element.status}))
                 setActiveTable(tableActive)
                 console.log('oders =>', tableActive);
             })
     }, [])
+
+    const getOrderById = (id) => {
+        const result = activeTable.find(value => {
+            return value._id === id
+        })
+        return result
+    }
+
+
+
+    const readyToServe = (order) => {
+        console.log(order);
+        let status =order.status
+        console.log(status);
+        fetch(`http://localhost:3001/orders/${order._id}`, {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(
+                {
+                    "userId": localStorage.getItem('id'),
+                    "client": localStorage.getItem('client'),
+                    "products": JSON.parse( localStorage.getItem('cartProducts')).map((value)=> ({productId: value.id, qty: value.quantity})),
+                    "status":status,
+                }
+            )
+        }).then(response => response.json())
+
+        .catch((error) => console.log(error))
+    }
+
 
 
 
@@ -48,7 +85,7 @@ export const Cheff = () => {
                                 <p className="text-product">{product.product.name}</p>
                             </div>
                         ))}
-                        <button className="btn-serve">Listo para Servir</button>
+                        <button className="btn-serve" onClick={() => readyToServe(order)}>Listo para Servir</button>
                     </div>
                 ))}
             </div>
