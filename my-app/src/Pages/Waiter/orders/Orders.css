@@ -148,3 +148,8 @@ body {
     border: none;
     background: #d7d5d5;
 }
+
+.swal2-styled.swal2-confirm.swalBtnColor {
+    color: #d7d5d5;
+    
+}  

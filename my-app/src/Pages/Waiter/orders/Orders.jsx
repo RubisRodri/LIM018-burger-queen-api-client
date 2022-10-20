@@ -5,6 +5,7 @@ import btnadd from '../../../Pictures/add.png';
 import menos from '../../../Pictures/menos.png'
 import dump from '../../../Pictures/dump.png'
 import Footer from '../../../Components/footer/Footer.jsx';
+import Swal from 'sweetalert2';
 import Select from 'react-select';
 import './Orders.css';
 
@@ -117,7 +118,7 @@ export const Ordenes = () => {
                 }
             )
         }) .then(res => res.json())
-          
+            seeModal()
     }
 
    
@@ -153,6 +154,15 @@ export const Ordenes = () => {
         
     }
 
+    const seeModal = () => {
+        Swal.fire({
+            icon: 'success',
+            title: 'Envio exitoso',
+            text: 'Su pedido fue enviado a la cocina',
+            confirmButtonColor: "#DD6B55"
+          })
+    }
+    
     return (
         <>
             <Navbar />
@@ -202,10 +212,6 @@ export const Ordenes = () => {
             </>
       )
 }
-
-
-
-
 
 
 

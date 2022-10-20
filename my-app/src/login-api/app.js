@@ -71,7 +71,9 @@ server.post("/orders", async(req, res) => {
             "userId": req.body.userId,
             "client": req.body.client,
             "products": mapedProsucts,
-            "order.status": "pending"
+            "status": "pending",
+            "dateEntry":new Date().toLocaleTimeString(),
+            "dateProcessed":""
         }
         const orders = router.db.get('orders')
         const resolve = await orders.push(order).write()
@@ -88,7 +90,7 @@ server.post("/orders", async(req, res) => {
 )
 
 server.put("/orders", (req, res) => {
-    const email = req.body.email;
+    console.log("holaaaaa")
     // const password = req.body.password;
     // if (email == 'fmendoza@gmail.com' && password == '123456') {
     //     const datos = {

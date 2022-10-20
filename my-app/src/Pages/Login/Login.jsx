@@ -40,7 +40,7 @@ export const Login = () => {
             localStorage.setItem('id', data.id)
              navigate("/Waiter")
           }).catch(error => setErrorMessages(true))
-            .catch(navigate("/Chefview"))
+            .catch(navigate("/Cheff"))
         } 
     };
         return (
