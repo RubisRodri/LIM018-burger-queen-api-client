@@ -57,12 +57,24 @@ export const Cheff = () => {
                 }
             )
         }).then(response => response.json())
+          .then(value => {
+            const oderPrepared = value
+            setOrders(oderPrepared)
+            console.log(orders);
 
+        })
         .catch((error) => console.log(error))
     }
 
 
 
+    const showPrepared = () => {
+        console.log(orders);
+        // let includesBreakFast = products.filter(products => products.type === 'cena')
+        // setCurentProducts(includesBreakFast)
+        console.log("click");
+
+    };
 
     return (
         <>
@@ -70,7 +82,7 @@ export const Cheff = () => {
 
             <div className='container-btn'>
                 <button type='button' className='break-btn'  >Activos</button>
-                <button type='button' className='dinner-btn' >Preparados</button>
+                <button type='button' className='dinner-btn' onClick={() => showPrepared()}>Preparados</button>
             </div>
 
             <h2 className="text-orders">Ordenes</h2>
