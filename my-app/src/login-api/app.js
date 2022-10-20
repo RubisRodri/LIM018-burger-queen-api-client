@@ -78,11 +78,6 @@ server.post("/auth", (req, res) => {
 
 });
 
-
-
-
-
-
 server.post("/orders", async (req, res) => {
     try {
         
@@ -111,8 +106,9 @@ server.post("/orders", async (req, res) => {
             "client": req.body.client,
             "products": mapedProsucts,
             "status": "pending",
-            "dateEntry": "8:40 PM",
-            "dateProcessed": ""
+            "dateEntry":new Date().toLocaleTimeString(),
+            "dateProcessed":""
+
         }
         const orders = router.db.get('orders')
         const resolve = await orders.push(order).write()
@@ -163,20 +159,6 @@ server.put("/orders/:id", async (req, res) => {
   
 });
 
-
-
-
-
-
-//  server.get("/products/product.id", (req, res) => {
-//     const db =[
-//     ],
-//     res.json({
-//     })
-//   })
-
-
-// //get
 server.use(router)
 server.listen(3001, () => {
     console.log('JSON Server is running')

@@ -6,28 +6,35 @@ import './Cheff.css'
 import { Login } from "../Login/Login.jsx";
 
 
+
 export const Cheff = () => {
     const [activeTable, setActiveTable] = useState([]);
+
+
+
+
     const [orders, setOrders] = useState([]);
 
     const navigate = useNavigate();
 
     const token = localStorage.getItem('token')
 
+
     useEffect(() => {
         fetch('http://localhost:3001/orders', {
             method: "GET",
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
         }).then(response => response.json())
             .then((value) => {
-                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed, "_id": element._id , "status":element.status}))
+                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed }))
                 setActiveTable(tableActive)
-                console.log('oders =>', tableActive);
             })
     }, [])
+
+   
 
     const getOrderById = (id) => {
         const result = activeTable.find(value => {
@@ -85,6 +92,9 @@ export const Cheff = () => {
                                 <p className="text-product">{product.product.name}</p>
                             </div>
                         ))}
+
+                    
+
                         <button className="btn-serve" onClick={() => readyToServe(order)}>Listo para Servir</button>
                     </div>
                 ))}
