@@ -128,6 +128,7 @@ server.put("/orders/:id", async (req, res) => {
     console.log('holaaaaaaaaaaaaaa');
     try {
         const productsFronEnd = req.body.products;
+        console.log("revisooooo", productsFronEnd)
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
@@ -164,7 +165,4 @@ server.listen(3001, () => {
     console.log('JSON Server is running')
     console.log("servidor iniciado en el puerto 3001")
 })
-
-
-
 
