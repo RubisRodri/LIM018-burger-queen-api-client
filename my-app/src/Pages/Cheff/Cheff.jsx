@@ -3,16 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/Footer.jsx';
 import './Cheff.css'
-import { Login } from "../Login/Login.jsx";
-
 
 
 export const Cheff = () => {
     const [activeTable, setActiveTable] = useState([]);
-
-
-
-
     const [orders, setOrders] = useState([]);
 
     const navigate = useNavigate();
@@ -29,8 +23,11 @@ export const Cheff = () => {
             }
         }).then(response => response.json())
             .then((value) => {
-                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed }))
+                console.log(value);
+                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed, "status":element.status, "_id": element._id}))
                 setActiveTable(tableActive)
+
+                
             })
     }, [])
 
@@ -46,7 +43,6 @@ export const Cheff = () => {
 
 
     const readyToServe = (order) => {
-        console.log(order);
         let status =order.status
         console.log(status);
         fetch(`http://localhost:3001/orders/${order._id}`, {
@@ -64,12 +60,35 @@ export const Cheff = () => {
                 }
             )
         }).then(response => response.json())
-
+          .then(value => {
+            const oderPrepared = value
+            console.log(oderPrepared);
+            setOrders(oderPrepared)
+        })
         .catch((error) => console.log(error))
     }
 
 
 
+//     const deleteItemToCart = (product) => {
+//         const inCart = cartItems.find((value) => {   
+//             return value.id === product.id
+//             });
+            
+//         if (inCart.quantity >= 1) {
+//             setCartItems(
+//                  cartItems.filter(elementInCar => elementInCar.id !== product.id)
+//             )
+//     }
+// }
+
+    const showPrepared = () => {
+        console.log(orders);
+        // let includesBreakFast = products.filter(products => products.type === 'cena')
+        // setCurentProducts(includesBreakFast)
+        console.log("click");
+
+    };
 
     return (
         <>
@@ -77,7 +96,7 @@ export const Cheff = () => {
 
             <div className='container-btn'>
                 <button type='button' className='break-btn'  >Activos</button>
-                <button type='button' className='dinner-btn' >Preparados</button>
+                <button type='button' className='dinner-btn' onClick={() => showPrepared()}>Preparados</button>
             </div>
 
             <h2 className="text-orders">Ordenes</h2>

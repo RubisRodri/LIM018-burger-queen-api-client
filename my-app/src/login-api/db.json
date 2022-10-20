@@ -79,35 +79,7 @@
     }
   ],
   "orders": [
-   
-  ],
-  "user": [
-    {
-      "id": "IboZ8r",
-      "name": "Rubis",
-      "lastName": "A.",
-      "email": "rubis@gmail.com",
-      "password": "i1234",
-      "roles": "chef",
-      "admin": false
-    },
-    {
-      "id": "bgel2t",
-      "name": "Deleina",
-      "lastName": "Jiménez",
-      "email": "deleina@gmail.com",
-      "password": "D1234",
-      "roles": "Admon",
-      "admin": true
-    },
-    {
-      "id": "Be9QS",
-      "name": "Felipe",
-      "lastName": "Mendoza",
-      "email": "fmendoza@gmail.com",
-      "password": "123456",
-      "roles": "waiter",
-      "admin": false
-    }
+
+    
   ]
 }
