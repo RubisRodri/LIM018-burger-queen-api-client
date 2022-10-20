@@ -3,12 +3,22 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/Footer.jsx';
 import './Cheff.css'
+import { Login } from "../Login/Login.jsx";
+
 
 
 export const Cheff = () => {
     const [activeTable, setActiveTable] = useState([]);
 
+
+
+
+    const [orders, setOrders] = useState([]);
+
     const navigate = useNavigate();
+
+    const token = localStorage.getItem('token')
+
 
     useEffect(() => {
         fetch('http://localhost:3001/orders', {
@@ -24,21 +34,40 @@ export const Cheff = () => {
             })
     }, [])
 
-    useEffect(()=>{
-        const preparedOrder = (e) => {
-            e.prevent.defaul()
-            const requestPrepared = {
-                method: 'PUT',
-                headers: { 
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({  })
-            };
-            const preparedTable = fetch('http://localhost:3001/orders',requestPrepared)
-            .then(response => response.json())
-            .then(data => console.log(data));
-        }
-    })
+   
+
+    const getOrderById = (id) => {
+        const result = activeTable.find(value => {
+            return value._id === id
+        })
+        return result
+    }
+
+
+
+    const readyToServe = (order) => {
+        console.log(order);
+        let status =order.status
+        console.log(status);
+        fetch(`http://localhost:3001/orders/${order._id}`, {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(
+                {
+                    "userId": localStorage.getItem('id'),
+                    "client": localStorage.getItem('client'),
+                    "products": JSON.parse( localStorage.getItem('cartProducts')).map((value)=> ({productId: value.id, qty: value.quantity})),
+                    "status":status,
+                }
+            )
+        }).then(response => response.json())
+
+        .catch((error) => console.log(error))
+    }
+
 
 
 
@@ -63,7 +92,10 @@ export const Cheff = () => {
                                 <p className="text-product">{product.product.name}</p>
                             </div>
                         ))}
-                        <button className="btn-serve">Listo para Servir</button>
+
+                    
+
+                        <button className="btn-serve" onClick={() => readyToServe(order)}>Listo para Servir</button>
                     </div>
                 ))}
             </div>

@@ -121,7 +121,7 @@ export const Ordenes = () => {
             seeModal()
     }
 
-   
+  
 
     const showDinnerFood = () => {
         let includesBreakFast = products.filter(products => products.type === 'cena')
@@ -151,8 +151,8 @@ export const Ordenes = () => {
 
     const sumTotal = () => {
         const reducer =(acumulador, currentValue) => acumulador + currentValue.price;
-        
     }
+
 
     const seeModal = () => {
         Swal.fire({
@@ -163,6 +163,15 @@ export const Ordenes = () => {
           })
     }
     
+
+    // let totalPrice = 0 
+    // products.forEach(element => {
+    //     const item = element;
+    //     console.log(totalPrice += item.price);
+    //     totalPrice += item.price
+    // } )
+
+
     return (
         <>
             <Navbar />
@@ -202,6 +211,8 @@ export const Ordenes = () => {
                                     <img className="dump-order" src={dump}/>
                                 </button>
                             </div>
+
+                            
                         )}
                           <p className="elemen-text"></p>
                         <button className="send-kitchen" onClick={sendOrder}>Enviar a Cocina</button>
