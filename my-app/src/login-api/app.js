@@ -126,11 +126,9 @@ server.post("/orders", async (req, res) => {
 )
 
 server.put("/orders/:id", async (req, res) => {
-    console.log('holaaaaaaaaaaaaaa');
-
     try {
         const productsFronEnd = req.body.products;
-        console.log("....",productsFronEnd);
+        
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
@@ -154,9 +152,17 @@ server.put("/orders/:id", async (req, res) => {
             "dateProcessed": ""
         }
 
+        
+        const ordersP = router.db.get('orders')
+        //ordersUpdate.status= "prepared";
+        
+        
+        const resolve = await ordersP.push(ordersUpdate).write()
+        
+
         //const  = router.db.get('orders')
         res.status(200).json(ordersUpdate)
-        console.log("order put =>", ordersUpdate);
+        //console.log("order put =>", ordersUpdate);
     } catch (error) {
         console.log(error.stack);
         res.status(400).send("Crendenciales incorrectas");
@@ -170,3 +176,42 @@ server.listen(3001, () => {
     console.log("servidor iniciado en el puerto 3001")
 })
 
+
+
+
+
+// server.put('/orders/:id', async (req, res) => {
+//     const orders = router.db.get();
+//     // eslint-disable-next-line no-underscore-dangle
+//     const arrayOrders = orders.__wrapped__.orders;
+  
+//     arrayOrders.forEach(async (order) => {
+//       if (req.body.id !== order.id) {
+//         res.status(404);
+//       }
+//     });
+//     const ordersModified = arrayOrders.map((e) => {
+//       if (req.body.id === e.id) {
+//         return req.body;
+//       }
+//       return e;
+//     });
+//     // console.log(ordersModified);
+//     // eslint-disable-next-line no-underscore-dangle
+//     orders.__wrapped__.orders.length = 0;
+//     // eslint-disable-next-line no-underscore-dangle
+//     console.log(orders.__wrapped__.orders);
+//     // eslint-disable-next-line no-underscore-dangle
+//     // console.log(orders.__wrapped__.orders);
+//     // eslint-disable-next-line no-underscore-dangle
+//     orders.__wrapped__.orders.push(ordersModified).write();
+//     // await Object.assign(orders, ordersModified).write();
+//     res.status(201).jsonp(req.body);
+  
+//     if (req.body.length === 0) {
+//       res.status(400);
+//     } else if (req.body.status !== 'delivering' || req.body.status !== 'delivered') {
+//       res.status(400);
+//     }
+//   });
+  
