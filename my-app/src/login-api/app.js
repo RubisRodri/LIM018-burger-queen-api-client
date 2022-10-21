@@ -80,9 +80,9 @@ server.post("/auth", (req, res) => {
 
 server.post("/orders", async (req, res) => {
     try {
-        
-        const productsFronEnd = req.body.products;
 
+        const productsFronEnd = req.body.products;
+        
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
@@ -106,12 +106,13 @@ server.post("/orders", async (req, res) => {
             "client": req.body.client,
             "products": mapedProsucts,
             "status": "pending",
-            "dateEntry":new Date().toLocaleTimeString(),
-            "dateProcessed":""
+            "dateEntry": new Date().toLocaleTimeString(),
+            "dateProcessed": ""
 
         }
         const orders = router.db.get('orders')
         const resolve = await orders.push(order).write()
+        console.log("order post => ", order.id);
 
         console.log('obj =>', resolve)
         res.status(200).json({
@@ -126,9 +127,10 @@ server.post("/orders", async (req, res) => {
 
 server.put("/orders/:id", async (req, res) => {
     console.log('holaaaaaaaaaaaaaa');
+
     try {
         const productsFronEnd = req.body.products;
-        console.log("revisooooo", productsFronEnd)
+        console.log("....",productsFronEnd);
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
@@ -148,16 +150,18 @@ server.put("/orders/:id", async (req, res) => {
             "userId": req.body.userId,
             "products": mapedProsucts,
             "status": "prepared",
-            "dateEntry": "8:40 PM",
+            "dateEntry": new Date().toLocaleTimeString(),
             "dateProcessed": ""
         }
+
+        //const  = router.db.get('orders')
         res.status(200).json(ordersUpdate)
-            
+        console.log("order put =>", ordersUpdate);
     } catch (error) {
         console.log(error.stack);
         res.status(400).send("Crendenciales incorrectas");
     }
-  
+
 });
 
 server.use(router)
