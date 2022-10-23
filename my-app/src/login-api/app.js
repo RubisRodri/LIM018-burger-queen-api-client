@@ -150,7 +150,7 @@ server.put("/orders/:id", async (req, res) => {
             "products": mapedProsucts,
             "status": "prepared",
             "dateEntry": new Date().toLocaleTimeString(),
-            "dateProcessed": ""
+            "dateProcessed": "hora 8 "
         }
 
         
