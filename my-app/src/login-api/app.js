@@ -128,6 +128,7 @@ server.post("/orders", async (req, res) => {
 server.put("/orders/:id", async (req, res) => {
     try {
         const productsFronEnd = req.body.products;
+        console.log(productsFronEnd)
         
         const getProductById = (id) => {
             const result = products.find(product => {
