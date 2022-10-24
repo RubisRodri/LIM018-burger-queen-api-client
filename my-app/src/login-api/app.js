@@ -4,6 +4,7 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 const cors = require('cors');
 
+
 const products = router.db
     .get('products')
     .value()
@@ -61,6 +62,7 @@ server.post("/auth", (req, res) => {
 
     }
 
+
     if (req.body.email === 'fmendoza@gmail.com') {
         res.jsonp({
             token: tokenWaiter
@@ -73,18 +75,107 @@ server.post("/auth", (req, res) => {
         console.log('cheff');
     }
 
-    return res.status(200).json(datosUsers);
+    //res.status(200).json(datosUsers);
 
 });
 
+server.post("/orders", async (req, res) => {
+    try {
+        const productsFronEnd = req.body.products;
+        console.log(productsFronEnd);
+
+        const getProductById = (id) => {
+            const result = products.find(product => {
+                return product.id === id
+            })
+            return result
+        }
+
+        const mapedProsucts = productsFronEnd.map((value) => {
+            const objNew = {
+                qty: value.qty,
+                product: getProductById(value.productId)
+            }
+            return objNew
+        })
+
+        const id = "id" + Math.random().toString(16).slice(2)
+
+        const order = {
+            "_id": id,
+            "userId": req.body.userId,
+            "client": req.body.client,
+            "products": mapedProsucts,
+            "status": "pending",
+            "dateEntry": new Date().toLocaleTimeString(),
+            "dateProcessed": ""
+
+        }
+        const orders = router.db.get('orders')
+        const resolve = await orders.push(order).write()
+        res.status(200).json({
+            order
+        })
+    } catch (error) {
+        res.status(400).send("No se indica Id, o se intenta crear una orden sin productos")
+        res.status(401).send("No hay cabecera de autenticación")
+    }
+}
+)
+
+server.put("/orders/:id", async (req, res) => {
+    try {
+        const productsFronEnd = req.body.products;
+        console.log(productsFronEnd)
+        
+        const getProductById = (id) => {
+            const result = products.find(product => {
+                return product.id === id
+            })
+            return result
+        }
+
+        const mapedProsucts = productsFronEnd.map((value) => {
+            const objNew = {
+                qty: value.qty,
+                product: getProductById(value.productId)
+            }
+            return objNew
+        })
+
+        //console.log("=>",mapedProsucts);
+
+        const ordersUpdate = {
+            "_id": req.params.id,
+            "userId": req.body.userId,
+            "products": mapedProsucts,
+            "status": req.body.status = "prepared",
+            "dateEntry": new Date().toLocaleTimeString(),
+            "dateProcessed": "hora 8 "
+        }
+
+        const ordersP = router. db.get('orders')
+        console.log('ORDERS',ordersP)
+
+        ordersP.__wrapped__.orders = ordersP.__wrapped__.orders.filter(value=>{
+            return value._id !== req.params.id
+        });
+
+        ordersP.__wrapped__.orders.push(ordersUpdate);
+        await ordersP.write();
 
 
+        //const resolve = await ordersP.push(ordersUpdate).write
+        res.status(200).json(ordersUpdate)
+    } catch (error) {
+        console.log(error.stack);
+        res.status(400).send("Crendenciales incorrectas");
+    }
 
+});
 
 server.use(router)
 server.listen(3001, () => {
     console.log('JSON Server is running')
     console.log("servidor iniciado en el puerto 3001")
 })
-
-
