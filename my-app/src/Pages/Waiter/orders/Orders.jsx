@@ -39,6 +39,7 @@ export const Ordenes = () => {
             .then((value) => {
                 let orderProducts = value.map((product) => { return { id: product.id, image: product.image, product: product.name, price: product.price, type: product.type } });
                 setProducts(orderProducts)
+              
                 let includesBreakFast = orderProducts.filter(products => products.type === 'desayuno')
                 setCurentProducts(includesBreakFast)
 
@@ -102,7 +103,7 @@ export const Ordenes = () => {
 
      // peticion htpp para enviar la orden 
     const sendOrder =() =>{
-        console.log(cartItems)
+
         let sendKichen= fetch(`${API_URL}orders`, {
             method: 'POST',
             headers: {
@@ -118,6 +119,12 @@ export const Ordenes = () => {
                 }
             )
         }) .then(res => res.json())
+        .then(value => {
+            const id=value
+            console.log(id);
+        }
+            
+            )
             seeModal()
     }
 
@@ -193,12 +200,11 @@ export const Ordenes = () => {
                             <p className="nombreProduct">{element.product}</p>
                             <p>S/ {element.price}</p>
                             <div className="button-order">
-                                <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}><img className ="btnadd" src={btnadd}/></button>
                                 <button data-id={element.id} className="delete-product" onClick={() => subtractItemToCart(element)}><img className ="btnadd" src={menos}/></button>
+                                <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}><img className ="btnadd" src={btnadd}/></button>
                             </div>
                         </div>
                     )}
-
                  </div>
 
                     <div className="add-product-total">
