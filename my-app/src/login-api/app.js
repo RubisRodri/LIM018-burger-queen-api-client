@@ -61,7 +61,6 @@ server.post("/auth", (req, res) => {
 
     }
 
-
     if (req.body.email === 'fmendoza@gmail.com') {
         res.jsonp({
             token: tokenWaiter
@@ -74,102 +73,101 @@ server.post("/auth", (req, res) => {
         console.log('cheff');
     }
 
-    //res.status(200).json(datosUsers);
+    return res.status(200).json(datosUsers);
 
 });
 
-server.post("/orders", async (req, res) => {
-    try {
+// server.post("/orders", async (req, res) => {
+//     try {
 
-        const productsFronEnd = req.body.products;
+//         const productsFronEnd = req.body.products;
         
-        const getProductById = (id) => {
-            const result = products.find(product => {
-                return product.id === id
-            })
-            return result
-        }
+//         const getProductById = (id) => {
+//             const result = products.find(product => {
+//                 return product.id === id
+//             })
+//             return result
+//         }
 
-        const mapedProsucts = productsFronEnd.map((value) => {
-            const objNew = {
-                qty: value.qty,
-                product: getProductById(value.productId)
-            }
-            return objNew
-        })
+//         const mapedProsucts = productsFronEnd.map((value) => {
+//             const objNew = {
+//                 qty: value.qty,
+//                 product: getProductById(value.productId)
+//             }
+//             return objNew
+//         })
 
-        const id = "id" + Math.random().toString(16).slice(2)
+//         //const id = "id" + Math.random().toString(16).slice(2)
 
-        const order = {
-            "_id": id,
-            "userId": req.body.userId,
-            "client": req.body.client,
-            "products": mapedProsucts,
-            "status": "pending",
-            "dateEntry": new Date().toLocaleTimeString(),
-            "dateProcessed": ""
+//         const order = {
+//             "id": "",
+//             "userId": req.body.userId,
+//             "client": req.body.client,
+//             "products": mapedProsucts,
+//             "status": "pending",
+//             "dateEntry": new Date().toLocaleTimeString(),
+//             "dateProcessed": ""
 
-        }
-        const orders = router.db.get('orders')
-        const resolve = await orders.push(order).write()
-        console.log("order post => ", order.id);
-
-        console.log('obj =>', resolve)
-        res.status(200).json({
-            order
-        })
-    } catch (error) {
-        res.status(400).send("No se indica Id, o se intenta crear una orden sin productos")
-        res.status(401).send("No hay cabecera de autenticación")
-    }
-}
-)
-
-server.put("/orders/:id", async (req, res) => {
-    try {
-        const productsFronEnd = req.body.products;
-        console.log(productsFronEnd)
-        
-        const getProductById = (id) => {
-            const result = products.find(product => {
-                return product.id === id
-            })
-            return result
-        }
-
-        const mapedProsucts = productsFronEnd.map((value) => {
-            const objNew = {
-                qty: value.qty,
-                product: getProductById(value.productId)
-            }
-            return objNew
-        })
-        const ordersUpdate = {
-            "_id": req.body._id,
-            "userId": req.body.userId,
-            "products": mapedProsucts,
-            "status": "prepared",
-            "dateEntry": new Date().toLocaleTimeString(),
-            "dateProcessed": "hora 8 "
-        }
-
-        
-        const ordersP = router.db.get('orders')
-        //ordersUpdate.status= "prepared";
+//         }
+//         const orders = router.db.get('orders')
         
         
-        const resolve = await ordersP.push(ordersUpdate).write()
+//         const resolve = await orders.push(order).write()
+//         console.log("order post => ", order.id);
+
+//         console.log('obj =>', resolve)
+//         res.status(200).json({
+//             order
+//         })
+//     } catch (error) {
+//         res.status(400).send("No se indica Id, o se intenta crear una orden sin productos")
+//         res.status(401).send("No hay cabecera de autenticación")
+//     }
+// }
+// )
+
+// server.put("/orders/:id", async (req, res) => {
+//     try {
+//         const productsFronEnd = req.body.products;
+//         console.log(productsFronEnd)
+        
+//         const getProductById = (id) => {
+//             const result = products.find(product => {
+//                 return product.id === id
+//             })
+//             return result
+//         }
+         
+//         const mapedProsucts = productsFronEnd.map((value) => {
+//             const objNew = {
+//                 qty: value.qty,
+//                 product: getProductById(value.productId)
+//             }
+//             return objNew
+//         })
+//         const ordersUpdate = {
+//             "_id": req.body._id,
+//             "userId": req.body.userId,
+//             "products": mapedProsucts,
+//             "status": "prepared",
+//             "dateEntry": new Date().toLocaleTimeString(),
+//             "dateProcessed": "hora 8 "
+//         }
+
+        
+//         const ordersP = router.db.get('orders')
+//         //const resolve = await ordersP.push(ordersUpdate).write()
         
 
-        //const  = router.db.get('orders')
-        res.status(200).json(ordersUpdate)
-        //console.log("order put =>", ordersUpdate);
-    } catch (error) {
-        console.log(error.stack);
-        res.status(400).send("Crendenciales incorrectas");
-    }
+//         //const  = router.db.get('orders')
+//         res.status(200).json(ordersUpdate)
+//         //console.log("order put =>", ordersUpdate);
+//     } catch (error) {
+//         console.log(error.stack);
+//         res.status(400).send("Crendenciales incorrectas");
+//     }
 
-});
+// });
 
 server.use(router)
 server.listen(3001, () => {
