@@ -125,7 +125,8 @@ server.post("/orders", async (req, res) => {
 server.put("/orders/:id", async (req, res) => {
     try {
         const productsFronEnd = req.body.products;
-
+        console.log(productsFronEnd)
+        
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
@@ -149,7 +150,7 @@ server.put("/orders/:id", async (req, res) => {
             "products": mapedProsucts,
             "status": req.body.status = "prepared",
             "dateEntry": new Date().toLocaleTimeString(),
-            "dateProcessed": ""
+            "dateProcessed": "hora 8 "
         }
 
         const ordersP = router. db.get('orders')
@@ -177,7 +178,5 @@ server.listen(3001, () => {
     console.log('JSON Server is running')
     console.log("servidor iniciado en el puerto 3001")
 })
-
-
 
 

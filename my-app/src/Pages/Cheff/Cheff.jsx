@@ -13,9 +13,8 @@ export const Cheff = () => {
 
     const token = localStorage.getItem('token')
 
-
     useEffect(() => {
-        fetch('http://localhost:3001/orders', {
+        fetch('http://localhost:3001/orders?status=pending', {
             method: "GET",
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
@@ -24,7 +23,7 @@ export const Cheff = () => {
         }).then(response => response.json())
             .then((value) => {
                 console.log(value);
-                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed, "status":element.status, "_id": element._id}))
+                let tableActive = value.map((element) => ({"client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed, "status":element.status, "_id": element._id}))
                 setActiveTable(tableActive)
 
                 
@@ -39,8 +38,6 @@ export const Cheff = () => {
         })
         return result
     }
-
-
 
     const readyToServe = (order) => {
         let status =order.status
@@ -63,29 +60,51 @@ export const Cheff = () => {
             const oderPrepared = value
             console.log(oderPrepared);
             setOrders(oderPrepared)
+            let inCart = oderPrepared.find((value) => {   
+                return value.id === oderPrepared.id
+                });
+                
+            if (inCart.quantity >= 1) {
+                setOrders(
+                     oderPrepared.filter(elementInCar => elementInCar.id !== oderPrepared.id)
+                )
+        }
+
+
+
+
+
         })
         .catch((error) => console.log(error))
+
+
+        // if(orderPrepared >= 1){
+        //     setOrders(order.filter(elementPrepared =>elementPrepared.id !==))
+        // }
+
+        //     const deleteItemToCart = (product) => {
+        //         const inCart = cartItems.find((value) => {   
+        //             return value.id === product.id
+        //             });
+                    
+        //         if (inCart.quantity >= 1) {
+        //             setCartItems(
+        //                  cartItems.filter(elementInCar => elementInCar.id !== product.id)
+        //             )
+        //     }
+        // }
+
     }
 
 
-
-//     const deleteItemToCart = (product) => {
-//         const inCart = cartItems.find((value) => {   
-//             return value.id === product.id
-//             });
-            
-//         if (inCart.quantity >= 1) {
-//             setCartItems(
-//                  cartItems.filter(elementInCar => elementInCar.id !== product.id)
-//             )
-//     }
-// }
-
     const showPrepared = () => {
-        console.log(orders);
         // let includesBreakFast = products.filter(products => products.type === 'cena')
         // setCurentProducts(includesBreakFast)
+     
+
+
         console.log("click");
+        navigate("/Prepared")
 
     };
 
@@ -95,7 +114,7 @@ export const Cheff = () => {
 
             <div className='container-btn'>
                 <button type='button' className='break-btn'  >Activos</button>
-                <button type='button' className='dinner-btn' onClick={() => showPrepared()}>Preparados</button>
+                <button type='button' className='dinner-btn' onClick={ showPrepared }>Preparados</button>
             </div>
 
             <h2 className="text-orders">Ordenes</h2>
