@@ -44,7 +44,6 @@ export const Cheff = () => {
 
     const readyToServe = (order) => {
         let status =order.status
-        console.log(status);
         fetch(`http://localhost:3001/orders/${order._id}`, {
             method: "PUT",
             headers: {
@@ -55,7 +54,7 @@ export const Cheff = () => {
                 {
                     "userId": localStorage.getItem('id'),
                     "client": localStorage.getItem('client'),
-                    "products": JSON.parse( localStorage.getItem('cartProducts')).map((value)=> ({productId: value.id, qty: value.quantity})),
+                    "products": JSON.parse( localStorage.getItem('cartProducts')).map((value)=> ({userId: value._id,client:value.client, productId: value.id, qty: value.quantity })),
                     "status":status,
                 }
             )

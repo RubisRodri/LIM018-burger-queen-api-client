@@ -80,9 +80,9 @@ server.post("/auth", (req, res) => {
 
 server.post("/orders", async (req, res) => {
     try {
-
         const productsFronEnd = req.body.products;
-        
+        console.log(productsFronEnd);
+
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
@@ -112,9 +112,6 @@ server.post("/orders", async (req, res) => {
         }
         const orders = router.db.get('orders')
         const resolve = await orders.push(order).write()
-        console.log("order post => ", order.id);
-
-        console.log('obj =>', resolve)
         res.status(200).json({
             order
         })
@@ -126,11 +123,9 @@ server.post("/orders", async (req, res) => {
 )
 
 server.put("/orders/:id", async (req, res) => {
-    console.log('holaaaaaaaaaaaaaa');
-
     try {
         const productsFronEnd = req.body.products;
-        console.log("....",productsFronEnd);
+
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
@@ -145,18 +140,31 @@ server.put("/orders/:id", async (req, res) => {
             }
             return objNew
         })
+
+        //console.log("=>",mapedProsucts);
+
         const ordersUpdate = {
-            "_id": req.body._id,
+            "_id": req.params.id,
             "userId": req.body.userId,
             "products": mapedProsucts,
-            "status": "prepared",
+            "status": req.body.status = "prepared",
             "dateEntry": new Date().toLocaleTimeString(),
             "dateProcessed": ""
         }
 
-        //const  = router.db.get('orders')
+        const ordersP = router. db.get('orders')
+        console.log('ORDERS',ordersP)
+
+        ordersP.__wrapped__.orders = ordersP.__wrapped__.orders.filter(value=>{
+            return value._id !== req.params.id
+        });
+
+        ordersP.__wrapped__.orders.push(ordersUpdate);
+        await ordersP.write();
+
+
+        //const resolve = await ordersP.push(ordersUpdate).write
         res.status(200).json(ordersUpdate)
-        console.log("order put =>", ordersUpdate);
     } catch (error) {
         console.log(error.stack);
         res.status(400).send("Crendenciales incorrectas");
