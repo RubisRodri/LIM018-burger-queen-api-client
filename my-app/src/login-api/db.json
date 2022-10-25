@@ -79,6 +79,44 @@
     }
   ],
   "orders": [
-
+    {
+      "_id": "id10f28453134b1",
+      "userId": "1234",
+      "client": "Mesa 6",
+      "products": [
+        {
+          "qty": 8,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "18:44:34",
+      "dateProcessed": ""
+    },
+    {
+      "_id": "idddbf94222bdb3",
+      "userId": "1234",
+      "products": [
+        {
+          "qty": 8,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "18:45:43",
+      "dateProcessed": "hora 8 "
+    }
   ]
 }

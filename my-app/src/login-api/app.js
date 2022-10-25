@@ -17,7 +17,7 @@ server.use(cors())
 
 const tokenWaiter = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiRmVsaXBlIE1lbmRvemEiLCJlbWFpbCI6ImZtZW5kb3phQGdtYWlsLmNvbSIsInJvbGUiOiJ3YWl0ZXIifQ.7Cr4Ub_bWoT0npL2d0sArOCCTNZmu8-pKycd3V3tTzY";
 const tokenCheff = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiSm9oZW4gU2FudG9zIiwiZW1haWwiOiJqb2hlbkBnbWFpbC5jb20iLCJyb2xlIjoiY2hlZmYiLCJhbGciOiJIUzI1NiJ9.jnI2kiJV1K1jK6VC6zd76wMWnuNcP6ZcxRRZpJNaOEY";
-
+const tokenAdmin = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiRGVsZWluYSBMTGFtb2NjYSIsImVtYWlsIjoiZGVsZWluYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImFsZyI6IkhTMjU2In0.VFOAUrXQEyhJg-_yW0a6SWvU4dfxtkoU5nBz1dFMAhQ"
 
 server.use((req, res, next) => {
     if (req.method === 'POST' && req.path === '/auth') {
@@ -47,6 +47,11 @@ server.post("/auth", (req, res) => {
     {
         email: 'johen@gmail.com',
         password: '123456'
+    },
+
+    {
+        email: 'deleina@gmail.com',
+        password: '123456'
     }
     ];
     const userExist = datosUsers.find(value => req.body.email === value.email);
@@ -73,6 +78,11 @@ server.post("/auth", (req, res) => {
             token: tokenCheff
         });
         console.log('cheff');
+
+        res.jsonp({
+            token: tokenAdmin
+        });
+        console.log('admin');
     }
 
     //res.status(200).json(datosUsers);
@@ -127,7 +137,7 @@ server.put("/orders/:id", async (req, res) => {
     try {
         const productsFronEnd = req.body.products;
         console.log(productsFronEnd)
-        
+
         const getProductById = (id) => {
             const result = products.find(product => {
                 return product.id === id
@@ -154,12 +164,15 @@ server.put("/orders/:id", async (req, res) => {
             "dateProcessed": "hora 8 "
         }
 
-        const ordersP = router. db.get('orders')
-        console.log('ORDERS',ordersP)
+        const ordersP = router.db.get('orders')
+        console.log('ORDERS', ordersP)
 
-        ordersP.__wrapped__.orders = ordersP.__wrapped__.orders.filter(value=>{
+
+        ordersP.__wrapped__.orders = ordersP.__wrapped__.orders.filter(value => {
             return value._id !== req.params.id
         });
+
+
 
         ordersP.__wrapped__.orders.push(ordersUpdate);
         await ordersP.write();
