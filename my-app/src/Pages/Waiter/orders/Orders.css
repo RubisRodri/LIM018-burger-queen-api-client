@@ -152,4 +152,7 @@ body {
 .swal2-styled.swal2-confirm.swalBtnColor {
     color: #d7d5d5;
     
-}  
+} 
+.total-order{
+    color: #f84141;
+}

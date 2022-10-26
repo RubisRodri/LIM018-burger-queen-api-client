@@ -10,13 +10,14 @@
 
 
 .active-tables{
-    border: 5px solid #a1969611;
+    border: 5px solid rgb(154, 247, 154);
     width: 100%;
+    height: 20vh;
 
 }
 
 .table{
-    width: 10%;
+    width: 40%;
 
 }
 

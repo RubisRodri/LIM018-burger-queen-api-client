@@ -38,19 +38,35 @@ export const Login = () => {
                     return res.json();
                 }
             })
-            //{token:'.....'}
-                .then(value => {
+            .then(value => {
                     localStorage.setItem('token', value.token)
                     const token = localStorage.getItem('token');
                    const parsedToken= parseJwt(token)
 
                     localStorage.setItem('name', parsedToken.name)
                     localStorage.setItem('id', parsedToken.id)
-                    console.log(parsedToken);
+                    // console.log(parsedToken);
+                    
+                    // switch (parsedToken.role) {
+                    //     case "waiter":
+                    //         navigate("/Waiter")
+                    //       console.log("waiter");
+                    //       break;
+                    //     case "Cheff":
+                    //         navigate("/Cheff")
+                    //       console.log("Cheff");
+                    //       break;
+                    //     case "Admin":
+                    //         navigate("/Admin")
+                    //       console.log("chef");
+                    //       break;
+                    //   }
                     if (parsedToken.role === 'waiter') {
                         navigate("/Waiter")
-                    }else{
+                    }else if(parsedToken.role ==='Cheff'){
                         navigate("/Cheff")
+                    }else {
+                        navigate("/Admin")
                     }
                     
                 }).catch(error =>{
