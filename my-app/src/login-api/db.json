@@ -79,5 +79,139 @@
     }
   ],
   "orders": [
+    {
+      "_id": "id939840950a425",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 7,
+            "name": "Gaseosa 500 ml",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
+            "type": "cena"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 1,
+            "name": "Cafe Americano",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "16:30:12",
+      "dateProcessed": "16:30:30"
+    },
+    {
+      "_id": "iddf79bb7b88c67",
+      "products": [
+        {
+          "qty": 6,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "17:27:50",
+      "dateProcessed": "17:28:01"
+    },
+    {
+      "_id": "id3e0e3197e6a2",
+      "products": [
+        {
+          "qty": 6,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "17:27:25",
+      "dateProcessed": "17:34:29"
+    },
+    {
+      "_id": "id16211111af6b8",
+      "userId": "1234",
+      "client": "Mesa 2",
+      "products": [
+        {
+          "qty": 3,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 2,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "18:06:59",
+      "dateProcessed": ""
+    },
+    {
+      "_id": "idf30ef183d019",
+      "userId": "1234",
+      "client": "Mesa 2",
+      "products": [
+        {
+          "qty": 3,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 2,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "18:07:52",
+      "dateProcessed": ""
+    }
   ]
 }

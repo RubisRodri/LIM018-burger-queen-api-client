@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/Footer.jsx';
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
-import './prepared.css'
-=======
 import './Prepared.css';
->>>>>>> fcf8353d8abecea487a7b6415c60553906a36788
 
 export const Prepared = () => {
     const navigate = useNavigate();
@@ -47,7 +43,6 @@ export const Prepared = () => {
                 <div className="order-prepared">
                     {prepared.map((order, index) => (
                         <div className="list-prepared" key={index}>
-                            <p>{order._id} hola</p>
                             <p>{order.status}</p>
                             <p>Recibido: {order.dateEntry}</p>
                             {order.products.map((product, index) => (

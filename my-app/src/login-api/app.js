@@ -200,9 +200,7 @@ server.put("/orders/:id", async (req, res) => {
 
         ordersP.__wrapped__.orders.push(ordersUpdate);
         await ordersP.write();
-
-        // res.status(200).json(ordersP)
-
+        
         //const resolve = await ordersP.push(ordersUpdate).write
         res.status(200).json(ordersUpdate)
     } catch (error) {
