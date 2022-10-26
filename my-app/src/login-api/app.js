@@ -148,7 +148,7 @@ server.put("/orders/:id", async (req, res) => {
         const mapedProsucts = productsFronEnd.map((value) => {
             const objNew = {
                 qty: value.qty,
-                product: getProductById(value.productId)
+                product: getProductById(value.product.id)
             }
             return objNew
         })
@@ -160,8 +160,8 @@ server.put("/orders/:id", async (req, res) => {
             "userId": req.body.userId,
             "products": mapedProsucts,
             "status": req.body.status = "prepared",
-            "dateEntry": new Date().toLocaleTimeString(),
-            "dateProcessed": "hora 8 "
+            "dateEntry": req.body.dateEntry,
+            "dateProcessed": new Date().toLocaleTimeString()
         }
 
         const ordersP = router.db.get('orders')
@@ -172,11 +172,12 @@ server.put("/orders/:id", async (req, res) => {
             return value._id !== req.params.id
         });
 
-
+        console.log('ORDER PUT', ordersUpdate);
 
         ordersP.__wrapped__.orders.push(ordersUpdate);
         await ordersP.write();
 
+        // res.status(200).json(ordersP)
 
         //const resolve = await ordersP.push(ordersUpdate).write
         res.status(200).json(ordersUpdate)

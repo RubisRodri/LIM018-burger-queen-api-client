@@ -25,6 +25,23 @@
     background: #ff3647;
     border: 2px solid #f84141;
     border-radius: 6px;
-    width: 23%;
+    width: 60%;
     color: #fff;
+    
+}
+
+.order-div{
+    display: grid;
+    grid-template-columns: 180px 180px 180px 180px;
+    grid-template-rows: 287px;
+    align-items: stretch;
+    justify-content: space-between;
+    border-radius: 15px;
+    border: 1px solid #D7D5D5;
+}
+
+
+.order-products{
+    border: 2px solid #f84141;
+    box-shadow: 0 0 1rem #00000025 inset;
 }
