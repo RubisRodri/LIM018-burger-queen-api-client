@@ -67,7 +67,7 @@ export const Ordenes = () => {
     };
 
     //funcion para disminuir  productos de la orden 
-    console.log(product)
+    
     const subtractItemToCart = (product) => {
         const inCart = cartItems.find((value) => {   
             return value.id === product.id

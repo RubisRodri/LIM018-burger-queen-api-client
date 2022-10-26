@@ -4,7 +4,6 @@ import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/Footer.jsx';
 import './Cheff.css'
 
-
 export const Cheff = () => {
     const [activeTable, setActiveTable] = useState([]);
     const [orders, setOrders] = useState([]);
