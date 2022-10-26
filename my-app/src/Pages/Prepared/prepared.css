@@ -1,0 +1,21 @@
+.container-prepared {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-area: side;
+    row-gap: 6px;
+    text-align: center;
+    justify-content: center;
+}
+
+.cart-product{
+    border: 3px solid rgb(0 0 0 / 20%);
+    border-radius: 6px;
+    background: hsl(0deg 0% 0% / 8%);
+    width: 95%;
+    margin: 19px;
+}
+
+.text-prepared{
+    text-align: center;
+    color: #f84141;
+}

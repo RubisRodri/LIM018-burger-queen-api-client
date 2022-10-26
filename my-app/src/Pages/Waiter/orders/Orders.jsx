@@ -103,7 +103,6 @@ export const Ordenes = () => {
 
      // peticion htpp para enviar la orden 
     const sendOrder =() =>{
-
         let sendKichen= fetch(`${API_URL}orders`, {
             method: 'POST',
             headers: {
@@ -119,12 +118,9 @@ export const Ordenes = () => {
                 }
             )
         }) .then(res => res.json())
-        .then(value => {
-            const id=value
-            console.log(id);
-        }
+        .then(value=> {
             
-            )
+        })
             seeModal()
     }
 
@@ -156,9 +152,11 @@ export const Ordenes = () => {
         localStorage.setItem('client', value);
     }
 
-    const sumTotal = () => {
-        const reducer =(acumulador, currentValue) => acumulador + currentValue.price;
-    }
+    let total= 0;
+    cartItems.forEach((product) => {
+      const item = product;
+      total += item.price;
+    });
 
 
     const seeModal = () => {
@@ -170,13 +168,6 @@ export const Ordenes = () => {
           })
     }
     
-
-    // let totalPrice = 0 
-    // products.forEach(element => {
-    //     const item = element;
-    //     console.log(totalPrice += item.price);
-    //     totalPrice += item.price
-    // } )
 
 
     return (
@@ -204,10 +195,11 @@ export const Ordenes = () => {
                                 <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}><img className ="btnadd" src={btnadd}/></button>
                             </div>
                         </div>
-                    )}
+                      )}
                  </div>
 
                     <div className="add-product-total">
+                        <p className="total-order">Total De Ordenes</p>
                         <div className="form-text">
                         </div>
                         {cartItems.map((element) =>
@@ -217,10 +209,8 @@ export const Ordenes = () => {
                                     <img className="dump-order" src={dump}/>
                                 </button>
                             </div>
-
-                            
                         )}
-                          <p className="elemen-text"></p>
+                          <p className="elemen-text">Total: {total}</p>
                         <button className="send-kitchen" onClick={sendOrder}>Enviar a Cocina</button>
                     </div>
             

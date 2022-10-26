@@ -25,12 +25,8 @@ export const Cheff = () => {
                 console.log(value);
                 let tableActive = value.map((element) => ({"client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed, "status":element.status, "_id": element._id}))
                 setActiveTable(tableActive)
-
-                
             })
     }, [])
-
-   
 
     const getOrderById = (id) => {
         const result = activeTable.find(value => {
@@ -98,11 +94,7 @@ export const Cheff = () => {
 
 
     const showPrepared = () => {
-        // let includesBreakFast = products.filter(products => products.type === 'cena')
-        // setCurentProducts(includesBreakFast)
      
-
-
         console.log("click");
         navigate("/Prepared")
 

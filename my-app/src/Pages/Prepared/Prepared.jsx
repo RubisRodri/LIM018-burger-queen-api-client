@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/Footer.jsx';
 import { useEffect, useState } from "react";
+import './prepared.css'
 
 export const Prepared = () => {
     const navigate = useNavigate();
@@ -18,6 +19,7 @@ export const Prepared = () => {
             }
         }).then(response => response.json())
             .then((value) => {
+                console.log(value);
                 const orderPrepared = value.map((value)=> ({dateEntry: value.dateEntry, status: value.status, product: value.products}))
                 console.log(orderPrepared)
                 setPrepared(orderPrepared)
@@ -29,10 +31,10 @@ export const Prepared = () => {
         <>
             <Navbar />
 
-            <h1>Ordenes Preparadas</h1>
+            <h1 className="text-prepared">Ordenes Preparadas</h1>
             <div className="container-prepared">
                 {prepared.map((order, index) => (
-                    <div key={index}>
+                    <div key={index} className="cart-product">
                         <p>{order.status}</p>
                         <p>Recibido: {order.dateEntry}</p>
                         {order.product.map((product, index) => (

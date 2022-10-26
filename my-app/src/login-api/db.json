@@ -80,31 +80,21 @@
   ],
   "orders": [
     {
-      "_id": "id10f28453134b1",
+      "_id": "id36e2f82a8959",
       "userId": "1234",
-      "client": "Mesa 6",
       "products": [
         {
-          "qty": 8,
+          "qty": 4,
           "product": {
-            "id": 2,
-            "name": "Cafe con Leche",
+            "id": 3,
+            "name": "Jugo Natural",
             "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
             "type": "desayuno"
           }
-        }
-      ],
-      "status": "pending",
-      "dateEntry": "18:44:34",
-      "dateProcessed": ""
-    },
-    {
-      "_id": "idddbf94222bdb3",
-      "userId": "1234",
-      "products": [
+        },
         {
-          "qty": 8,
+          "qty": 1,
           "product": {
             "id": 2,
             "name": "Cafe con Leche",
@@ -115,7 +105,124 @@
         }
       ],
       "status": "prepared",
-      "dateEntry": "18:45:43",
+      "dateEntry": "00:56:57",
+      "dateProcessed": "hora 8 "
+    },
+    {
+      "_id": "idf71a906d46945",
+      "userId": "1234",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 1,
+            "name": "Cafe Americano",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 4,
+            "name": "sandwich de Queso",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "01:11:55",
+      "dateProcessed": "hora 8 "
+    },
+    {
+      "_id": "id51f835800966f",
+      "userId": "1234",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 1,
+            "name": "Cafe Americano",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 4,
+            "name": "sandwich de Queso",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "01:11:56",
+      "dateProcessed": "hora 8 "
+    },
+    {
+      "_id": "id15b60ac493a2d",
+      "userId": "1234",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 1,
+            "name": "Cafe Americano",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 4,
+            "name": "sandwich de Queso",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "01:11:57",
       "dateProcessed": "hora 8 "
     }
   ]

@@ -54,6 +54,7 @@ server.post("/auth", (req, res) => {
         password: '123456'
     }
     ];
+
     const userExist = datosUsers.find(value => req.body.email === value.email);
     if (!userExist) {
         res.status(400).send("usuario no existe en la db");
@@ -67,23 +68,46 @@ server.post("/auth", (req, res) => {
 
     }
 
-
-    if (req.body.email === 'fmendoza@gmail.com') {
-        res.jsonp({
-            token: tokenWaiter
-        });
-        console.log('waiter');
-    } else {
-        res.jsonp({
-            token: tokenCheff
-        });
-        console.log('cheff');
-
-        res.jsonp({
-            token: tokenAdmin
-        });
-        console.log('admin');
+    switch (req.body.email) {
+        case 'fmendoza@gmail.com':
+            res.jsonp({
+                token: tokenWaiter
+            });
+            console.log("waiter");
+            break;
+        case "johen@gmail.com":
+            res.jsonp({
+                token: tokenCheff
+            });
+            console.log("Cheff");
+            break;
+        case 'deleina@gmail.com':
+            res.jsonp({
+                token: tokenAdmin
+            });
+            console.log("Admin");
+            break;
     }
+
+
+
+
+    // if (req.body.email === 'fmendoza@gmail.com') {
+    //     res.jsonp({
+    //         token: tokenWaiter
+    //     });
+    //     console.log('waiter');
+    // } else {
+    //     res.jsonp({
+    //         token: tokenCheff
+    //     });
+    //     console.log('cheff');
+
+    //     res.jsonp({
+    //         token: tokenAdmin
+    //     });
+    //     console.log('admin');
+    // }
 
     //res.status(200).json(datosUsers);
 
