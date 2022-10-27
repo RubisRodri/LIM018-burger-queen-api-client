@@ -6,27 +6,19 @@ import mesas from "../../Pictures/mesas.png"
 import './ActiveOrder.css';
 import { useState } from "react";
 import { useEffect } from "react";
+import {getOrderActive} from '../../service-api/service-api.js'
 
 export const ActiveOrder = () => {
     const [activeTable, setActiveTable] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/orders', {
-            method: "GET",
-            headers: {
-                "Content-type": "application/json;charset=UTF-8",
-                "Authorization": `Bearer ${localStorage.getItem('token')}`
-            }
-        }).then(response => response.json())
+        getOrderActive()
             .then((value) => {
                 let tableActive = value.map((element) => ({ "client": element.client, "products": element.products }))
                 setActiveTable(tableActive)
             })
     }, [])
 
-
-
-    
 
     return (
         <>

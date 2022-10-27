@@ -5,6 +5,7 @@ import btnadd from '../../../Pictures/add.png';
 import menos from '../../../Pictures/menos.png'
 import dump from '../../../Pictures/dump.png'
 import Footer from '../../../Components/footer/Footer.jsx';
+import { getProducts , sendkichen} from "../../../service-api/service-api.js";
 import Swal from 'sweetalert2';
 import Select from 'react-select';
 import './Orders.css';
@@ -12,8 +13,6 @@ import './Orders.css';
 
 
 export const Ordenes = () => {
-    const API_URL = 'http://localhost:3001/'
-
     const [products, setProducts] = useState([]);
     const [curentproducts, setCurentProducts] = useState([]);
     const [selectTable, setSelecTable] = useState(null);
@@ -28,14 +27,7 @@ export const Ordenes = () => {
     });
     
     useEffect(() => {
-        fetch('http://localhost:3001/products', {
-            method: "GET",
-            headers: {
-                "Content-type": "application/json;charset=UTF-8",
-                "Authorization": `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-            .then(response => response.json())
+        getProducts()
             .then((value) => {
                 let orderProducts = value.map((product) => { return { id: product.id, image: product.image, product: product.name, price: product.price, type: product.type } });
                 setProducts(orderProducts)
@@ -67,7 +59,6 @@ export const Ordenes = () => {
     };
 
     //funcion para disminuir  productos de la orden 
-    
     const subtractItemToCart = (product) => {
         const inCart = cartItems.find((value) => {   
             return value.id === product.id
@@ -102,35 +93,13 @@ export const Ordenes = () => {
     }
   
 
-     // peticion htpp para enviar la orden 
+     
     const sendOrder =() =>{
-
-        let sendKichen= fetch(`${API_URL}orders`, {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json",
-                "Authorization": `Bearer ${localStorage.getItem('token')}`,
-                "id":`${localStorage.getItem('id')}`
-            },
-            body: JSON.stringify(
-                {
-                    "userId": localStorage.getItem('id'),
-                    "client": localStorage.getItem('client'),
-                    "products": JSON.parse( localStorage.getItem('cartProducts')).map((value)=> ({productId: value.id, qty: value.quantity})),
-                }
-            )
-        }) .then(res => res.json())
-        .then(value => {
-            const id=value
-            console.log(id);
-        }
-            
-            )
+        sendkichen()
             seeModal()
     }
 
   
-
     const showDinnerFood = () => {
         let includesBreakFast = products.filter(products => products.type === 'cena')
         setCurentProducts(includesBreakFast)
@@ -157,9 +126,11 @@ export const Ordenes = () => {
         localStorage.setItem('client', value);
     }
 
-    const sumTotal = () => {
-        const reducer =(acumulador, currentValue) => acumulador + currentValue.price;
-    }
+    let total= 0;
+    cartItems.forEach((product) => {
+      const item = product;
+      total += item.price;
+    });
 
 
     const seeModal = () => {
@@ -171,13 +142,6 @@ export const Ordenes = () => {
           })
     }
     
-
-    // let totalPrice = 0 
-    // products.forEach(element => {
-    //     const item = element;
-    //     console.log(totalPrice += item.price);
-    //     totalPrice += item.price
-    // } )
 
 
     return (
@@ -205,10 +169,11 @@ export const Ordenes = () => {
                                 <button data-id={element.id} className="add-product" onClick={() => addToCart(element)}><img className ="btnadd" src={btnadd}/></button>
                             </div>
                         </div>
-                    )}
+                      )}
                  </div>
 
                     <div className="add-product-total">
+                        <p className="total-order">Total De Ordenes</p>
                         <div className="form-text">
                         </div>
                         {cartItems.map((element) =>
@@ -218,10 +183,8 @@ export const Ordenes = () => {
                                     <img className="dump-order" src={dump}/>
                                 </button>
                             </div>
-
-                            
                         )}
-                          <p className="elemen-text"></p>
+                          <p className="elemen-text">Total: {total}</p>
                         <button className="send-kitchen" onClick={sendOrder}>Enviar a Cocina</button>
                     </div>
             

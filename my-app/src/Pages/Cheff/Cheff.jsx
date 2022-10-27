@@ -30,7 +30,6 @@ export const Cheff = () => {
     }, [orders])
 
 
-
     const getOrderById = (id) => {
         const result = activeTable.find(value => {
             return value._id === id
@@ -78,7 +77,6 @@ export const Cheff = () => {
                 <div className="order-div">
                     {activeTable.map((order, index) => (
                         <div className="order-products" key={index}>
-                            <p>{order._id}</p>
                             <p>{order.client}</p>
                             <p>Recibido: {order.dateEntry}</p>
                             {order.products.map((product, index) => (

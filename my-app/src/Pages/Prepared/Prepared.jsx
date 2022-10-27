@@ -43,7 +43,6 @@ export const Prepared = () => {
                 <div className="order-prepared">
                     {prepared.map((order, index) => (
                         <div className="list-prepared" key={index}>
-                            <p>{order._id} hola</p>
                             <p>{order.status}</p>
                             <p>Recibido: {order.dateEntry}</p>
                             {order.products.map((product, index) => (
