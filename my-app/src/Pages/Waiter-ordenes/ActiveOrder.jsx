@@ -12,7 +12,14 @@ export const ActiveOrder = () => {
     const [activeTable, setActiveTable] = useState([]);
 
     useEffect(() => {
-        getOrderActive()
+        fetch('http://localhost:3001/orders', {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                "Authorization": `Bearer ${localStorage.getItem('token')}`
+            }
+        }).then(response => response.json())
+
             .then((value) => {
                 let tableActive = value.map((element) => ({ "client": element.client, "products": element.products }))
                 setActiveTable(tableActive)

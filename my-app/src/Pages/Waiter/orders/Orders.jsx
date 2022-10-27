@@ -100,7 +100,6 @@ export const Ordenes = () => {
         clearOrder();
     }
 
-  
     const showDinnerFood = () => {
         let includesBreakFast = products.filter(products => products.type === 'cena')
         setCurentProducts(includesBreakFast)
@@ -130,7 +129,7 @@ export const Ordenes = () => {
     let total= 0;
     cartItems.forEach((product) => {
       const item = product;
-      total += item.price;
+      total += (item.price)*(item.quantity);
     });
 
     const clearOrder = (id) =>{
@@ -138,18 +137,15 @@ export const Ordenes = () => {
         console.log(clear)
         return setCartItems(clear)
     }
-
     const seeModal = () => {
         Swal.fire({
             icon: 'success',
             title: 'Envio exitoso',
             text: 'Su pedido fue enviado a la cocina',
-            confirmButtonColor: "#DD6B55"
+            confirmButtonColor: "#ff3647"
           })
     }
     
-
-
     return (
         <>
             <Navbar />

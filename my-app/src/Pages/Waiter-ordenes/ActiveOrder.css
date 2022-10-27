@@ -1,6 +1,5 @@
 .container-active-tables{
     display: grid;
-    display: grid;
     grid-template-columns: 300px 300px 300px;
     place-content: center;
     height: 75vh;
@@ -8,13 +7,12 @@
 }
     
 .active-tables{
-    border: 5px solid rgb(154, 247, 154);
     width: 100%;
     height: 20vh;
 }
 
 .table{
-    width: 40%;
+    width: 50%;
 }
 
 .text-number-table{
@@ -23,4 +21,5 @@
 
 .tb{
     text-align: center;
+    border: 5px solid rgb(154, 247, 154);
 }
