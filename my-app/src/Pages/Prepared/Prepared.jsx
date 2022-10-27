@@ -39,7 +39,6 @@ export const Prepared = () => {
                 <button type='button' className='break-btn' onClick={showPending}>Activos</button>
             </div>
             <h2 className="text-pending">Ordenes Preparadas</h2>
-            <div className="container-prepared">
                 <div className="order-prepared">
                     {prepared.map((order, index) => (
                         <div className="list-prepared" key={index}>
@@ -54,7 +53,7 @@ export const Prepared = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            
             <Footer />
         </>
     )

@@ -73,7 +73,7 @@ export const Cheff = () => {
             </div>
 
             <h2 className="text-orders">Ordenes Pendientes</h2>
-            <div className="container-Orders">
+            
                 <div className="order-div">
                     {activeTable.map((order, index) => (
                         <div className="order-products" key={index}>
@@ -90,7 +90,7 @@ export const Cheff = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            
             <Footer />
         </>
 

@@ -79,23 +79,5 @@
     }
   ],
   "orders": [
-    {
-      "_id": "id36bb097e84a96",
-      "products": [
-        {
-          "qty": 2,
-          "product": {
-            "id": 3,
-            "name": "Jugo Natural",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
-            "type": "desayuno"
-          }
-        }
-      ],
-      "status": "prepared",
-      "dateEntry": "11:54:15",
-      "dateProcessed": "11:54:43"
-    }
   ]
 }

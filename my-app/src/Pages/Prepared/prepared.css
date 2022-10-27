@@ -1,0 +1,18 @@
+.order-prepared{
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    justify-content: center;
+    border-radius: 15px;
+    gap: 50px;
+    text-align: center;
+}
+
+
+.list-prepared{
+    border: 2px solid #f84141;
+    text-align: center;
+}
+
+.text-pending{
+    text-align: center;
+}
