@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/Footer.jsx';
 import { useEffect, useState } from "react";
-import './Prepared.css';
+import './prepared.css';
 
 export const Prepared = () => {
     const navigate = useNavigate();

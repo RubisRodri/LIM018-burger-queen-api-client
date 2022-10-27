@@ -7,18 +7,14 @@
     gap: 25px;
 }
     
-
-
 .active-tables{
     border: 5px solid rgb(154, 247, 154);
     width: 100%;
     height: 20vh;
-
 }
 
 .table{
     width: 40%;
-
 }
 
 .text-number-table{

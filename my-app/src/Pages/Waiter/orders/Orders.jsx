@@ -95,8 +95,9 @@ export const Ordenes = () => {
 
      
     const sendOrder =() =>{
-        sendkichen()
-            seeModal()
+        sendkichen();
+        seeModal();
+        clearOrder();
     }
 
   
@@ -132,6 +133,11 @@ export const Ordenes = () => {
       total += item.price;
     });
 
+    const clearOrder = (id) =>{
+        const clear= cartItems.filter((item) => item .id == id)
+        console.log(clear)
+        return setCartItems(clear)
+    }
 
     const seeModal = () => {
         Swal.fire({
@@ -173,7 +179,7 @@ export const Ordenes = () => {
                  </div>
 
                     <div className="add-product-total">
-                        <p className="total-order">Total De Ordenes</p>
+                    <p className="total-order">Total De Ordenes</p>
                         <div className="form-text">
                         </div>
                         {cartItems.map((element) =>
@@ -185,6 +191,7 @@ export const Ordenes = () => {
                             </div>
                         )}
                           <p className="elemen-text">Total: {total}</p>
+                         
                         <button className="send-kitchen" onClick={sendOrder}>Enviar a Cocina</button>
                     </div>
             
