@@ -4,7 +4,7 @@ import { Navbar } from '../../../Components/navbar/Navbar.jsx';
 import btnadd from '../../../Pictures/add.png';
 import menos from '../../../Pictures/menos.png'
 import dump from '../../../Pictures/dump.png'
-import Footer from '../../../Components/footer/Footer.jsx';
+import Footer from '../../../Components/footer/footer.jsx';
 import { getProducts , sendkichen} from "../../../service-api/service-api.js";
 import Swal from 'sweetalert2';
 import Select from 'react-select';
