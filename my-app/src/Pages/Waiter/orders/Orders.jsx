@@ -97,9 +97,11 @@ export const Ordenes = () => {
      
     const sendOrder =() =>{
         sendkichen()
-            seeModal()
+        seeModal()
+        clearOrder()
     }
 
+   
   
     const showDinnerFood = () => {
         let includesBreakFast = products.filter(products => products.type === 'cena')
@@ -130,8 +132,14 @@ export const Ordenes = () => {
     let total= 0;
     cartItems.forEach((product) => {
       const item = product;
-      total += item.price;
+      total += (item.price)*(item.quantity);
     });
+
+    const clearOrder = (id) =>{
+        const clear= cartItems.filter((item) => item .id == id)
+        console.log(clear)
+        return setCartItems(clear)
+    }
 
 
     const seeModal = () => {
@@ -139,7 +147,7 @@ export const Ordenes = () => {
             icon: 'success',
             title: 'Envio exitoso',
             text: 'Su pedido fue enviado a la cocina',
-            confirmButtonColor: "#DD6B55"
+            confirmButtonColor: "#ff3647"
           })
     }
     
