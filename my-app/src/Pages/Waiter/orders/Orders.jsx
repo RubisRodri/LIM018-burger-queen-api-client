@@ -59,7 +59,6 @@ export const Ordenes = () => {
     };
 
     //funcion para disminuir  productos de la orden 
-
     const subtractItemToCart = (product) => {
         const inCart = cartItems.find((value) => {   
             return value.id === product.id
@@ -96,13 +95,11 @@ export const Ordenes = () => {
 
      
     const sendOrder =() =>{
-        sendkichen()
-        seeModal()
-        clearOrder()
+        sendkichen();
+        seeModal();
+        clearOrder();
     }
 
-   
-  
     const showDinnerFood = () => {
         let includesBreakFast = products.filter(products => products.type === 'cena')
         setCurentProducts(includesBreakFast)
@@ -140,8 +137,6 @@ export const Ordenes = () => {
         console.log(clear)
         return setCartItems(clear)
     }
-
-
     const seeModal = () => {
         Swal.fire({
             icon: 'success',
@@ -151,8 +146,6 @@ export const Ordenes = () => {
           })
     }
     
-
-
     return (
         <>
             <Navbar />
@@ -182,7 +175,7 @@ export const Ordenes = () => {
                  </div>
 
                     <div className="add-product-total">
-                        <p className="total-order">Total De Ordenes</p>
+                    <p className="total-order">Total De Ordenes</p>
                         <div className="form-text">
                         </div>
                         {cartItems.map((element) =>
@@ -194,6 +187,7 @@ export const Ordenes = () => {
                             </div>
                         )}
                           <p className="elemen-text">Total: {total}</p>
+                         
                         <button className="send-kitchen" onClick={sendOrder}>Enviar a Cocina</button>
                     </div>
             
