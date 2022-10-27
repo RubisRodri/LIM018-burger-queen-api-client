@@ -187,7 +187,6 @@ export const Ordenes = () => {
                             </div>
                         )}
                           <p className="elemen-text">Total: {total}</p>
-                         
                         <button className="send-kitchen" onClick={sendOrder}>Enviar a Cocina</button>
                     </div>
             
