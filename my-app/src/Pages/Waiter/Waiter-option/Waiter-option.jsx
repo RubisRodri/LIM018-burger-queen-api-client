@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from '../../../Components/navbar/Navbar.jsx';
 import mas from '../../../Pictures/mas.png';
 import waiter from '../../../Pictures/waiter-serving.png';
-import Footer from '../../../Components/footer/Footer.jsx';
+import Footer from '../../../Components/footer/footer.jsx';
 import { useNavigate } from 'react-router-dom';
 import './Waiter-option.css';
 

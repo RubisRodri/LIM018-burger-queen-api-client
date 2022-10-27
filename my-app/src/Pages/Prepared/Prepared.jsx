@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
-import Footer from '../../Components/footer/Footer.jsx';
+import Footer from '../../Components/footer/footer.jsx';
 import { useEffect, useState } from "react";
 import './prepared.css';
 

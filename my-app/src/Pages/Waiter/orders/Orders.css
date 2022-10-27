@@ -156,3 +156,13 @@ body {
 .total-order{
     color: #f84141;
 }
+
+.mesas-activas {
+    width: 118%;
+}
+
+
+.order-text{
+    display: inline-flex;
+    justify-content: space-evenly;
+}
