@@ -13,7 +13,7 @@ export const Cheff = () => {
     const token = localStorage.getItem('token')
 
     useEffect(() => {
-        fetch('http://localhost:3001/orders?_limit=4', {
+        fetch('http://localhost:3001/orders?_limit=3', {
             method: "GET",
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
@@ -21,13 +21,23 @@ export const Cheff = () => {
             }
         }).then(response => response.json())
             .then((value) => {
-                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed, "status": element.status, "_id": element._id }))
-                console.log(tableActive)
-                const newOrderPending = tableActive.filter(element => element.status === "pending")
-                console.log('PENDING:', newOrderPending)
-                setActiveTable(newOrderPending)
+                 let tablePending = value.filter(element => element.status ==="pending")
+                 let tableActive = tablePending.map((element) => ({ "client": element.client, "products": element.products, "dateEntry": element.dateEntry, "dateProcessed": element.dateProcessed, "status": element.status, "_id": element._id }))
+                 console.log(tableActive)
+                // const newOrderPending = tableActive.filter(element => element.status === "pending")
+                // console.log('PENDING:', newOrderPending)
+                setActiveTable(tableActive)
             })
+      
     }, [orders])
+
+    // const onlyPrepared = () => {
+    //     const pending = orders.filter((item) => item.status === "hola")
+    //     console.log(pending)
+    // }
+    // onlyPrepared();
+
+
 
 
     const getOrderById = (id) => {

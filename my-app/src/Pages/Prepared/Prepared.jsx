@@ -20,7 +20,7 @@ export const Prepared = () => {
         })
             .then(response => response.json())
             .then((value) => {
-                const orderPrepared = value.map((value) => ({ dateEntry: value.dateEntry, status: value.status, product: value.products }))
+                const orderPrepared = value.map((value) => ({ dateEntry: value.dateEntry, status: value.status, product: value.products, client: value.client }))
                 console.log('PREPAREDado', value);
                 setPrepared(value)
             })
@@ -43,11 +43,11 @@ export const Prepared = () => {
                     {prepared.map((order, index) => (
                         <div className="list-prepared" key={index}>
                             <p>{order.status}</p>
-                            <p>Recibido: {order.dateEntry}</p>
+                            <p>Tiempo de preparación: {order.dateProcessed}</p>
                             {order.products.map((product, index) => (
                                 <div key={index} className="div-products">
                                     <p className="text-product">({product.qty})</p>
-                                    <p className="text-product">({product.product.name})</p>
+                                    <p className="text-product">{product.product.name}</p>
                                 </div>
                             ))}
                         </div>
