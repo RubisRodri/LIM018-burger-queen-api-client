@@ -31,6 +31,7 @@ server.use((req, res, next) => {
 
         next();
     } else {
+        console.log(req.headers.authorization)
         res.sendStatus(401);
     }
 });
@@ -181,11 +182,12 @@ server.put("/orders/:id", async (req, res) => {
 
         const ordersUpdate = {
             "_id": req.params.id,
+            "client":req.body.client,
             "userId": req.body.userId,
             "products": mapedProsucts,
             "status": req.body.status = "prepared",
             "dateEntry": req.body.dateEntry,
-            "dateProcessed": new Date().toLocaleTimeString()
+            "dateProcessed": new Date().toLocaleTimeString() 
         }
 
         const ordersP = router.db.get('orders')
@@ -209,6 +211,36 @@ server.put("/orders/:id", async (req, res) => {
     }
 
 });
+
+server.patch("/orders/:id", async (req, res) => {
+    const orderId = req.params.id
+    const changes = req.body
+
+    const ordersP = router.db.get('orders')
+
+    const order = ordersP.__wrapped__.orders.find(el => el._id === orderId )// orden que consiguio
+
+    if (!order) {
+        res.status(404).send("Not found");
+        return
+    }
+
+    ordersP.__wrapped__.orders = ordersP.__wrapped__.orders.filter(value => {
+        return value._id !== orderId
+    });
+
+    const orderUpdated = {
+        ...order,
+        ...changes
+    }
+
+    ordersP.__wrapped__.orders.push(orderUpdated);
+
+    await ordersP.write();
+
+    res.status(200).send(orderUpdated)
+    
+})
 
 server.use(router)
 server.listen(3001, () => {
