@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/footer.jsx';
-
+import './admin.css'
 
 export const Admin = () => {
     //const navigate = useNavigate();
     const [products, setProducts] = useState([]);
+    const [isShown, setIsShown] = useState(true);
+    const [curentSelectedproduct, setCurentSelectedproduct] = useState({});
 
     useEffect(() => {
         fetch('http://localhost:3001/products', {
@@ -18,8 +19,8 @@ export const Admin = () => {
         })
             .then(response => response.json())
             .then((value) => {
-                let orderProducts = value.map((product) => { return { id: product.id, image: product.image, product: product.name, price: product.price, type: product.type } });
-                setProducts(orderProducts)
+                setProducts(value)
+
 
 
             })
@@ -27,19 +28,13 @@ export const Admin = () => {
 
 
 
-    const showEmployees = () => {
-        // let includesBreakFast = products.filter(products => products.type === 'cena')
-        // setCurentProducts(includesBreakFast)
+    const showProduct = (product) => {
+        setCurentSelectedproduct(product);
+        setIsShown(current => !current);
+        console.log(curentSelectedproduct);
+    }
 
 
-
-        console.log("click");
-       
-
-    };
-
-
-    console.log(products);
 
 
     return (
@@ -50,24 +45,31 @@ export const Admin = () => {
             <div className="contenedor-btn">
                 <div className='container-btn'>
                     <button type='button' className='break-btn' >Productos</button>
-                    <button type='button' className='dinner-btn' onClick={showEmployees}>Empleados</button>
+                    <button type='button' className='dinner-btn' >Empleados</button>
                 </div>
 
-               
-            </div>
-            {/* <div className='container-btn'>
-                    <button type='button' className='break-btn' >Agregar Productos</button>
-                </div> */}
 
-            <div className="contenedor-order">
+            </div>
+            <div className="container-product-admin" >
                 {products.map((element) =>
-                    <div className="container-menu" key={element.id}>
-                        <img src={element.image} className="image" />
-                        <p className="nombreProduct">{element.product}</p>
+                    <div className="product-admin" key={element.id} onClick={() => showProduct(element)}>
+                        <p className="name-product-a">{element.name}</p>
                     </div>
                 )}
 
+                <div className="current-product" style={{display: isShown ? 'none' : 'block'}}>
+                    <div className="product-content">
+                    <img className="image-pproduct-admin" src={curentSelectedproduct.image}/>
+                    <p>{curentSelectedproduct.name}</p>
+                    <p>Precio: {curentSelectedproduct.price} S/</p>
+                    <p>Id:  {curentSelectedproduct.id}</p>
+                    <button className="add-product-admin">Editar producto</button>
+                    <button className="add-product-admin">Eliminar producto</button>
+                    </div>
+                    
+                </div>
             </div>
+
 
 
             <Footer />

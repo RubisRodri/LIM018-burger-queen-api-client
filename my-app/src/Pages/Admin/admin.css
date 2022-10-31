@@ -1,7 +1,37 @@
-.container-products{
+.container-product-admin{
     display: flex;
-    flex-direction: row;
+    align-items: flex-start;
+    margin: 0px;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+}
+.product-admin{
+    border: 2px solid #F84141;
+    width: 21%;
+    margin: 13px;
+    text-align: center;
 }
 
+.current-product{
+    margin: 24px;
+    border: 1px solid #D7D5D5;
+    border-radius: 11px;
+    background: rgb(0 0 0 / 10%);
+    width: 50%;
+    text-align: center;
+}
+
+
+.add-product-admin{
+    background: #f84141;
+    width: 30%;
+    height: 35px;
+    border: 3px solid #f84141;
+    border-radius: 7px;
+    color: #Fff;
+    text-align: center;
+    margin: 8px;
+}
+
+.image-pproduct-admin{
+    width: 10%;
+}

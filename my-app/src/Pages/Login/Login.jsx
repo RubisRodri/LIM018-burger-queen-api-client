@@ -63,7 +63,7 @@ export const Login = () => {
                     //   }
                     if (parsedToken.role === 'waiter') {
                         navigate("/Waiter")
-                    }else if(parsedToken.role ==='Cheff'){
+                    }else if(parsedToken.role ==='cheff'){
                         navigate("/Cheff")
                     }else {
                         navigate("/Admin")
