@@ -45,27 +45,15 @@ export const Login = () => {
 
                     localStorage.setItem('name', parsedToken.name)
                     localStorage.setItem('id', parsedToken.id)
-                    // console.log(parsedToken);
-                    
-                    // switch (parsedToken.role) {
-                    //     case "waiter":
-                    //         navigate("/Waiter")
-                    //       console.log("waiter");
-                    //       break;
-                    //     case "Cheff":
-                    //         navigate("/Cheff")
-                    //       console.log("Cheff");
-                    //       break;
-                    //     case "Admin":
-                    //         navigate("/Admin")
-                    //       console.log("chef");
-                    //       break;
-                    //   }
+                   
                     if (parsedToken.role === 'waiter') {
                         navigate("/Waiter")
-                    }else if(parsedToken.role ==='Cheff'){
+                        console.log("estoy en mesero")
+                    }else if(parsedToken.role ==='cheff'){
                         navigate("/Cheff")
+                        console.log("estoy en cheff")
                     }else {
+                        console.log("soy admon")
                         navigate("/Admin")
                     }
                     

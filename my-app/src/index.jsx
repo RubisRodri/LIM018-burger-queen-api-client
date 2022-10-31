@@ -13,6 +13,7 @@ import {ActiveOrder} from '../src/Pages/Waiter-ordenes/ActiveOrder.jsx';
 import { Cheff } from '../../my-app/src/Pages/Cheff/Cheff.jsx';
 import { Prepared } from '../../my-app/src/Pages/Prepared/Prepared.jsx';
 import { Admin } from '../../my-app/src/Pages/Admin/Admin.jsx';
+import { Employess } from './Pages/Employess/Employess.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root'))
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root'))
                     <Route path="/Cheff" element={<Cheff />} />
                     <Route path="/Prepared" element={<Prepared />} />
                     <Route path="/Admin" element={<Admin />} />
+                    <Route path="/Employess" element={<Employess />} />
                 </Routes>
         </BrowserRouter>
     )
