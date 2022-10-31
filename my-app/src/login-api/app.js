@@ -17,12 +17,12 @@ server.use(cors())
 
 const tokenWaiter = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiRmVsaXBlIE1lbmRvemEiLCJlbWFpbCI6ImZtZW5kb3phQGdtYWlsLmNvbSIsInJvbGUiOiJ3YWl0ZXIifQ.7Cr4Ub_bWoT0npL2d0sArOCCTNZmu8-pKycd3V3tTzY";
 const tokenCheff = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiSm9oZW4gU2FudG9zIiwiZW1haWwiOiJqb2hlbkBnbWFpbC5jb20iLCJyb2xlIjoiY2hlZmYiLCJhbGciOiJIUzI1NiJ9.jnI2kiJV1K1jK6VC6zd76wMWnuNcP6ZcxRRZpJNaOEY";
-const tokenAdmin = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiRGVsZWluYSBMTGFtb2NjYSIsImVtYWlsIjoiZGVsZWluYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImFsZyI6IkhTMjU2In0.VFOAUrXQEyhJg-_yW0a6SWvU4dfxtkoU5nBz1dFMAhQ"
+const tokenAdmin = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiRGVsZWluYSBMTGFtb2NjYSIsImVtYWlsIjoiZGVsZWluYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImFsZyI6IkhTMjU2In0.VFOAUrXQEyhJg-_yW0a6SWvU4dfxtkoU5nBz1dFMAhQ";
 
 server.use((req, res, next) => {
     if (req.method === 'POST' && req.path === '/auth') {
         next();
-    } else if (req.headers.authorization === `Bearer ${tokenWaiter}` || req.headers.authorization === `Bearer ${tokenCheff}`) {
+    } else if (req.headers.authorization === `Bearer ${tokenWaiter}` || `Bearer${tokenAdmin}` || `Bearer${tokenCheff}`) {
         if (req.path === '/orders' && req.method === 'POST') {
             if (req.body.products.length === 0 || req.body.userId === undefined) {
                 res.status(400).send('Bad request');
@@ -31,7 +31,7 @@ server.use((req, res, next) => {
 
         next();
     } else {
-        console.log(req.headers.authorization)
+        
         res.sendStatus(401);
     }
 });
@@ -49,14 +49,13 @@ server.post("/auth", (req, res) => {
         email: 'johen@gmail.com',
         password: '123456'
     },
-
     {
         email: 'deleina@gmail.com',
         password: '123456'
     }
     ];
-
-    const userExist = datosUsers.find(value => req.body.email === value.email);
+    //(el => el._id === orderId )
+    const userExist = datosUsers.find(value => value.email === email);
     if (!userExist) {
         res.status(400).send("usuario no existe en la db");
         return

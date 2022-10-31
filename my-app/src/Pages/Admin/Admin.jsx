@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/footer.jsx';
+import { useNavigat } from "react-router-dom";
 
 
 export const Admin = () => {
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3001/products', {
             method: "GET",
             headers: {
-                "Content-type": "application/json;charset=UTF-8",
+                "Content-type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
         })
@@ -32,9 +33,8 @@ export const Admin = () => {
         // setCurentProducts(includesBreakFast)
 
 
-
-        console.log("click");
-       
+     console.log("click");
+       navigate("/Employess")
 
     };
 
