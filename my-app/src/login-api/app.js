@@ -12,6 +12,7 @@ server.use(cors())
 const tokenWaiter = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiRmVsaXBlIE1lbmRvemEiLCJlbWFpbCI6ImZtZW5kb3phQGdtYWlsLmNvbSIsInJvbGUiOiJ3YWl0ZXIifQ.7Cr4Ub_bWoT0npL2d0sArOCCTNZmu8-pKycd3V3tTzY";
 const tokenCheff = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiSm9oZW4gU2FudG9zIiwiZW1haWwiOiJqb2hlbkBnbWFpbC5jb20iLCJyb2xlIjoiY2hlZmYiLCJhbGciOiJIUzI1NiJ9.jnI2kiJV1K1jK6VC6zd76wMWnuNcP6ZcxRRZpJNaOEY";
 const tokenAdmin = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiRGVsZWluYSBMTGFtb2NjYSIsImVtYWlsIjoiZGVsZWluYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImFsZyI6IkhTMjU2In0.VFOAUrXQEyhJg-_yW0a6SWvU4dfxtkoU5nBz1dFMAhQ";
+
 server.use((req, res, next) => {
     if (req.method === 'POST' && req.path === '/auth') {
         next();
@@ -23,6 +24,7 @@ server.use((req, res, next) => {
         }
         next();
     } else {
+        
         res.sendStatus(401);
     }
 });

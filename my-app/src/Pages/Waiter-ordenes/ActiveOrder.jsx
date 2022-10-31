@@ -10,9 +10,12 @@ import {getOrderActive} from '../../service-api/service-api.js'
 
 export const ActiveOrder = () => {
     const [activeTable, setActiveTable] = useState([]);
+    const[delivery, setDelivery] = useState([]);
+
+    const token = localStorage.getItem('token')
 
     useEffect(() => {
-        fetch('http://localhost:3001/orders', {
+        fetch('http://localhost:3001/orders?_limit=4', {
             method: "GET",
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
@@ -21,11 +24,29 @@ export const ActiveOrder = () => {
         }).then(response => response.json())
 
             .then((value) => {
-                let tableActive = value.map((element) => ({ "client": element.client, "products": element.products }))
-                setActiveTable(tableActive)
+                //let tableActive = value.map((element) => ({ "client": element.client, "products": element.products }))
+                let newTable = value.filter((element) => element.status ==="prepared")
+                console.log(newTable)
+                setActiveTable(newTable)
             })
-    }, [])
+    }, [delivery])
 
+    const readyToDelivery = (element) =>{
+        console.log(element)
+        const data = { "status": "delivered"}
+         fetch(`http://localhost:3001/orders/${element._id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(data)
+        }).then((response) => response.json())
+          .then((rep) => setDelivery(rep))
+          console.log(delivery)
+
+    }
+   
 
     return (
         <>
@@ -36,6 +57,14 @@ export const ActiveOrder = () => {
                         <div className="tb" key={index}>
                             <p>{element.client}</p>
                             <img src={mesas} className="table" />
+                            <p>{element.status}</p>
+                            {element.products.map((product, index) => (
+                                <div key={index} className="div-products">
+                                    <p className="text-product">({product.qty})</p>
+                                    <p className="text-product"> ({product.product.name})</p>
+                                </div>
+                            ))}
+                        <button className="btn-serve" onClick={() => readyToDelivery(element)}>Entregado</button>
                         </div>
                     )}
                 

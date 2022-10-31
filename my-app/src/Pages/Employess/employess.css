@@ -1,0 +1,8 @@
+.Contenedor-employess{
+    display: grid;
+};
+
+.employess{
+    justify-content: center;
+    background: #D7D;
+}
