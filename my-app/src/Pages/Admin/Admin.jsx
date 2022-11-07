@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/footer.jsx';
+import { useNavigate } from "react-router-dom";
+import './admin.css';
 
 
 export const Admin = () => {
+    const navigate = useNavigate();
 
     const [products, setProducts] = useState([]);
     const [isShown, setIsShown] = useState(true);
@@ -34,6 +37,10 @@ export const Admin = () => {
         console.log(curentSelectedproduct);
     }
 
+    const showEmployess = () => {
+        navigate("/Employess")
+        console.log("navegar a empleados")
+    }
 
 
 
@@ -45,7 +52,7 @@ export const Admin = () => {
             <div className="contenedor-btn">
                 <div className='container-btn'>
                     <button type='button' className='break-btn' >Productos</button>
-                    <button type='button' className='dinner-btn' >Empleados</button>
+                    <button type='button' className='dinner-btn' onClick={showEmployess}>Empleados</button>
                 </div>
 
 
