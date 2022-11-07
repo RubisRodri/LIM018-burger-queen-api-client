@@ -56,7 +56,7 @@ export const ActiveOrder = () => {
                     {activeTable.map((element, index) =>
                         <div className="tb" key={index}>
                             <p>{element.client}</p>
-                            <img src={mesas} className="table" />
+                            <img src={mesas} className="tables-order" />
                             <p>{element.status}</p>
                             {element.products.map((product, index) => (
                                 <div key={index} className="div-products">

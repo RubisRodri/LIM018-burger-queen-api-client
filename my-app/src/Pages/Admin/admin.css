@@ -1,8 +1,8 @@
 .container-product-admin{
-    display: flex;
+    /* display: flex;
     align-items: flex-start;
     margin: 0px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 }
 .product-admin{
     border: 2px solid #F84141;
@@ -34,4 +34,87 @@
 
 .image-pproduct-admin{
     width: 10%;
+}
+
+.products-btn{
+    width: 122px;
+    height: 61px;
+    border: 3px solid #F84141;
+    border-radius: 12px;
+    background: #ffff;
+    margin: 3px;
+    color: #F84141
+}
+
+.employes-btn{
+    width: 122px;
+    height: 61px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    background: #F84141;
+    margin: 3px;
+    color: #d7d5d5;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-btn-admin{
+    width: 15%;
+}
+
+.add-admin{
+    display: flex;
+    justify-content: flex-end;
+    margin: 14px;
+}
+
+.container-btn-admin{
+    margin: 7px;
+}
+
+table {
+    table-layout: fixed;
+    width: 90%;
+    border-collapse: collapse;
+    border: 3px solid #000;
+  }
+
+  thead th:nth-child(1) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 35%;
+  }
+  
+  th, td {
+    padding: 20px;
+  }
+
+.container-list-employes{
+    display: block;
+    width: 71%;
+    position: absolute;
+    top: 43%;
+    left: 29%;
+}
+
+.product-content {
+    position: absolute;
+    top: 44%;
+    left: 34%;
+    background: rgb(0 0 0 / 10%);
+    border: 6px;
+    border-radius: 14px;
 }

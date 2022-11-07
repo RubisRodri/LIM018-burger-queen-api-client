@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Deleina/LIM018-burger-queen-api-client/issues"
   },
-  "homepage": "https://github.com/Deleina/LIM018-burger-queen-api-client#readme"
+  "homepage": "https://github.com/Deleina/LIM018-burger-queen-api-client#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.12.4"
+  }
 }
