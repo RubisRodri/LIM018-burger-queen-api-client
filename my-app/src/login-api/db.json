@@ -80,13 +80,40 @@
   ],
   "users": [
     {
-      "id": "bgel2tcrhaX8H2mAM05hi5jYX9Q2",
-      "name": "Rubis",
-      "lastName": "Jiménez",
-      "email": "rubisrodri@gmail.com",
-      "password": "test1234",
+      "id": "123",
+      "name": "Deleina",
+      "lastName": "llamocca",
+      "email": "deleina@hotmail.com",
+      "password": "123456",
+      "roles": "admin",
+      "admin": true
+    },
+    {
+      "id": "1453",
+      "name": "Fernando",
+      "lastName": "Mendoza",
+      "email": "Fmendoza@hotmail.com",
+      "password": "123456",
+      "roles": "Admin",
+      "admin": false
+    },
+    {
+      "id": "234",
+      "name": "Johen",
+      "lastName": "Alvarado",
+      "email": "johen@hotmail.com",
+      "password": "12346",
       "roles": "Chef",
       "admin": false
+    },
+    {
+      "id": "45677",
+      "name": "Ana",
+      "lastName": "Benítez",
+      "email": "deleina@hotmail.com",
+      "password": "123456",
+      "roles": "Admin",
+      "admin": true
     }
   ],
   "orders": [
@@ -128,44 +155,6 @@
       "status": "delivered",
       "dateEntry": "15:30:12",
       "dateProcessed": "15:30:39"
-    }
-  ],
-  "users": [
-    {
-      "id": "123",
-      "name": "Deleina",
-      "lastName": "llamocca",
-      "email": "deleina@hotmail.com",
-      "password": "123456",
-      "roles": "admin",
-      "admin": true
-    },
-    {
-      "id": "1453",
-      "name": "Fernando",
-      "lastName": "Mendoza",
-      "email": "Fmendoza@hotmail.com",
-      "password": "123456",
-      "roles": "Admin",
-      "admin": false
-    },
-    {
-      "id": "234",
-      "name": "Johen",
-      "lastName": "Alvarado",
-      "email": "johen@hotmail.com",
-      "password": "12346",
-      "roles": "Chef",
-      "admin": false
-    },
-    {
-      "id": "45677",
-      "name": "Ana",
-      "lastName": "Benítez",
-      "email": "deleina@hotmail.com",
-      "password": "123456",
-      "roles": "Admin",
-      "admin": true
     }
   ]
 }
