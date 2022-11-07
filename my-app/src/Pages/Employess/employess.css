@@ -1,8 +1,61 @@
-.Contenedor-employess{
-    display: grid;
+.contenedor-table{
+    margin: 10px auto;
+    width: 800px;
+}
+
+
+.Contenedor-users{
+    margin:30px auto;
+    width: 600px;
+    background: #D7D5D5;
 };
 
-.employess{
+.container-users{
     justify-content: center;
-    background: #D7D;
+    
+}
+
+table{
+    width: 100%;
+    background:white;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 20px;
+}
+
+thead{
+    background-color: #f84141;
+    border-bottom: solid 5px #b11818;
+    color:white;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+tr:hover td{
+    background-color: #b9b5b5;
+    color:white;
+} 
+
+.ctn-agregar{
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+    align-items: baseline;     
+}
+
+.agregar{
+    width: 60px;
+    height: 60px;
+    
+}
+
+.form-add{
+    margin: 10px auto;
+    width: 800px;
 }
