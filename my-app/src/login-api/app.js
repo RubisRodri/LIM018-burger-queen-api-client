@@ -159,8 +159,10 @@ server.put("/orders/:id", async (req, res) => {
         res.status(400).send("Crendenciales incorrectas");
     }
 });
+
 server.patch("/orders/:id", async (req, res) => {
     const orderId = req.params.id
+    console.log("hola", orderId)
     const changes = req.body
     const ordersP = router.db.get('orders')
     const order = ordersP.__wrapped__.orders.find(el => el._id === orderId)// orden que consiguio
@@ -178,7 +180,57 @@ server.patch("/orders/:id", async (req, res) => {
     ordersP.__wrapped__.orders.push(orderUpdated);
     await ordersP.write();
     res.status(200).send(orderUpdated)
+});
+
+
+server.delete("/users/:id", async (req, res) => {
+    const userId = req.params.id
+    //console.log("hola", userId)
+    const changes = req.body
+    const userP = router.db.get('users');
+    //console.log("holaaaa", userP)
+    const user = userP.__wrapped__.users.find(el => el.id === userId)// orden que consiguio
+    console.log("holaaaaa", user)
+    if (!user) {
+        res.status(404).send("Not found");
+        return
+    }
+    userP.__wrapped__.users = userP.__wrapped__.users.filter(value => {
+        return value.id !== userId
+    });
+    // const orderUpdated = {
+    //     ...user,
+    //     ...changes
+    // }
+    // //userP.__wrapped__.users.push(orderUpdated);
+    await userP.write();
+    res.status(200).send(userP)
 })
+
+server.patch("/users/:id", async (req, res) => {
+    const userId = req.params.id
+    //console.log("hola", userId)
+    const changes = req.body
+    const userP = router.db.get('users');
+    //console.log("holaaaa", userP)
+    const user = userP.__wrapped__.users.find(el => el.id === userId)// orden que consiguio
+    console.log("holaaaaa", user)
+    if (!user) {
+        res.status(404).send("Not found");
+        return
+    }
+    userP.__wrapped__.users = userP.__wrapped__.users.filter(value => {
+        return value.id !== userId
+    });
+    const userUpdated = {
+        ...user,
+        ...changes
+    }
+    userP.__wrapped__.users.push(userUpdated);
+    await userP.write();
+    res.status(200).send(userUpdated)
+})
+
 
 server.use(router)
 server.listen(3001, () => {

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from '../../Components/navbar/Navbar.jsx';
 import Footer from '../../Components/footer/footer.jsx';
-import agregar from '../../Pictures/agregar.png'
-import "./admin.css"
+import { useNavigate } from "react-router-dom";
+import './admin.css';
+
 
 export const Admin = () => {
+    const navigate = useNavigate();
+
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState([]);
     const [isShown, setIsShown] = useState(true);
@@ -36,6 +39,10 @@ export const Admin = () => {
         console.log(curentSelectedproduct);
     }
 
+    const showEmployess = () => {
+        navigate("/Employess")
+        console.log("navegar a empleados")
+    }
 
     useEffect(() => {
         fetch('http://localhost:3001/users', {

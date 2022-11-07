@@ -92,7 +92,6 @@ export const Ordenes = () => {
         }
     }
   
-
      
     const sendOrder =() =>{
         sendkichen();

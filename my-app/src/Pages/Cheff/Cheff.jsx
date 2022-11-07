@@ -13,7 +13,7 @@ export const Cheff = () => {
     const token = localStorage.getItem('token')
 
     useEffect(() => {
-        fetch('http://localhost:3001/orders?_limit=3', {
+        fetch('http://localhost:3001/orders?', {
             method: "GET",
             headers: {
                 "Content-type": "application/json;charset=UTF-8",

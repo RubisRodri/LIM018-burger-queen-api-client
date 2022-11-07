@@ -78,6 +78,17 @@
       "type": "cena"
     }
   ],
+  "users": [
+    {
+      "id": "bgel2tcrhaX8H2mAM05hi5jYX9Q2",
+      "name": "Rubis",
+      "lastName": "Jiménez",
+      "email": "rubisrodri@gmail.com",
+      "password": "test1234",
+      "roles": "Chef",
+      "admin": false
+    }
+  ],
   "orders": [
     {
       "_id": "ide5ef5bf7f08ee",
