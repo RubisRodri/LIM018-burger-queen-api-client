@@ -235,6 +235,35 @@ server.patch("/users/:id", async (req, res) => {
     res.status(200).send(userUpdated)
 })
 
+
+
+server.delete("/products/:id", async (req, res) => {
+    const productId = req.params.id
+    const changes = req.body
+    console.log('product id',productId)
+    const productP = router.db.get('products');
+    console.log('product p',productP)
+
+    const product = productP.__wrapped__.products.find(value => value.id === productId)
+
+
+    console.log('product...',product);
+    if (!product) {
+        res.status(404).send("Not found");
+        return
+    }
+    productP.__wrapped__.products = productP.__wrapped__.products.filter(value => {
+            return value.id !== productId
+        });
+    
+   
+    await productP.write();
+    res.status(200).send(productP)
+})
+
+
+
+
 server.use(router)
 server.listen(3001, () => {
     console.log('JSON Server is running')

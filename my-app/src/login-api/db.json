@@ -80,13 +80,32 @@
   ],
   "users": [
     {
-      "id": "bgel2tcrhaX8H2mAM05hi5jYX9Q2",
-      "name": "Rubis",
-      "lastName": "Jiménez",
-      "email": "rubisrodri@gmail.com",
-      "password": "test1234",
-      "roles": "Chef",
-      "admin": false
+      "name": "juan",
+      "lastName": "jimenez",
+      "email": "reala@gmail.com",
+      "roles": "chedd",
+      "id": "6BCTqWi"
+    },
+    {
+      "name": "juan",
+      "lastName": "jimenez",
+      "email": "reala@gmail.com",
+      "roles": "chedd",
+      "id": "dgw7s4k"
+    },
+    {
+      "name": "juan",
+      "lastName": "jimenez",
+      "email": "reala@gmail.com",
+      "roles": "chedd",
+      "id": "c3qIHy8"
+    },
+    {
+      "name": "juan",
+      "lastName": "jimenez",
+      "email": "reala@gmail.com",
+      "roles": "chedd",
+      "id": "ny1gAYk"
     }
   ],
   "orders": [
@@ -185,45 +204,6 @@
       "status": "delivered",
       "dateEntry": "14:49:06",
       "dateProcessed": "15:23:02"
-    },
-    {
-      "_id": "ida5746c74983a6",
-      "client": "Mesa 2",
-      "products": [
-        {
-          "qty": 1,
-          "product": {
-            "id": 3,
-            "name": "Jugo Natural",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
-            "type": "desayuno"
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 2,
-            "name": "Cafe con Leche",
-            "price": 7,
-            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
-            "type": "desayuno"
-          }
-        },
-        {
-          "qty": 1,
-          "product": {
-            "id": 4,
-            "name": "sandwich de Queso",
-            "price": 10,
-            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
-            "type": "desayuno"
-          }
-        }
-      ],
-      "status": "prepared",
-      "dateEntry": "15:48:07",
-      "dateProcessed": "15:48:35"
     },
     {
       "_id": "iddaa41fdce0153",
@@ -339,6 +319,113 @@
       "status": "delivered",
       "dateEntry": "17:18:15",
       "dateProcessed": "17:18:33"
+    },
+    {
+      "_id": "ida5746c74983a6",
+      "client": "Mesa 2",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 4,
+            "name": "sandwich de Queso",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "delivered",
+      "dateEntry": "15:48:07",
+      "dateProcessed": "15:48:35"
+    },
+    {
+      "_id": "id5424a4e2c2a78",
+      "client": "Mesa 2",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 6,
+            "name": "Agua 750 ml",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 7,
+            "name": "Gaseosa 500 ml",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
+            "type": "cena"
+          }
+        }
+      ],
+      "status": "delivered",
+      "dateEntry": "12:13:51",
+      "dateProcessed": "12:14:09"
+    },
+    {
+      "_id": "id95a81eb5de24",
+      "client": "Mesa 2",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 4,
+            "name": "sandwich de Queso",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "16:36:28",
+      "dateProcessed": "16:36:52"
     }
   ]
 }
