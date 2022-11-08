@@ -80,9 +80,10 @@ export const Employess = () =>{
     const updateUser = (user) => {
         console.log(user)
         const data = { 
-            "roles": "Chef",
-             "name": "Rubis",
-              "email":"rubisrodri@gmail.com"}
+            "roles": "chedd",
+             "name": "juan",
+             "lastName":"jimenez",
+              "email":"reala@gmail.com"}
          fetch(`http://localhost:3001/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -91,7 +92,7 @@ export const Employess = () =>{
             },
             body: JSON.stringify(data)
         }).then((response) => response.json())
-          .then(rep => console.log(rep))
+          .then(rep => setEmployess(rep))
            
     }
      
@@ -114,11 +115,7 @@ export const Employess = () =>{
             },
             body: JSON.stringify(formValues)
         }).then((response) => response.json())
-          .then(res => {
-            if (res.status === 200) {
-                return res.json();
-            }
-        })
+          .then(rep => setEmployess(rep))
         
     }
     return(
