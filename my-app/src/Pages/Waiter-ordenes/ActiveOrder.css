@@ -1,20 +1,17 @@
 .container-active-tables{
-    display: grid;
-    place-content: center;
-    height: 75vh;
-    gap: 25px;
+    
 }
     
 .active-tables{
     width: 100%;
-    height: 20vh;
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-    align-content: center;
+    /* height: 29vh; */
+    /* display: grid; */
+    /* grid-template-columns: 200px 200px 200px; */
+    /* justify-items: start; */
+    /* gap: 90px; */
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
-    justify-items: start;
-    gap:90px
 }
 
 .tables-order{
@@ -28,4 +25,6 @@
 .tb{
     text-align: center;
     border: 5px solid rgb(154, 247, 154);
+    margin: 16px;
+    
 }

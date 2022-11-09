@@ -9,18 +9,19 @@
 }
 
 .order-prepared{
-    display: grid;
-    grid-template-columns: 180px 180px 180px 180px;
-    grid-template-rows: 287px;
-    align-items: stretch;
-    justify-content: space-between;
-    border-radius: 15px;
-    border: 1px solid #D7D5D5;
+    width: 88%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    
+
 }
 
 .list-prepared{
     border: 2px solid #f84141;
-    box-shadow: 0 0 1rem #00000025 inset;
+    text-align: center;
+    margin: 5px;
+    width: 30%;
 }
 
 .div-products{

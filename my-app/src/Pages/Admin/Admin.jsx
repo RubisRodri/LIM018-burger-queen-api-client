@@ -28,6 +28,10 @@ export const Admin = () => {
                 setProducts(value)
             })
     }, [])
+    const showEmployess = () => {
+        navigate("/Employess")
+        console.log("navegar a empleados")
+    }
 
 
 
@@ -52,10 +56,8 @@ export const Admin = () => {
             <div className="content">
                 <div className='container-btn-admin'>
                     <button type='button' className='products-btn'>Productos</button>
-                    <button type='button' className='employes-btn' >Empleados</button>
-                </div>
-                <div className="add-admin">
-                    <img src={agregar} className="add-btn-admin" />
+                    <button type='button' className='employes-btn' onClick={showEmployess} >Empleados</button>
+
                 </div>
             </div>
             <div className="container-product-admin" >
@@ -71,8 +73,6 @@ export const Admin = () => {
                         <p>{curentSelectedproduct.name}</p>
                         <p>Precio: {curentSelectedproduct.price} S/</p>
                         <p>Id:  {curentSelectedproduct.id}</p>
-                        <button className="add-product-admin" >Editar producto</button>
-                        <button className="add-product-admin" onClick={() => deleteProduct(products)}>Eliminar producto</button>
                     </div>
                 </div>
             </div>

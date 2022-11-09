@@ -76,44 +76,36 @@
       "price": 5,
       "image": "https://cdn-icons-png.flaticon.com/512/1046/1046786.png",
       "type": "cena"
+    },
+    {
+      "id": 12,
+      "name": "Papas Fritas Grandes",
+      "price": 5,
+      "image": "https://cdn-icons-png.flaticon.com/512/1046/1046786.png",
+      "type": "cena"
     }
   ],
   "users": [
     {
-      "id": "123",
-      "name": "Deleina",
-      "lastName": "llamocca",
-      "email": "deleina@hotmail.com",
-      "password": "123456",
-      "roles": "admin",
-      "admin": true
+      "name": "Johen",
+      "lastName": "Santos",
+      "email": "johen@gmail.com",
+      "roles": "cheff",
+      "id": "CAfWUQP"
     },
     {
-      "id": "1453",
       "name": "Fernando",
       "lastName": "Mendoza",
-      "email": "Fmendoza@hotmail.com",
-      "password": "123456",
-      "roles": "Admin",
-      "admin": false
+      "email": "fmendoza@gmail.com",
+      "roles": "mesero",
+      "id": "ToE-a65"
     },
     {
-      "id": "234",
-      "name": "Johen",
-      "lastName": "Alvarado",
-      "email": "johen@hotmail.com",
-      "password": "12346",
-      "roles": "Chef",
-      "admin": false
-    },
-    {
-      "id": "45677",
-      "name": "Ana",
-      "lastName": "Benítez",
-      "email": "deleina@hotmail.com",
-      "password": "123456",
-      "roles": "Admin",
-      "admin": true
+      "name": "Marta",
+      "lastName": "Llamocca",
+      "email": "deleina@gmail.com",
+      "roles": "cheff",
+      "id": "-jz5AJc"
     }
   ],
   "orders": [
@@ -155,6 +147,300 @@
       "status": "delivered",
       "dateEntry": "15:30:12",
       "dateProcessed": "15:30:39"
+    },
+    {
+      "_id": "id74185550915a",
+      "client": "Mesa 2",
+      "products": [
+        {
+          "qty": 5,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 3,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "18:06:40",
+      "dateProcessed": "18:07:22"
+    },
+    {
+      "_id": "ida28d0dd097e32",
+      "client": "Mesa 3",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 9,
+            "name": "Hamburguesa Clasica",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/1858/1858002.png",
+            "type": "cena"
+          }
+        },
+        {
+          "qty": 2,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 11,
+            "name": "Papas Fritas",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/1046/1046786.png",
+            "type": "cena"
+          }
+        }
+      ],
+      "status": "delivered",
+      "dateEntry": "18:06:57",
+      "dateProcessed": "18:07:23"
+    },
+    {
+      "_id": "id412acf98eec13",
+      "client": "Mesa 2",
+      "products": [
+        {
+          "qty": 2,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 2,
+          "product": {
+            "id": 6,
+            "name": "Agua 750 ml",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/824/824239.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 1,
+          "product": {
+            "id": 8,
+            "name": "Soda 750 ml",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
+            "type": "cena"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "11:43:57",
+      "dateProcessed": "11:44:41"
+    },
+    {
+      "_id": "id0a51e886a2b5e",
+      "client": "Mesa 3",
+      "products": [
+        {
+          "qty": 3,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 2,
+          "product": {
+            "id": 1,
+            "name": "Cafe Americano",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 2,
+          "product": {
+            "id": 4,
+            "name": "sandwich de Queso",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "11:45:16",
+      "dateProcessed": "11:46:01"
+    },
+    {
+      "_id": "id6765761663b6a",
+      "client": "Mesa 5",
+      "products": [
+        {
+          "qty": 1,
+          "product": {
+            "id": 8,
+            "name": "Soda 750 ml",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
+            "type": "cena"
+          }
+        },
+        {
+          "qty": 2,
+          "product": {
+            "id": 11,
+            "name": "Papas Fritas",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/1046/1046786.png",
+            "type": "cena"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "11:45:34",
+      "dateProcessed": "11:46:09"
+    },
+    {
+      "_id": "id3aadfa989c62b",
+      "userId": "1234",
+      "client": "Mesa 4",
+      "products": [
+        {
+          "qty": 6,
+          "product": {
+            "id": 4,
+            "name": "sandwich de Queso",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/2821/2821805.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 5,
+          "product": {
+            "id": 1,
+            "name": "Cafe Americano",
+            "price": 5,
+            "image": "https://cdn-icons-png.flaticon.com/512/5158/5158715.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "12:06:11",
+      "dateProcessed": ""
+    },
+    {
+      "_id": "id0ff50b5e9ba34",
+      "userId": "1234",
+      "client": "Mesa 4",
+      "products": [
+        {
+          "qty": 2,
+          "product": {
+            "id": 8,
+            "name": "Soda 750 ml",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/536/536658.png",
+            "type": "cena"
+          }
+        },
+        {
+          "qty": 3,
+          "product": {
+            "id": 9,
+            "name": "Hamburguesa Clasica",
+            "price": 10,
+            "image": "https://cdn-icons-png.flaticon.com/512/1858/1858002.png",
+            "type": "cena"
+          }
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "12:06:30",
+      "dateProcessed": ""
+    },
+    {
+      "_id": "idb5da122be57f3",
+      "userId": "1234",
+      "client": "Mesa 3",
+      "products": [
+        {
+          "qty": 5,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 2,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "pending",
+      "dateEntry": "16:54:16",
+      "dateProcessed": ""
+    },
+    {
+      "_id": "id15097f278e45a",
+      "client": "Mesa 6",
+      "products": [
+        {
+          "qty": 5,
+          "product": {
+            "id": 3,
+            "name": "Jugo Natural",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/4278/4278352.png",
+            "type": "desayuno"
+          }
+        },
+        {
+          "qty": 4,
+          "product": {
+            "id": 2,
+            "name": "Cafe con Leche",
+            "price": 7,
+            "image": "https://cdn-icons-png.flaticon.com/512/2701/2701581.png",
+            "type": "desayuno"
+          }
+        }
+      ],
+      "status": "prepared",
+      "dateEntry": "12:06:01",
+      "dateProcessed": "16:55:02"
     }
   ]
 }
