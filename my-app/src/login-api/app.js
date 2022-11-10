@@ -14,21 +14,17 @@ const tokenCheff = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1
 const tokenAdmin = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQiLCJuYW1lIjoiRGVsZWluYSBMTGFtb2NjYSIsImVtYWlsIjoiZGVsZWluYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImFsZyI6IkhTMjU2In0.VFOAUrXQEyhJg-_yW0a6SWvU4dfxtkoU5nBz1dFMAhQ";
 
 server.use((req, res, next) => {
-    console.log("testing")
     if (req.method === 'POST' && req.path === '/auth') {
         next();
     } else if (req.headers.authorization === `Bearer ${tokenWaiter}` || `Bearer${tokenAdmin}` || `Bearer${tokenCheff}`) {
-        console.log("holaa")
         if (req.path === '/orders' && req.method === 'POST') {
             if (req.body.products.length === 0 || req.body.userId === undefined) {
-                console.log("hlolaaa")
                 res.status(400).send('Bad request');
             }
         }
-        console.log(req.url)
         next();
     } else {
-        
+
         res.sendStatus(401);
     }
 });
@@ -60,8 +56,8 @@ server.post("/auth", (req, res) => {
         return
     }
 
-// eslint-disable-next-line default-case
-switch (req.body.email) {
+    // eslint-disable-next-line default-case
+    switch (req.body.email) {
         case 'fmendoza@gmail.com':
             res.jsonp({
                 token: tokenWaiter
@@ -72,7 +68,7 @@ switch (req.body.email) {
             res.jsonp({
                 token: tokenCheff
             });
-             console.log("Cheff");
+            console.log("Cheff");
             break;
         case 'deleina@gmail.com':
             res.jsonp({
@@ -189,10 +185,8 @@ server.patch("/orders/:id", async (req, res) => {
 
 server.delete("/users/:id", async (req, res) => {
     const userId = req.params.id
-    //console.log("hola", userId)
     const changes = req.body
     const userP = router.db.get('users');
-    //console.log("holaaaa", userP)
     const user = userP.__wrapped__.users.find(el => el.id === userId)// orden que consiguio
     console.log("holaaaaa", user)
     if (!user) {
@@ -202,18 +196,13 @@ server.delete("/users/:id", async (req, res) => {
     userP.__wrapped__.users = userP.__wrapped__.users.filter(value => {
         return value.id !== userId
     });
-    // const orderUpdated = {
-    //     ...user,
-    //     ...changes
-    // }
-    // //userP.__wrapped__.users.push(orderUpdated);
     await userP.write();
     res.status(200).send(userP)
 })
 
 server.patch("/users/:id", async (req, res) => {
     const userId = req.params.id
-    //console.log("hola", userId)
+    console.log("hola", userId)
     const changes = req.body
     const userP = router.db.get('users');
     //console.log("holaaaa", userP)
@@ -234,6 +223,35 @@ server.patch("/users/:id", async (req, res) => {
     await userP.write();
     res.status(200).send(userUpdated)
 })
+
+
+server.delete("/products/:id", async (req, res) => {
+    const productId = req.params.id
+    const changes = req.body
+    console.log('product id',productId)
+    const productP = router.db.get('products');
+    console.log('product p',productP)
+
+    const product = productP.__wrapped__.products.find(value => value.id !== productId)
+
+    console.log('product...',product);
+    if (!product) {
+        res.status(404).send("Not found");
+        return
+    }
+    productP.__wrapped__.products = productP.__wrapped__.products.filter(value => {
+            return value.id !== productId
+        });
+    
+   
+    await productP.write();
+    res.status(200).send(productP)
+})
+
+
+
+
+
 
 server.use(router)
 server.listen(3001, () => {

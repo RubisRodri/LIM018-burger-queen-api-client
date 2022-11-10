@@ -71,7 +71,6 @@ body {
     border-radius: 15px;
     width: 140px;
     height: 123px;
-    box-shadow: 0 0 1rem #00000025 inset;
 
 }
 
@@ -101,7 +100,6 @@ body {
     background: #D7D5D5;
     width: 450px;
     text-align: center;
-    box-shadow: 0 0 1rem #00000025 inset;
     justify-content: space-around;
     align-items: center;
     justify-items: stretch;
