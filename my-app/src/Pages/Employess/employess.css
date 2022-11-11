@@ -1,8 +1,10 @@
-.contenedor-table{
-    margin: 10px auto;
-    width: 800px;
-}
+.container-employess{
+    /* margin: 10px auto;
+    width: 800px; */
+    margin: 0 em;
+    height: 50%;
 
+}
 
 .Contenedor-users{
     margin:30px auto;
@@ -11,19 +13,22 @@
 };
 
 .container-users{
-    justify-content: center;
-    
+    justify-content: center; 
 }
 
-table{
-    width: 100%;
-    background:white;
-    text-align: left;
+.table-employess{
+    width: 60%;
+    background: white;
+    text-align: center;
     border-collapse: collapse;
+    float: left;
+    margin: 19px;
+    margin-top: -40px;
+   
 }
 
 th, td{
-    padding: 20px;
+    padding: 10px;
 }
 
 thead{
@@ -52,10 +57,75 @@ tr:hover td{
 .agregar{
     width: 60px;
     height: 60px;
+    margin: 1em;
     
 }
 
 .form-add{
-    margin: 10px auto;
-    width: 800px;
+    background-color: white;
+    margin: 0px auto;
+    color:#999;
+    padding: 10px;
+    float:right;
+    font-size: 0.8em;
+    margin: 5em;
+    width: 25%;
+    border-radius: 3px;
+    margin-top: -40px;
+    text-align: center;
+}
+
+.input-employess{
+    border:solid 1px #ccc;
+    outline: none;
+    padding: 7px;
+    width: 280px;
+    cursor:pointer;
+    left:5px;
+    top:0;
+}
+
+.input-employess:focus{
+    border-color:gray;
+}
+
+.button-eliminar{
+    background: #f84141;
+    width: 71%;
+    /* height: 31px; */
+    border: 3px solid #f84141;
+    border-radius: 7px;
+    color: #Fff;
+    justify-self: center;
+    margin: 7px;
+}
+
+
+.button-modificar{
+    background: #ffDE00;
+    width: 71%;
+    /* height: 31px; */
+    border: 3px solid #f84141;
+    border-radius: 7px;
+    color: #Fff;
+    justify-self: center;
+    margin: 9px;
+}
+
+.dump-employess{
+    width: 15px;
+}
+
+.lapiz-edit{
+    width: 15px;
+}
+
+.button{
+    background: #f84141;
+    width: 79%;
+    height: 36px;
+    border: 3px solid #f84141;
+    border-radius: 7px;
+    color: #Fff;
+    justify-self: center
 }

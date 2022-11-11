@@ -5,29 +5,22 @@ import Footer from '../../Components/footer/footer.jsx';
 import { useEffect, useState } from "react";
 import agregar from '../../Pictures/agregar.png'
 import Swal from 'sweetalert2';
-import './employess.css'
+import './employess.css';
+import lapiz from '../../Pictures/lapiz.png';
+import dump from '../../Pictures/dump.png';
 
 export const Employess = () =>{
     const navigate = useNavigate();
     const[employess, setEmployess ] = useState([]);
-    const[users, setUsers] = useState([])
+    const[users, setUsers] = useState([]);
+    const[name, setName] = useState([]);
+    const[lastName, setLastname] = useState([]);
+    const[email, setEmail] = useState([]);
+    const[roles, setRoles] = useState ([]);
+    const[validacionModificar, setValidacionModificar] = useState(false);
+    const[idModificar, setIdModificar] = useState(0);
 
-    const [formValues, setFormValues] = useState({
-        name:'',
-        lastName: '',
-        email: '',
-        roles: ''
-    })
-
-    //const [testInputValue, setTestInputValue] = useState('')
-    //const [testInputValue2, setTestInputValue2] = useState('')
-
-    const handleInputChange = (e) => {
-        const { name, value} = e.target
-        setFormValues((prevState) => { return {...prevState, [name]: value} })
-    }
-        
-    const URL ="http://localhost:3001/users?_limit=4"
+    const URL ="http://localhost:3001/users?_limit=6"
     
     const showData = async () =>{
         const response = await fetch(URL)
@@ -46,10 +39,7 @@ export const Employess = () =>{
     }
 
     const deleteUser= (user) => {
-        console.log("hola", user.id)
-        // const filterUser = users.filter(user => user.id !== id)
-        // setUsers(filterUser)
-        fetch(`http://localhost:3001/users/${user.id}`, {
+        fetch(`http://localhost:3001/users/${user.id}`,{
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -61,86 +51,88 @@ export const Employess = () =>{
             title: 'Seguro deseas eliminar?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#f84141',
             cancelButtonColor: '#333fff',
             confirmButtonText: 'Yes, delete it!',
-            confirmButtonColor: "f84141"
-          }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-            }
-            console.log("la peticion fue cancelada")
+            confirmButtonColor: "#f84141"
           })
     }
 
-    const updateUser = (user) => {
-        console.log(user)
-        const data = { 
-            "roles": "chedd",
-             "name": "juan",
-             "lastName":"jimenez",
-              "email":"reala@gmail.com"}
-         fetch(`http://localhost:3001/users/${user.id}`, {
+    const updateUser = async(user) => {
+       const respuesta = await fetch(`http://localhost:3001/users/${user.id}`, {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json;charset=UTF-8",
+            "Authorization": `Bearer ${localStorage.getItem('token')}`
+        }
+        }).then(response => response.json())
+          .then((value) => {
+            setName(value.name)
+            setLastname(value.lastName)
+            setEmail(value.email)
+            setRoles(value.roles)
+            setValidacionModificar(true)
+            setIdModificar(user.id)
+            clearForm()
+        })
+        
+    }
+
+    const editUser = (e) => {
+      e.preventDefault()
+         fetch(`http://localhost:3001/users/${idModificar}`, {
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                name,
+                lastName,
+                email,
+                roles,
+        })
         }).then((response) => response.json())
           .then(rep => setEmployess(rep))
+          console.log(employess)
+          setValidacionModificar(false)
+          
+    }
+
+    const clearForm = () => {
+        setEmployess("")
+    }
            
-    }
-     
-    const showAddUser = () => {
-        console.log("añadiendo empleado")
-       
-    }
+
     const handleSubmit = (e) => {
-        e.preventDefault()
-        /*const body = {
-            test: testInputValue,
-            test2: testInputValue2
-        }
-        console.log(body)*/
-        console.log(formValues)
+        e.preventDefault();
         let res = fetch('http://localhost:3001/users/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(formValues)
+            body:JSON.stringify({
+                name,
+                lastName,
+                email,
+                roles,
+        })
         }).then((response) => response.json())
-          .then(rep => setEmployess(rep))
+          .then(reponse => setEmployess(reponse))
+        
         
     }
+
     return(
         <>
          <Navbar />
          <div className="contenedor-btn">
                 <div className='container-btn'>
-                    <button type='button' className='break-btn' onClick= {showProducts}>Productos</button>
-                    <button type='button' className='dinner-btn'>Empleados</button>
-                        <div className="ctn-agregar">
-                        
-                        </div>
-                 </div>   
-            <form className="form-add" onSubmit={handleSubmit}>
-                {/* <input name="test" value={testInputValue} onChange={(e) => setTestInputValue(e.target.value)} /> */}
-                {/* <input name="tes2t" value={testInputValue2} onChange={(e) => setTestInputValue2(e.target.value)} /> */}
-                <input name="name" value={formValues['test']} placeholder="nombre" onChange={handleInputChange} />
-                <input name="lastName" value={formValues['test2']} placeholder="Apellido" onChange={handleInputChange} />
-                <input name="email" value={formValues['test3']} placeholder="Email"onChange={handleInputChange} />
-                <input name="roles" value={formValues['test4']} placeholder="Cargo"onChange={handleInputChange} />
-                <button type="submit">Agregar</button>
-            </form>
-
-                <div className="contenedor-table">
-                  <table>
+                    
+                </div>   
+          </div>
+          <div className="container-employess">
+                <table className= "table-employess">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -151,7 +143,7 @@ export const Employess = () =>{
                         </tr>
                     </thead>
 
-                    <tbody>
+                     <tbody>
                         {users.length===0?<tr><td colSpan="5">Sin datos</td></tr>:
                         users.map((user, index) =>{
                             return(
@@ -160,17 +152,41 @@ export const Employess = () =>{
                                      <td>{user.lastName}</td>
                                      <td>{user.email}</td>
                                      <td>{user.roles}</td>
-                                     <td><button onClick={() => updateUser(user)}>Editar</button>{" "}
-                                     <button onClick={() => deleteUser(user)}>Eliminar</button></td>
+                                     <td><button onClick={() => updateUser(user)}>
+                                     <img className="lapiz-edit" src={lapiz}/>
+                                        </button>{" "}
+                                     <button onClick={() => deleteUser(user)}>
+                                     <img className="dump-employess" src={dump}/>
+                                    </button></td>
                               </tr>
                             )
-                        })}
+                         })}
                     </tbody>
-                  </table>
-                </div>
-             </div>  
+                </table>
+                  <form className="form-add" onChange={clearForm}>
+                    <h2>Empleados</h2>
+                    
+                      <p>Nombre</p>
+                      <input className="input-employess" name="name" onChange={(e) => setName(e.target.value)} value={name} /> 
+                      <p>Apellido</p>
+                      <input className="input-employess" name="lastName" onChange = {(e) => setLastname(e.target.value)} value={lastName} /> 
+                      <p>E-mail</p>
+                      <input className="input-employess" name="email" onChange = {(e) => setEmail(e.target.value)} value={email}/>
+                      <p>Cargo</p>
+                      <input className="input-employess" name="roles" onChange = {(e) => setRoles(e.target.value)} value={roles}/>
+                      {validacionModificar? (
+                      <button type="submit" className="button-modificar"onClick={(e) => editUser(e)}>Modificar</button>
+                      ):(
+                      <button type="submit" className="button-eliminar"onClick={(e) => handleSubmit(e)}>Agregar</button>
+                      )}
+                      
+                    </form> 
+
+
+         </div>
+         
             
-         <Footer />
+        <Footer />
       </>
     )
 }

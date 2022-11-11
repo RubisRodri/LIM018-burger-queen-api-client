@@ -5,28 +5,32 @@
 // import { useEffect, useState } from "react";
 // import agregar from '../../Pictures/agregar.png'
 // import Swal from 'sweetalert2';
-// import './employess.css'
+// import './employess.css';
+// import lapiz from '../../Pictures/lapiz.png';
+// import dump from '../../Pictures/dump.png';
 
 // export const Employess = () =>{
 //     const navigate = useNavigate();
 //     const[employess, setEmployess ] = useState([]);
-//     const[users, setUsers] = useState([])
+//     const[users, setUsers] = useState([]);
+    
 
 //     const [formValues, setFormValues] = useState({
-//         test:'',
-//         test2: '',
-//         test3: ''
+//         name:'',
+//         lastName: '',
+//         email: '',
+//         roles: ''
 //     })
 
-//     //const [testInputValue, setTestInputValue] = useState('')
-//     //const [testInputValue2, setTestInputValue2] = useState('')
+//     const [testInputValue, setTestInputValue] = useState('')
+//     const [testInputValue2, setTestInputValue2] = useState('')
 
 //     const handleInputChange = (e) => {
 //         const { name, value} = e.target
 //         setFormValues((prevState) => { return {...prevState, [name]: value} })
 //     }
         
-//     const URL ="http://localhost:3001/users?_limit=4"
+//     const URL ="http://localhost:3001/users?_limit=6"
     
 //     const showData = async () =>{
 //         const response = await fetch(URL)
@@ -48,7 +52,7 @@
 //         console.log("hola", user.id)
 //         // const filterUser = users.filter(user => user.id !== id)
 //         // setUsers(filterUser)
-//         fetch(`http://localhost:3001/users/${user.id}`, {
+//         fetch(`http://localhost:3001/users/${user.id}`,{
 //             method: "DELETE",
 //             headers: {
 //                 "Content-type": "application/json",
@@ -57,13 +61,13 @@
 //         }) .then((response) => response.json())
 //            .then(rep => setEmployess(rep))
 //         Swal.fire({
-//             title: 'Are you sure?',
-//             text: "You won't be able to revert this!",
+//             title: 'Seguro deseas eliminar?',
 //             icon: 'warning',
 //             showCancelButton: true,
 //             confirmButtonColor: '#3085d6',
-//             cancelButtonColor: '#d33',
-//             confirmButtonText: 'Yes, delete it!'
+//             cancelButtonColor: '#333fff',
+//             confirmButtonText: 'Yes, delete it!',
+//             confirmButtonColor: "f84141"
 //           }).then((result) => {
 //             if (result.isConfirmed) {
 //                 Swal.fire(
@@ -77,38 +81,16 @@
 //     }
 
 //     const updateUser = (user) => {
-//         //crear una variable de estado useState
-//         //
-//         Swal.fire({
-//             title: 'Actualizar información',
-//             html:`
-//             <form  >
-//              <input type="text" value="" className="form-control" placeholter="Nombre">
-//              <hr>
-//              <input type="text" value=""className="form-control" placeholter="Apellido">
-//              <hr>
-//              <input type="text" value="" className="form-control" placeholter="E-mail">
-//              <hr>
-//              <input type="text" value="" className="form-control" placeholter="Cargo">
-//             </form>
-//             `,
-//             showCancelButton: true,
-//             confirmButtonColor: '#3085d6',
-//             cancelButtonColor: '#d33',
-//             confirmButtonText: 'Aceptar'
-//           }).then((result) => {
-//             if (result.isConfirmed) {
-//               Swal.fire(
-//                 'Actualizado!',
-//                 'El usuario ha sido actualizado.',
-//                 'success'
-//               )
-//             }
-//           })
+//        console.log("modif",user)
+      
 //         const data = { 
-//             "roles": "Chef",
-//              "name": "Rubis",
-//               "email":"rubisrodri@gmail.com"}
+//              "name": "ana",
+//              "lastName":"maria",
+//              "email":"reala@gmail.com",
+//              "password":"",
+//              "roles": "Jefe",
+//              "admin":false
+//             }
 //          fetch(`http://localhost:3001/users/${user.id}`, {
 //             method: "PATCH",
 //             headers: {
@@ -117,7 +99,8 @@
 //             },
 //             body: JSON.stringify(data)
 //         }).then((response) => response.json())
-//           .then(rep => console.log(rep))
+//           .then(rep => setEmployess(rep))
+//           console.log(employess)
            
 //     }
      
@@ -126,13 +109,17 @@
        
 //     }
 //     const handleSubmit = (e) => {
-//         e.preventDefault()
-//         /*const body = {
-//             test: testInputValue,
-//             test2: testInputValue2
-//         }
-//         console.log(body)*/
+//         e.preventDefault();
 //         console.log(formValues)
+//         let res = fetch('http://localhost:3001/users/', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(formValues)
+//         }).then((response) => response.json())
+//           .then(rep => setEmployess(rep))
+        
 //     }
 //     return(
 //         <>
@@ -141,13 +128,10 @@
 //                 <div className='container-btn'>
 //                     <button type='button' className='break-btn' onClick= {showProducts}>Productos</button>
 //                     <button type='button' className='dinner-btn'>Empleados</button>
-//                         <div className="ctn-agregar">
-//                             <img className="agregar" onClick={ showAddUser} src={agregar}/>
-//                         </div>
-//                  </div>   
-                   
-//                 <div className="contenedor-table">
-//                   <table>
+//                 </div>   
+//           </div>
+//           <div className="container-employess">
+//                 <table className= "table-employess">
 //                     <thead>
 //                         <tr>
 //                             <th>Nombre</th>
@@ -158,7 +142,7 @@
 //                         </tr>
 //                     </thead>
 
-//                     <tbody>
+//                      <tbody>
 //                         {users.length===0?<tr><td colSpan="5">Sin datos</td></tr>:
 //                         users.map((user, index) =>{
 //                             return(
@@ -167,24 +151,37 @@
 //                                      <td>{user.lastName}</td>
 //                                      <td>{user.email}</td>
 //                                      <td>{user.roles}</td>
-//                                      <td><button onClick={() => updateUser(user)}>Editar</button>{" "}
-//                                      <button onClick={() => deleteUser(user)}>Eliminar</button></td>
+//                                      <td><button onClick={() => updateUser(user)}>
+//                                      <img className="lapiz-edit" src={lapiz}/>
+//                                         </button>{" "}
+//                                      <button onClick={() => deleteUser(user)}>
+//                                      <img className="dump-employess" src={dump}/>
+//                                     </button></td>
 //                               </tr>
 //                             )
-//                         })}
+//                          })}
 //                     </tbody>
-//                   </table>
-//                 </div>
-//              </div>  
-//             <form onSubmit={handleSubmit}>
-//                 {/* <input name="test" value={testInputValue} onChange={(e) => setTestInputValue(e.target.value)} /> */}
-//                 {/* <input name="tes2t" value={testInputValue2} onChange={(e) => setTestInputValue2(e.target.value)} /> */}
-//                 <input name="test" value={formValues['test']} onChange={handleInputChange} />
-//                 <input name="test2" value={formValues['test2']} onChange={handleInputChange} />
-//                 <input name="test3" value={formValues['test3']} onChange={handleInputChange} />
-//                 <button type="submit">enviar</button>
-//             </form>
-//          <Footer />
+//                 </table>
+//                   <form className="form-add" onSubmit={handleSubmit}>
+//                     <h2>Empleados</h2>
+//                       {/* <input name="test" value={testInputValue} onChange={(e) => setTestInputValue(e.target.value)} /> */}
+//                       {/* <input name="tes2t" value={testInputValue2} onChange={(e) => setTestInputValue2(e.target.value)} /> */}
+//                       <p>Nombre</p>
+//                       <input className="input-employess" name="name" value={formValues['test']} onChange={handleInputChange} /> 
+//                       <p>Apellido</p>
+//                       <input className="input-employess" name="lastName" value={formValues['test2']} onChange={handleInputChange} /> 
+//                       <p>E-mail</p>
+//                       <input className="input-employess" name="email" value={formValues['test3']} onChange={handleInputChange} />
+//                       <p>Cargo</p>
+//                       <input className="input-employess" name="roles" value={formValues['test4']} onChange={handleInputChange} />
+//                       <button type="submit">Agregar</button>
+//                     </form> 
+
+
+//          </div>
+         
+            
+//         <Footer />
 //       </>
 //     )
 // }
