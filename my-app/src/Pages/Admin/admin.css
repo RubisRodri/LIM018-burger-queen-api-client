@@ -1,8 +1,4 @@
-.container-product-admin{
-    display: flex;
-    flex-wrap: wrap;
-    
-}
+
 .product-admin{
     border: 2px solid #F84141;
     width: 21%;
@@ -11,7 +7,10 @@
 }
 
 .current-product{
-  
+    margin: 24px;
+    border: 1px solid #D7D5D5;
+    border-radius: 11px;
+    background: rgb(0 0 0 / 10%);
     width: 50%;
     text-align: center;
 }
@@ -71,15 +70,46 @@
     margin: 7px;
 }
 
+/* table {
+    table-layout: fixed;
+    width: 90%;
+    border-collapse: collapse;
+    border: 3px solid #000;
+  } */
+
+  thead th:nth-child(1) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 35%;
+  }
+  
+  th, td {
+    padding: 20px;
+  }
+
+.container-list-employes{
+    display: block;
+    width: 71%;
+    position: absolute;
+    top: 43%;
+    left: 29%;
+}
 
 .product-content {
     position: absolute;
-    top: 57%;
-    left: 22%;
-    /* display: flex; */
-    background: #d7d5d5;
+    top: 44%;
+    left: 34%;
+    background: rgb(0 0 0 / 10%);
     border: 6px;
     border-radius: 14px;
-    /* justify-content: flex-start; */
-    align-items: center;
 }

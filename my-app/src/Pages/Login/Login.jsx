@@ -54,7 +54,7 @@ export const Login = () => {
                         console.log("estoy en cheff")
                     }else {
                         console.log("soy admon")
-                        navigate("/Admin")
+                        navigate("/Employess")
                     }
                     
                 }).catch(error =>{
