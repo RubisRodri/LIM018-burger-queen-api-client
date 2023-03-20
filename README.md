@@ -12,8 +12,10 @@
 * [6. Desarrolladoras del Proyecto](#id11)
 
 ## 1. Descripción <a name="id1"></a>
-Purr Love es un red social que conecta a aquellos que aman a los gatos, solo tienes que registrarte para poder inciar sesión e interactuar en esta comunidad.
-Los usuarios pueden realizar publicaciones de texto y/o imágenes, editarlas, eliminarlas y reaccionar a otras publicaciones dandoles likes.
+BURGER QUEEN API CLIENT es una interfaz para tomar pedidos usando una tablet, y enviarlos a la cocina. Que
+funcione offline.
+
+Tecnologías/Herramientas: JavaScript(ES6+)/SPA, HTML, CSS, Api Rest, React/PWA
 
 ## 2. Prototipo de Baja Fidelidad <a name="id2"></a>
 ![](./img-Readme/prototipo1.jpeg)
