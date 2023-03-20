@@ -39,7 +39,7 @@ Tecnologías/Herramientas: JavaScript(ES6+)/SPA, HTML, CSS, Api Rest, React/PWA
 
 
 ## 5. Git Hub Pages <a name="id10"></a>
-[](https://lim-018-burger-queen-api-client-246y.vercel.app/)
+[link](https://lim-018-burger-queen-api-client-246y.vercel.app/)
 
 ## 6. Desarrolladoras del Proyecto: <a name="id11"></a>
 
